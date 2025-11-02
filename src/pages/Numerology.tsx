@@ -1,11 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Hash } from "lucide-react";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const Numerology = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
@@ -107,76 +109,33 @@ const Numerology = () => {
             </Card>
           </div>
 
-          {/* Form Section */}
+          {/* CTA Section */}
           <div>
-            <Card className="p-8 border-2 border-secondary/30 sticky top-24">
-              <h2 className="text-3xl font-bold font-playfair text-primary mb-6 text-center">
-                Get Your Numerology Report
+            <Card className="p-8 border-2 border-secondary/30 sticky top-24 text-center">
+              <Hash className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
+              <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
+                Unlock Your Numbers
               </h2>
-              <form className="space-y-4">
-                <div>
-                  <Label htmlFor="name">Full Name (as per birth certificate) *</Label>
-                  <Input id="name" placeholder="Enter your complete name" required />
-                </div>
-                
-                <div>
-                  <Label htmlFor="currentName">Name Currently Using</Label>
-                  <Input id="currentName" placeholder="If different from birth name" />
-                </div>
-
-                <div>
-                  <Label htmlFor="dob">Date of Birth *</Label>
-                  <Input id="dob" type="date" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input id="phone" type="tel" placeholder="+91 " required />
-                </div>
-
-                <div>
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" placeholder="your@email.com" required />
-                </div>
-
-                <div className="space-y-2">
-                  <Label>Services Required</Label>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <input type="checkbox" id="nameAnalysis" className="rounded" />
-                      <label htmlFor="nameAnalysis" className="text-sm">Name Analysis</label>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <input type="checkbox" id="nameCorrection" className="rounded" />
-                      <label htmlFor="nameCorrection" className="text-sm">Name Correction Suggestions</label>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <input type="checkbox" id="luckyNumbers" className="rounded" />
-                      <label htmlFor="luckyNumbers" className="text-sm">Lucky Numbers & Colors</label>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <input type="checkbox" id="compatibility" className="rounded" />
-                      <label htmlFor="compatibility" className="text-sm">Compatibility Analysis</label>
-                    </div>
-                  </div>
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
-                >
-                  Request Numerology Report
-                </Button>
-
-                <p className="text-sm text-center text-muted-foreground">
-                  Detailed report delivered within 48 hours
-                </p>
-              </form>
+              <p className="text-muted-foreground mb-6">
+                Discover your life path, lucky numbers, and name vibrations
+              </p>
+              <Button 
+                size="lg"
+                onClick={() => setModalOpen(true)}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
+              >
+                Get Numerology Report
+              </Button>
             </Card>
           </div>
         </div>
       </div>
+      
+      <ConsultationModal 
+        open={modalOpen} 
+        onOpenChange={setModalOpen}
+        serviceType="numerology"
+      />
     </div>
   );
 };

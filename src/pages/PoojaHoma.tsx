@@ -1,12 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Flame } from "lucide-react";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const PoojaHoma = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const services = [
     {
       title: "Ganapati Homa",
@@ -162,89 +163,32 @@ const PoojaHoma = () => {
           </div>
         </div>
 
-        {/* Booking Form */}
-        <div className="max-w-2xl mx-auto">
+        {/* CTA Section */}
+        <div className="max-w-2xl mx-auto text-center">
           <Card className="p-8 border-2 border-secondary/30">
-            <h2 className="text-3xl font-bold font-playfair text-primary mb-6 text-center">
-              Book a Pooja or Homa
+            <Flame className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
+            <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
+              Book Your Sacred Ritual
             </h2>
-            <form className="space-y-4">
-              <div>
-                <Label htmlFor="name">Full Name *</Label>
-                <Input id="name" placeholder="Enter your full name" required />
-              </div>
-
-              <div>
-                <Label htmlFor="service">Select Service *</Label>
-                <select 
-                  id="service" 
-                  className="w-full px-3 py-2 border border-input rounded-md bg-background"
-                  required
-                >
-                  <option value="">Choose a pooja or homa</option>
-                  {services.map((service, index) => (
-                    <option key={index} value={service.title}>{service.title}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="dob">Date of Birth *</Label>
-                  <Input id="dob" type="date" required />
-                </div>
-                <div>
-                  <Label htmlFor="gotra">Gotra</Label>
-                  <Input id="gotra" placeholder="Your gotra" />
-                </div>
-              </div>
-
-              <div>
-                <Label htmlFor="preferredDate">Preferred Date</Label>
-                <Input id="preferredDate" type="date" />
-              </div>
-
-              <div>
-                <Label htmlFor="phone">Phone Number *</Label>
-                <Input id="phone" type="tel" placeholder="+91 " required />
-              </div>
-
-              <div>
-                <Label htmlFor="email">Email Address *</Label>
-                <Input id="email" type="email" placeholder="your@email.com" required />
-              </div>
-
-              <div>
-                <Label htmlFor="intention">Your Intention/Sankalpa</Label>
-                <Textarea 
-                  id="intention" 
-                  placeholder="What do you wish to achieve through this ritual?"
-                  rows={3}
-                />
-              </div>
-
-              <div className="flex items-start gap-2 bg-accent/20 p-4 rounded-lg">
-                <input type="checkbox" id="prasad" className="mt-1" />
-                <label htmlFor="prasad" className="text-sm text-muted-foreground">
-                  I would like to receive prasad (blessed offerings) after the ritual
-                </label>
-              </div>
-
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
-              >
-                Book Pooja/Homa
-              </Button>
-
-              <p className="text-sm text-center text-muted-foreground">
-                Our team will contact you to discuss details and pricing
-              </p>
-            </form>
+            <p className="text-muted-foreground mb-6">
+              Choose from our comprehensive pooja and homa services
+            </p>
+            <Button 
+              size="lg"
+              onClick={() => setModalOpen(true)}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
+            >
+              Book Pooja/Homa Now
+            </Button>
           </Card>
         </div>
       </div>
+      
+      <ConsultationModal 
+        open={modalOpen} 
+        onOpenChange={setModalOpen}
+        serviceType="pooja"
+      />
     </div>
   );
 };

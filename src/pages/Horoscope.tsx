@@ -1,12 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Star } from "lucide-react";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const Horoscope = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
@@ -101,69 +102,33 @@ const Horoscope = () => {
             </Card>
           </div>
 
-          {/* Form Section */}
+          {/* CTA Section */}
           <div>
-            <Card className="p-8 border-2 border-secondary/30 sticky top-24">
-              <h2 className="text-3xl font-bold font-playfair text-primary mb-6 text-center">
-                Get Your Horoscope
+            <Card className="p-8 border-2 border-secondary/30 sticky top-24 text-center">
+              <Star className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
+              <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
+                Ready for Your Horoscope?
               </h2>
-              <form className="space-y-4">
-                <div>
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input id="name" placeholder="Enter your full name" required />
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="dob">Date of Birth *</Label>
-                    <Input id="dob" type="date" required />
-                  </div>
-                  <div>
-                    <Label htmlFor="tob">Time of Birth *</Label>
-                    <Input id="tob" type="time" required />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="pob">Place of Birth *</Label>
-                  <Input id="pob" placeholder="City, State, Country" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input id="phone" type="tel" placeholder="+91 " required />
-                </div>
-
-                <div>
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" placeholder="your@email.com" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="queries">Specific Questions (Optional)</Label>
-                  <Textarea 
-                    id="queries" 
-                    placeholder="Any specific areas you'd like us to focus on?"
-                    rows={3}
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
-                >
-                  Submit Request
-                </Button>
-
-                <p className="text-sm text-center text-muted-foreground">
-                  We'll contact you within 24 hours to discuss your horoscope
-                </p>
-              </form>
+              <p className="text-muted-foreground mb-6">
+                Get personalized Vedic astrology insights delivered within 24-48 hours
+              </p>
+              <Button 
+                size="lg"
+                onClick={() => setModalOpen(true)}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
+              >
+                Request Horoscope Now
+              </Button>
             </Card>
           </div>
         </div>
       </div>
+      
+      <ConsultationModal 
+        open={modalOpen} 
+        onOpenChange={setModalOpen}
+        serviceType="horoscope"
+      />
     </div>
   );
 };

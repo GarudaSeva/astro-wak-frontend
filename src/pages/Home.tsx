@@ -1,40 +1,50 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, User, Phone, MapPin } from "lucide-react";
+import { Sparkles, User, Phone, MapPin, Star, Hash, Gem, Clock, Flame } from "lucide-react";
+import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import SlokaCard from "@/components/SlokaCard";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const Home = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<"horoscope" | "numerology" | "gems" | "muhurt" | "pooja">("horoscope");
+
   const services = [
     {
       title: "Janma Patrika",
       description: "Detailed birth chart analysis revealing your cosmic blueprint and life path",
-      icon: "🌟",
-      link: "/horoscope"
+      icon: Star,
+      link: "/horoscope",
+      serviceType: "horoscope" as const
     },
     {
       title: "Numerology",
       description: "Discover the hidden meanings in numbers and their influence on your destiny",
-      icon: "🔢",
-      link: "/numerology"
+      icon: Hash,
+      link: "/numerology",
+      serviceType: "numerology" as const
     },
     {
       title: "Gemstone Consultation",
       description: "Personalized gemstone recommendations for planetary balance and prosperity",
-      icon: "💎",
-      link: "/gems"
+      icon: Gem,
+      link: "/gems",
+      serviceType: "gems" as const
     },
     {
       title: "Shubha Muhurt",
       description: "Auspicious timing for rituals, ceremonies, and important life events",
-      icon: "⏰",
-      link: "/muhurt"
+      icon: Clock,
+      link: "/muhurt",
+      serviceType: "muhurt" as const
     },
     {
       title: "Pooja & Homa",
       description: "Sacred rituals and fire ceremonies for spiritual growth and blessings",
-      icon: "🔥",
-      link: "/pooja"
+      icon: Flame,
+      link: "/pooja",
+      serviceType: "pooja" as const
     }
   ];
 
@@ -43,7 +53,7 @@ const Home = () => {
       <HeroSection />
 
       {/* About Section */}
-      <section className="py-20 cosmic-pattern">
+      <section className="py-20 bg-gradient-to-br from-background via-primary/5 to-background">
         <div className="container mx-auto px-4">
           <SlokaCard sloka="ప్రణమ్య శిరసాదేవం గౌరిపుత్రమ్ వినాయకం భక్తా వాసం స్మరేనిత్యం ఆయుః కామార్థ సిద్ధయే||" />
 
@@ -52,17 +62,17 @@ const Home = () => {
               <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary">
                 About Brahma Shri Jaanakiram Garu
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-foreground leading-relaxed bg-card/80 p-6 rounded-lg shadow-sm">
                 Welcome to Astro Wak, your trusted gateway to divine guidance and cosmic wisdom. 
                 Led by the esteemed <span className="text-primary font-semibold">Brahma Shri Jaanakiram Garu</span>, 
                 we bring you authentic Vedic astrology services rooted in ancient traditions.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-foreground leading-relaxed bg-card/80 p-6 rounded-lg shadow-sm">
                 With years of dedicated study and practice in astrology, numerology, gemstone therapy, 
                 and Vedic rituals, our mission is to illuminate your path with spiritual insights and 
                 practical guidance for life's journey.
               </p>
-              <blockquote className="border-l-4 border-secondary pl-4 py-2 italic text-xl text-primary">
+              <blockquote className="border-l-4 border-secondary pl-6 py-3 italic text-xl text-primary bg-secondary/10 rounded-r-lg">
                 "Your cosmic guide to a brighter life journey."
               </blockquote>
 
@@ -117,29 +127,35 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card 
-                key={index}
-                className="p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group cursor-pointer"
-              >
-                <div className="text-6xl mb-4 text-center group-hover:scale-110 transition-transform">
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-bold font-playfair text-primary mb-3 text-center">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-center mb-6">
-                  {service.description}
-                </p>
-                <Button 
-                  variant="outline" 
-                  className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors"
-                  asChild
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
                 >
-                  <a href={service.link}>Learn More</a>
-                </Button>
-              </Card>
-            ))}
+                  <div className="flex justify-center mb-4">
+                    <Icon className="h-16 w-16 text-secondary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <h3 className="text-2xl font-bold font-playfair text-primary mb-3 text-center">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-center mb-6">
+                    {service.description}
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors"
+                    onClick={() => {
+                      setSelectedService(service.serviceType);
+                      setModalOpen(true);
+                    }}
+                  >
+                    Book Now
+                  </Button>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -163,6 +179,12 @@ const Home = () => {
           </Button>
         </div>
       </section>
+      
+      <ConsultationModal 
+        open={modalOpen} 
+        onOpenChange={setModalOpen}
+        serviceType={selectedService}
+      />
     </div>
   );
 };

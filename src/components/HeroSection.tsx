@@ -1,18 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Star } from "lucide-react";
+import { useState } from "react";
 import heroBackground from "@/assets/hero-cosmic-bg.jpg";
+import ConsultationModal from "./ConsultationModal";
 
 const HeroSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 0, 0, 0.4)), url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
-    >
+    <>
+      <section 
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(128, 0, 0, 0.6)), url(${heroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          filter: 'brightness(0.9)'
+        }}
+      >
+        {/* Blur overlay for text readability */}
+        <div className="absolute inset-0 backdrop-blur-[2px]" />
       {/* Animated Stars */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
@@ -31,42 +39,29 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 text-center">
-        <div className="animate-fade-in-up">
-          <Sparkles className="h-16 w-16 mx-auto mb-6 text-secondary animate-twinkle" />
+      <div className="container mx-auto px-4 relative z-20 text-center">
+        <div className="animate-fade-in-up bg-black/30 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-secondary/30">
+          <Sparkles className="h-16 w-16 mx-auto mb-6 text-secondary animate-twinkle drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]" />
           
-          <h1 className="text-5xl md:text-7xl font-bold font-playfair text-primary-foreground mb-6 leading-tight">
-            Welcome to <span className="text-secondary">Astro Wak</span>
+          <h1 className="text-5xl md:text-7xl font-bold font-playfair text-white mb-6 leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            Welcome to <span className="text-secondary drop-shadow-[0_0_20px_rgba(255,215,0,0.6)]">Astro Wak</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-primary-foreground mb-4 max-w-3xl mx-auto">
+          <p className="text-2xl md:text-3xl text-white font-semibold mb-4 max-w-3xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
             Your Gateway to Divine Guidance
           </p>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             Discover your cosmic destiny with Brahma Shri Jaanakiram Garu
           </p>
 
-          {/* Video Embed Inspired Section */}
-          <div className="mb-8 max-w-4xl mx-auto">
-            <div className="relative pb-[56.25%] rounded-xl overflow-hidden shadow-2xl border-4 border-secondary/50">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/IUvoXnPHw6k?autoplay=1&mute=1&loop=1&playlist=IUvoXnPHw6k"
-                title="Astrology Guidance"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <Button 
               size="lg" 
+              onClick={() => setModalOpen(true)}
               className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
-              asChild
             >
-              <a href="/horoscope">Get Your Horoscope</a>
+              Get Your Horoscope
             </Button>
             <Button 
               size="lg" 
@@ -74,19 +69,26 @@ const HeroSection = () => {
               className="text-lg px-8 py-6 bg-secondary hover:bg-secondary/90 text-secondary-foreground border-secondary divine-glow"
               asChild
             >
-              <a href="tel:9553231199">Book Consultation</a>
+              <a href="tel:9553231199">Call Now</a>
             </Button>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div className="w-6 h-10 border-2 border-secondary rounded-full flex justify-center">
           <div className="w-2 h-2 bg-secondary rounded-full mt-2 animate-pulse" />
         </div>
       </div>
     </section>
+    
+    <ConsultationModal 
+      open={modalOpen} 
+      onOpenChange={setModalOpen}
+      serviceType="horoscope"
+    />
+  </>
   );
 };
 

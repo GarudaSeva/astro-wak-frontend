@@ -1,23 +1,32 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Gem, CheckCircle } from "lucide-react";
-import gemstonesImage from "@/assets/gemstones-collection.jpg";
+import ConsultationModal from "@/components/ConsultationModal";
+import rubyImg from "@/assets/gems/ruby.jpg";
+import pearlImg from "@/assets/gems/pearl.jpg";
+import coralImg from "@/assets/gems/coral.jpg";
+import emeraldImg from "@/assets/gems/emerald.jpg";
+import yellowSapphireImg from "@/assets/gems/yellow-sapphire.jpg";
+import diamondImg from "@/assets/gems/diamond.jpg";
+import blueSapphireImg from "@/assets/gems/blue-sapphire.jpg";
+import hessoniteImg from "@/assets/gems/hessonite.jpg";
+import catsEyeImg from "@/assets/gems/cats-eye.jpg";
 
 const Gems = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const gemstones = [
-    { name: "Ruby (Manikya)", planet: "Sun", duration: "4 years", color: "Red" },
-    { name: "Pearl (Moti)", planet: "Moon", duration: "2 years", color: "White" },
-    { name: "Emerald (Panna)", planet: "Mercury", duration: "3 years", color: "Green" },
-    { name: "Diamond (Heera)", planet: "Venus", duration: "7 years", color: "White" },
-    { name: "Red Coral (Moonga)", planet: "Mars", duration: "3 years", color: "Red" },
-    { name: "Yellow Sapphire (Pukhraj)", planet: "Jupiter", duration: "4 years", color: "Yellow" },
-    { name: "Blue Sapphire (Neelam)", planet: "Saturn", duration: "5 years", color: "Blue" },
-    { name: "Hessonite (Gomed)", planet: "Rahu", duration: "3 years", color: "Brown" },
-    { name: "Cat's Eye (Lehsunia)", planet: "Ketu", duration: "5 years", color: "Yellow-Green" },
+    { name: "Ruby", subtitle: "Manikya", planet: "Sun", duration: "4 years", color: "Red", image: rubyImg },
+    { name: "Pearl", subtitle: "Moti", planet: "Moon", duration: "2 years", color: "White", image: pearlImg },
+    { name: "Red Coral", subtitle: "Moonga", planet: "Mars", duration: "3 years", color: "Red", image: coralImg },
+    { name: "Emerald", subtitle: "Panna", planet: "Mercury", duration: "3 years", color: "Green", image: emeraldImg },
+    { name: "Yellow Sapphire", subtitle: "Pukhraj", planet: "Jupiter", duration: "4 years", color: "Yellow", image: yellowSapphireImg },
+    { name: "Diamond", subtitle: "Heera", planet: "Venus", duration: "7 years", color: "White", image: diamondImg },
+    { name: "Blue Sapphire", subtitle: "Neelam", planet: "Saturn", duration: "5 years", color: "Blue", image: blueSapphireImg },
+    { name: "Hessonite", subtitle: "Gomed", planet: "Rahu", duration: "3 years", color: "Brown", image: hessoniteImg },
+    { name: "Cat's Eye", subtitle: "Lehsunia", planet: "Ketu", duration: "5 years", color: "Yellow-Green", image: catsEyeImg },
   ];
 
   return (
@@ -42,14 +51,6 @@ const Gems = () => {
           />
         </div>
 
-        {/* Hero Image */}
-        <div className="mb-16">
-          <img 
-            src={gemstonesImage} 
-            alt="Collection of precious gemstones" 
-            className="w-full h-96 object-cover rounded-2xl shadow-2xl"
-          />
-        </div>
 
         {/* About Gem Astrology */}
         <div className="mb-16">
@@ -77,34 +78,53 @@ const Gems = () => {
           </Card>
         </div>
 
-        {/* Gemstones Table */}
+        {/* Gemstones Cards Grid */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold font-playfair text-primary mb-8 text-center">
             The Nine Sacred Gemstones (Navaratna)
           </h2>
-          <Card className="p-6 border-2 border-secondary/30 overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-secondary/30">
-                  <th className="text-left py-4 px-4 font-playfair text-primary">Gemstone</th>
-                  <th className="text-left py-4 px-4 font-playfair text-primary">Planet</th>
-                  <th className="text-left py-4 px-4 font-playfair text-primary">Color</th>
-                  <th className="text-left py-4 px-4 font-playfair text-primary">Effective Duration</th>
-                </tr>
-              </thead>
-              <tbody>
-                {gemstones.map((gem, index) => (
-                  <tr key={index} className="border-b border-border hover:bg-accent/10 transition-colors">
-                    <td className="py-4 px-4 font-semibold">{gem.name}</td>
-                    <td className="py-4 px-4">{gem.planet}</td>
-                    <td className="py-4 px-4">{gem.color}</td>
-                    <td className="py-4 px-4">{gem.duration}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </Card>
-          <p className="text-sm text-muted-foreground mt-4 text-center">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {gemstones.map((gem, index) => (
+              <Card 
+                key={index}
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
+              >
+                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
+                  <img 
+                    src={gem.image} 
+                    alt={gem.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Gem className="h-6 w-6 text-secondary" />
+                    <div>
+                      <h3 className="text-xl font-bold font-playfair text-primary">
+                        {gem.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{gem.subtitle}</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Planet:</span>
+                      <span className="font-semibold text-foreground">{gem.planet}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Color:</span>
+                      <span className="font-semibold text-foreground">{gem.color}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Duration:</span>
+                      <span className="font-semibold text-foreground">{gem.duration}</span>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground text-center">
             * It is suggested that a new ring is made with a new stone after the effective period for best results
           </p>
         </div>
@@ -191,78 +211,35 @@ const Gems = () => {
           </div>
         </div>
 
-        {/* Order Form */}
-        <div className="max-w-2xl mx-auto">
+        {/* CTA Section */}
+        <div className="text-center max-w-2xl mx-auto">
           <Card className="p-8 border-2 border-secondary/30">
-            <div className="text-center mb-6">
-              <div className="inline-block bg-secondary/20 rounded-full px-6 py-3 mb-4">
-                <span className="text-3xl font-bold text-primary">₹599</span>
-                <span className="text-muted-foreground ml-2">only</span>
-              </div>
-              <h2 className="text-3xl font-bold font-playfair text-primary mb-2">
-                Get Your Gem Recommendation Report
-              </h2>
-              <p className="text-muted-foreground">
-                Delivered to your email within 24 hours
-              </p>
+            <div className="inline-block bg-secondary/20 rounded-full px-6 py-3 mb-4">
+              <span className="text-3xl font-bold text-primary">₹599</span>
+              <span className="text-muted-foreground ml-2">only</span>
             </div>
-
-            <form className="space-y-4">
-              <div>
-                <Label htmlFor="name">Full Name *</Label>
-                <Input id="name" placeholder="Enter your full name" required />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="dob">Date of Birth *</Label>
-                  <Input id="dob" type="date" required />
-                </div>
-                <div>
-                  <Label htmlFor="tob">Time of Birth *</Label>
-                  <Input id="tob" type="time" required />
-                </div>
-              </div>
-
-              <div>
-                <Label htmlFor="pob">Place of Birth *</Label>
-                <Input id="pob" placeholder="City, State, Country" required />
-              </div>
-
-              <div>
-                <Label htmlFor="phone">Phone Number *</Label>
-                <Input id="phone" type="tel" placeholder="+91 " required />
-              </div>
-
-              <div>
-                <Label htmlFor="email">Email Address *</Label>
-                <Input id="email" type="email" placeholder="your@email.com" required />
-              </div>
-
-              <div>
-                <Label htmlFor="concerns">Health/Life Concerns (Optional)</Label>
-                <Textarea 
-                  id="concerns" 
-                  placeholder="Any specific issues you want to address with gemstone therapy?"
-                  rows={3}
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
-              >
-                Order Gem Report - ₹599
-              </Button>
-
-              <p className="text-xs text-center text-muted-foreground">
-                After submission, you'll receive payment instructions via email
-              </p>
-            </form>
+            <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
+              Get Your Personalized Gem Recommendation
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Detailed analysis delivered to your email within 24 hours
+            </p>
+            <Button 
+              size="lg"
+              onClick={() => setModalOpen(true)}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
+            >
+              Request Gem Report Now
+            </Button>
           </Card>
         </div>
       </div>
+      
+      <ConsultationModal 
+        open={modalOpen} 
+        onOpenChange={setModalOpen}
+        serviceType="gems"
+      />
     </div>
   );
 };

@@ -1,12 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Clock, Calendar } from "lucide-react";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const ShubhaMuhurt = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const occasions = [
     { icon: "💒", title: "Wedding Ceremonies", description: "Auspicious timing for marriage rituals" },
     { icon: "🏠", title: "Griha Pravesh", description: "Housewarming and moving in" },
@@ -123,95 +124,23 @@ const ShubhaMuhurt = () => {
             </Card>
           </div>
 
-          {/* Form Section */}
+          {/* CTA Section */}
           <div>
-            <Card className="p-8 border-2 border-secondary/30 sticky top-24">
-              <h2 className="text-3xl font-bold font-playfair text-primary mb-6 text-center">
-                Request Muhurt Consultation
+            <Card className="p-8 border-2 border-secondary/30 sticky top-24 text-center">
+              <Clock className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
+              <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
+                Find Your Perfect Timing
               </h2>
-              <form className="space-y-4">
-                <div>
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input id="name" placeholder="Enter your full name" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="occasion">Type of Occasion *</Label>
-                  <select 
-                    id="occasion" 
-                    className="w-full px-3 py-2 border border-input rounded-md bg-background"
-                    required
-                  >
-                    <option value="">Select occasion type</option>
-                    <option value="wedding">Wedding Ceremony</option>
-                    <option value="housewarming">Griha Pravesh (Housewarming)</option>
-                    <option value="business">Business/Office Opening</option>
-                    <option value="engagement">Engagement</option>
-                    <option value="naming">Name Ceremony</option>
-                    <option value="vehicle">Vehicle Purchase</option>
-                    <option value="education">Education Start</option>
-                    <option value="medical">Medical Procedure</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="dob">Your Date of Birth *</Label>
-                    <Input id="dob" type="date" required />
-                  </div>
-                  <div>
-                    <Label htmlFor="tob">Time of Birth *</Label>
-                    <Input id="tob" type="time" required />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="pob">Place of Birth *</Label>
-                  <Input id="pob" placeholder="City, State, Country" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="preferredPeriod">Preferred Time Period</Label>
-                  <Input id="preferredPeriod" placeholder="e.g., January 2025" />
-                </div>
-
-                <div>
-                  <Label htmlFor="location">Event Location *</Label>
-                  <Input id="location" placeholder="City where event will take place" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input id="phone" type="tel" placeholder="+91 " required />
-                </div>
-
-                <div>
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" placeholder="your@email.com" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="details">Additional Details</Label>
-                  <Textarea 
-                    id="details" 
-                    placeholder="Any specific requirements or constraints?"
-                    rows={3}
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
-                >
-                  Request Muhurt
-                </Button>
-
-                <p className="text-sm text-center text-muted-foreground">
-                  We'll provide multiple auspicious time options within 24-48 hours
-                </p>
-              </form>
+              <p className="text-muted-foreground mb-6">
+                Get auspicious muhurt for your important life events
+              </p>
+              <Button 
+                size="lg"
+                onClick={() => setModalOpen(true)}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
+              >
+                Request Muhurt Now
+              </Button>
             </Card>
           </div>
         </div>
@@ -227,9 +156,7 @@ const ShubhaMuhurt = () => {
                 key={index}
                 className="p-6 text-center hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
               >
-                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">
-                  {occasion.icon}
-                </div>
+                <Calendar className="h-12 w-12 mx-auto mb-3 text-secondary group-hover:scale-110 transition-transform" />
                 <h3 className="font-bold font-playfair text-primary mb-2">
                   {occasion.title}
                 </h3>
@@ -241,6 +168,12 @@ const ShubhaMuhurt = () => {
           </div>
         </div>
       </div>
+      
+      <ConsultationModal 
+        open={modalOpen} 
+        onOpenChange={setModalOpen}
+        serviceType="muhurt"
+      />
     </div>
   );
 };
