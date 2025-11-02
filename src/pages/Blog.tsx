@@ -1,0 +1,188 @@
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { BookOpen, ExternalLink } from "lucide-react";
+
+const Blog = () => {
+  const articles = [
+    {
+      title: "Understanding Your Birth Chart",
+      excerpt: "Learn how to read and interpret the fundamental elements of your Janma Kundali",
+      category: "Astrology Basics",
+      readTime: "5 min read"
+    },
+    {
+      title: "The Power of Gemstones in Vedic Astrology",
+      excerpt: "Discover how gemstones can balance planetary energies and bring positive changes",
+      category: "Gemstone Wisdom",
+      readTime: "7 min read"
+    },
+    {
+      title: "Navagraha: The Nine Planetary Deities",
+      excerpt: "Explore the significance of the nine planets and their influence on our lives",
+      category: "Planetary Knowledge",
+      readTime: "8 min read"
+    },
+    {
+      title: "Numerology: Your Life Path Number",
+      excerpt: "Calculate and understand the deeper meaning of your Life Path Number",
+      category: "Numerology",
+      readTime: "6 min read"
+    },
+    {
+      title: "Auspicious Timings for Important Events",
+      excerpt: "Why muhurt matters and how to choose the right time for ceremonies",
+      category: "Muhurt",
+      readTime: "5 min read"
+    },
+    {
+      title: "Remedies for Planetary Doshas",
+      excerpt: "Practical Vedic remedies to mitigate negative planetary influences",
+      category: "Remedies",
+      readTime: "10 min read"
+    }
+  ];
+
+  const externalResources = [
+    {
+      title: "Shubh Gems Astro Advice",
+      description: "Comprehensive astrological guidance and gemstone information",
+      url: "https://www.shubhgems.com/astro-advice"
+    },
+    {
+      title: "Gemstone Wearing Procedures",
+      description: "Detailed guide on how to wear planetary gemstones according to Vedic principles",
+      url: "https://www.shubhgems.com/blog/post/gemstone-procedure-wear-planetary-stone"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen pt-24 pb-16">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-12 animate-fade-in-up">
+          <BookOpen className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
+          <h1 className="text-5xl md:text-6xl font-bold font-playfair text-primary mb-6">
+            Knowledge Center
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Explore the ancient wisdom of Vedic astrology and spiritual sciences
+          </p>
+        </div>
+
+        {/* Featured Article */}
+        <div className="mb-16">
+          <Card className="p-8 md:p-12 border-2 border-secondary/30 bg-gradient-to-br from-primary/5 to-secondary/5">
+            <div className="inline-block bg-secondary/20 rounded-full px-4 py-1 mb-4">
+              <span className="text-sm font-semibold text-secondary">Featured Article</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-primary mb-4">
+              The Complete Guide to Vedic Astrology
+            </h2>
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Dive deep into the ancient science of Jyotish (Vedic Astrology) and understand how 
+              cosmic energies shape our destiny. This comprehensive guide covers everything from basic 
+              concepts to advanced techniques used by traditional astrologers.
+            </p>
+            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+              <span className="bg-accent/20 px-3 py-1 rounded-full">Astrology</span>
+              <span>15 min read</span>
+            </div>
+            <Button variant="default" size="lg" className="divine-glow">
+              Read Article
+            </Button>
+          </Card>
+        </div>
+
+        {/* Articles Grid */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold font-playfair text-primary mb-8">
+            Latest Articles
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {articles.map((article, index) => (
+              <Card 
+                key={index}
+                className="p-6 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group cursor-pointer"
+              >
+                <div className="inline-block bg-secondary/20 rounded-full px-3 py-1 mb-3">
+                  <span className="text-xs font-semibold text-secondary">{article.category}</span>
+                </div>
+                <h3 className="text-xl font-bold font-playfair text-primary mb-3 group-hover:text-secondary transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                  {article.excerpt}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">{article.readTime}</span>
+                  <Button variant="ghost" size="sm" className="group-hover:text-secondary">
+                    Read More →
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* External Resources */}
+        <div>
+          <h2 className="text-3xl font-bold font-playfair text-primary mb-8 text-center">
+            Recommended Resources
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {externalResources.map((resource, index) => (
+              <Card 
+                key={index}
+                className="p-6 border-2 border-secondary/30 hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-xl font-bold font-playfair text-primary group-hover:text-secondary transition-colors">
+                    {resource.title}
+                  </h3>
+                  <ExternalLink className="h-5 w-5 text-secondary flex-shrink-0" />
+                </div>
+                <p className="text-muted-foreground mb-4 text-sm">
+                  {resource.description}
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors"
+                  asChild
+                >
+                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                    Visit Resource
+                  </a>
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Newsletter Section */}
+        <div className="mt-16">
+          <Card className="p-8 md:p-12 text-center bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30">
+            <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
+              Stay Connected with Cosmic Wisdom
+            </h2>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Subscribe to receive astrological insights, gemstone guidance, and spiritual wisdom 
+              directly in your inbox
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 border border-input rounded-md bg-background"
+              />
+              <Button size="lg" className="divine-glow">
+                Subscribe
+              </Button>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Blog;
