@@ -12,12 +12,12 @@ const Horoscope = () => {
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <Star className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
-          <h1 className="text-5xl md:text-6xl font-bold font-playfair text-primary mb-6">
+        <div className="text-center mb-12 animate-fade-in-up mt-8">
+          {/* <Star className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
+          <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
             Janma Patrika
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Your destiny, decoded through the wisdom of planets
           </p>
         </div>
@@ -37,22 +37,23 @@ const Horoscope = () => {
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
               What is Janma Patrika?
             </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 font-playfair text-secondary leading-relaxed">
               <p>
                 Janma Patrika, also known as the birth chart or horoscope, is a sacred astrological 
                 document that captures the exact planetary positions at the moment of your birth. 
                 This cosmic snapshot serves as your personal spiritual GPS, revealing the celestial 
                 influences that shape your destiny.
               </p>
-              <p>
+              <p >
                 Created using precise birth time, date, and location, your Janma Patrika is a 
                 comprehensive map of the twelve houses (bhavas) and nine planets (navagrahas). 
                 It's not just a prediction tool—it's a divine blueprint that helps you understand 
                 your strengths, challenges, and life purpose.
               </p>
-              <p className="font-semibold text-foreground">
+              <br/>
+              <strong className="font-semibold font-playfair text-secondary ">
                 Our detailed horoscope analysis includes:
-              </p>
+              </strong>
               <ul className="space-y-2 ml-6">
                 <li className="flex items-start gap-2">
                   <span className="text-secondary">✦</span>
@@ -88,7 +89,7 @@ const Horoscope = () => {
               <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
                 What Your Horoscope Reveals
               </h3>
-              <div className="space-y-3 text-muted-foreground">
+              <div className="space-y-3 font-playfair text-secondary">
                 <div className="flex items-start gap-2">
                   <span className="text-2xl">⭐</span>
                   <div>
@@ -121,7 +122,7 @@ const Horoscope = () => {
               <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
                 Get Your Horoscope
               </h2>
-              <p className="text-muted-foreground mb-6">
+              <p className="mb-6 font-playfair text-secondary">
                 Unlock the secrets of your cosmic blueprint today
               </p>
               <Button 

@@ -62,12 +62,12 @@ const PoojaHoma = () => {
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <Flame className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
-          <h1 className="text-5xl md:text-6xl font-bold font-playfair text-primary mb-6">
+        <div className="text-center mb-12 animate-fade-in-up mt-8">
+          {/* <Flame className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
+          <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
             Pooja & Homa Services
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Manifest your desires & wishes through sacred rituals
           </p>
         </div>
@@ -106,7 +106,7 @@ const PoojaHoma = () => {
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
               The Power of Vedic Rituals
             </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 font-playfair text-secondary leading-relaxed">
               <p>
                 Pooja (worship) and Homa (fire ritual) are ancient Vedic practices that have been performed 
                 for thousands of years to invoke divine blessings, remove obstacles, and manifest positive 
@@ -119,9 +119,10 @@ const PoojaHoma = () => {
                 The smoke, vibrations of mantras, and the sanctified atmosphere create transformative energies 
                 that purify the environment and the participants.
               </p>
-              <p className="font-semibold text-foreground">
+              <br/>
+              <strong className="font-semibold font-playfair text-secondary ">
                 Benefits of Performing Pooja & Homa:
-              </p>
+              </strong>
               <ul className="space-y-2 ml-6">
                 <li className="flex items-start gap-2">
                   <span className="text-secondary">✦</span>
@@ -173,7 +174,7 @@ const PoojaHoma = () => {
                     {service.title}
                   </h3>
                 </div>
-                <p className="text-muted-foreground mb-4 text-sm">
+                <p className="font-playfair text-secondary mb-4 text-sm">
                   {service.description}
                 </p>
                 <div className="bg-accent/20 rounded-lg p-3">
@@ -192,7 +193,7 @@ const PoojaHoma = () => {
             <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
               Book Your Sacred Ritual
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="font-playfair text-secondary mb-6">
               Choose from our comprehensive pooja and homa services
             </p>
             <Button 

@@ -23,16 +23,16 @@ const SlokaCard = ({ sloka, translation }: SlokaCardProps) => {
       <div className="relative z-10">
         <div className="text-center mb-4">
           <div className="inline-block px-4 py-1 bg-secondary/20 rounded-full">
-            <span className="text-sm font-semibold text-secondary">Sacred Sloka</span>
+            <span className="text-sm font-semibold text-secondary ">Sacred Sloka</span>
           </div>
         </div>
         
-        <p className="sloka-text text-xl md:text-2xl text-foreground text-center leading-relaxed mb-4">
+        <p className="sloka-text text-xl md:text-2xl font-playfair text-secondary text-center leading-relaxed mb-4">
           {sloka}
         </p>
         
         {translation && (
-          <p className="text-sm text-muted-foreground text-center italic border-t border-border pt-4">
+          <p className="text-sm  text-primary text-center italic border-t border-border pt-4">
             {translation}
           </p>
         )}

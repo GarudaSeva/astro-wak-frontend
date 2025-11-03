@@ -61,8 +61,8 @@ const Home = () => {
           <div className="mt-16 grid md:grid-cols-[300px_1fr] gap-12 items-start max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-6">
               <div className="w-64 h-80 rounded-lg overflow-hidden shadow-xl border-4 border-secondary/30 divine-glow">
-                <img 
-                  src={astrologerPhoto} 
+                <img
+                  src={astrologerPhoto}
                   alt="Brahma Shri Jaanakiram Garu"
                   className="w-full h-full object-cover"
                 />
@@ -71,7 +71,7 @@ const Home = () => {
                 <h3 className="text-xl font-bold font-playfair text-primary">
                   Brahma Shri Jaanakiram Garu
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground ">
                   Expert Vedic Astrologer & Spiritual Guide
                 </p>
                 <div className="space-y-2 text-sm pt-2">
@@ -83,7 +83,7 @@ const Home = () => {
                   </div>
                   <div className="flex items-center gap-2 justify-center pt-2">
                     <Phone className="h-4 w-4 text-secondary" />
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-row gap-10">
                       <a href="tel:9553231199" className="text-foreground hover:text-secondary transition-colors font-semibold">
                         +91 9553231199
                       </a>
@@ -100,14 +100,14 @@ const Home = () => {
               <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary">
                 About Brahma Shri Jaanakiram Garu
               </h2>
-              <p className="text-lg text-foreground/90 leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
-                Welcome to Astro Wak, your trusted gateway to divine guidance and cosmic wisdom. 
-                Led by the esteemed <span className="text-primary font-semibold">Brahma Shri Jaanakiram Garu</span>, 
+              <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
+                Welcome to Astro Wak, your trusted gateway to divine guidance and cosmic wisdom.
+                Led by the esteemed <span className="text-primary font-semibold">Brahma Shri Jaanakiram Garu</span>,
                 we bring you authentic Vedic astrology services rooted in ancient traditions.
               </p>
-              <p className="text-lg text-foreground/90 leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
-                With years of dedicated study and practice in astrology, numerology, gemstone therapy, 
-                and Vedic rituals, our mission is to illuminate your path with spiritual insights and 
+              <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
+                With years of dedicated study and practice in astrology, numerology, gemstone therapy,
+                and Vedic rituals, our mission is to illuminate your path with spiritual insights and
                 practical guidance for life's journey.
               </p>
               <blockquote className="border-l-4 border-secondary pl-6 py-3 italic text-xl text-primary bg-secondary/10 rounded-r-lg">
@@ -119,14 +119,22 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-card">
+      <section className="py-10 bg-card">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Sparkles className="h-12 w-12 mx-auto mb-4 text-secondary animate-twinkle" />
+          <div className="text-center mb-8">
+            <img
+              src="src\assets\lord-ganesh.png"
+              alt="Astro Wak Symbol"
+              className="h-24 w-32 mx-auto mb-2 animate-twinkle drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]"
+              style={{
+                filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.7))',
+              }}
+            />
+
             <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary mb-4">
               Our Services
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl max-w-2xl mx-auto font-playfair text-secondary">
               Comprehensive astrological guidance for every aspect of your life
             </p>
           </div>
@@ -135,21 +143,21 @@ const Home = () => {
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card 
+                <Card
                   key={index}
                   className="p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
                 >
                   <div className="flex justify-center mb-4">
-                    <Icon className="h-12 w-12 text-secondary group-hover:scale-110 transition-transform" />
+                    <Icon className="h-10 w-10 text-secondary group-hover:scale-110 transition-transform" />
                   </div>
                   <h3 className="text-2xl font-bold font-playfair text-primary mb-3 text-center">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-center mb-6">
+                  <p className=" text-center font-playfair text-secondary mb-6">
                     {service.description}
                   </p>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors"
                     onClick={() => {
                       setSelectedService(service.serviceType);
@@ -174,8 +182,8 @@ const Home = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Book a consultation today and unlock the wisdom of the cosmos
           </p>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             variant="outline"
             className="text-lg px-8 py-6 bg-secondary hover:bg-secondary/90 text-secondary-foreground border-secondary divine-glow"
             asChild
@@ -184,9 +192,9 @@ const Home = () => {
           </Button>
         </div>
       </section>
-      
-      <ConsultationModal 
-        open={modalOpen} 
+
+      <ConsultationModal
+        open={modalOpen}
         onOpenChange={setModalOpen}
         serviceType={selectedService}
       />

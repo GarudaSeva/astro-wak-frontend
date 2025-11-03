@@ -24,12 +24,17 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-2 group">
-            <Sparkles className="h-8 w-8 text-secondary animate-twinkle" />
+            <img
+              src="src\assets\image-removebg-preview.png"
+              alt="Astro Wak Logo"
+              className="h-10 w-12 object-contain transition-transform duration-300 group-hover:scale-110"
+            />
             <div>
               <h1 className="text-2xl font-bold font-playfair text-primary">Astro Wak</h1>
-              <p className="text-xs text-muted-foreground">Divine Guidance</p>
+              <strong className="text-xs font-playfair text-secondary">Divine Guidance</strong>
             </div>
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
@@ -37,11 +42,10 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg transition-all duration-300 ${
-                  isActive(link.path)
-                    ? "bg-primary text-primary-foreground font-semibold"
-                    : "text-foreground hover:bg-accent hover:text-accent-foreground"
-                }`}
+                className={`px-4 py-2 rounded-lg transition-all duration-300 ${isActive(link.path)
+                    ? "bg-primary font-playfair text-secondary font-semibold"
+                    : " font-playfair text-secondary hover:bg-accent hover:text-accent-foreground"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -70,11 +74,10 @@ const Navigation = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 rounded-lg transition-all ${
-                    isActive(link.path)
+                  className={`px-4 py-3 rounded-lg transition-all ${isActive(link.path)
                       ? "bg-primary text-primary-foreground font-semibold"
                       : "text-foreground hover:bg-accent"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>

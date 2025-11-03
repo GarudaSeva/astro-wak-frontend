@@ -61,7 +61,7 @@ const Footer = () => {
             <img src={diyaIcon} alt="Diya" className="h-12 w-12 animate-twinkle" />
           </div>
           <p className="text-center text-sm">
-            © {new Date().getFullYear()} Astro Wak | Powered by Divine Wisdom | All Rights Reserved
+            © {new Date().getFullYear()} Astro Wak | All Rights Reserved | Developed by Build your vision
           </p>
         </div>
       </div>

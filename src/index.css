@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Astrology Theme Colors */
-    --background: 35 20% 97%;
+    --background: 35 20% 87%;
     --foreground: 0 50% 15%;
 
     --card: 0 0% 100%;
@@ -23,7 +23,7 @@ All colors MUST be HSL.
     --primary-foreground: 43 100% 95%;
 
     /* Royal Gold as Secondary */
-    --secondary: 43 100% 50%;
+    --secondary: 39 80% 50%;
     --secondary-foreground: 0 100% 25%;
 
     /* Cosmic Navy Blue as Muted */
@@ -161,3 +161,13 @@ All colors MUST be HSL.
     background-position: 0% 50%;
   }
 }
+
+@keyframes twinkle {
+  20%, 100% { opacity: 1; transform: scale(1); }
+  80% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.animate-twinkle {
+  animation: twinkle 5s infinite ease-in-out;
+}
+

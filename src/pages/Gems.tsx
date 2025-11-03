@@ -33,12 +33,12 @@ const Gems = () => {
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <Gem className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
-          <h1 className="text-5xl md:text-6xl font-bold font-playfair text-primary mb-6">
+        <div className="text-center mb-12 animate-fade-in-up mt-8">
+          {/* <Gem className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
+          <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
             Gemstone Consultation
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Harness the cosmic power of gemstones for prosperity and harmony
           </p>
         </div>
@@ -58,7 +58,7 @@ const Gems = () => {
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
               The Science of Gem Astrology
             </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 font-playfair text-secondary leading-relaxed">
               <p>
                 Every planet has an associated color with reference to astrology. The nine planets which play 
                 a major role in the horoscope have respective Slokas written by Saints (Maharshi's), and these 
@@ -103,20 +103,20 @@ const Gems = () => {
                       <h3 className="text-xl font-bold font-playfair text-primary">
                         {gem.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground">{gem.subtitle}</p>
+                      <p className="text-sm font-playfair text-secondary">{gem.subtitle}</p>
                     </div>
                   </div>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Planet:</span>
+                      <span className="font-playfair text-secondary">Planet:</span>
                       <span className="font-semibold text-foreground">{gem.planet}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Color:</span>
+                      <span className="font-playfair text-secondary">Color:</span>
                       <span className="font-semibold text-foreground">{gem.color}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Duration:</span>
+                      <span className="font-playfair text-secondary">Duration:</span>
                       <span className="font-semibold text-foreground">{gem.duration}</span>
                     </div>
                   </div>
@@ -124,7 +124,7 @@ const Gems = () => {
               </Card>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground text-center">
+          <p className="text-sm font-playfair text-secondary text-center">
             * It is suggested that a new ring is made with a new stone after the effective period for best results
           </p>
         </div>
@@ -135,7 +135,7 @@ const Gems = () => {
             <h3 className="text-2xl font-bold font-playfair text-primary mb-6">
               Important Guidelines for Wearing Gemstones
             </h3>
-            <ul className="space-y-3 text-muted-foreground">
+            <ul className="space-y-3 font-playfair text-secondary">
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
                 <span>Gemstones must be worn according to your birth chart (Janma Kundali)</span>
@@ -170,7 +170,7 @@ const Gems = () => {
               <h3 className="text-xl font-bold font-playfair text-primary mb-3">
                 What gemstone should I wear?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="font-playfair text-secondary">
                 Gemstones shall always be worn according to auspicious Graha (Planet) as per your kundali 
                 (birth-chart). It is believed that the planetary alignment at the time of birth affects our 
                 entire life, so it's important to wear only those gemstones which suit you.
@@ -181,7 +181,7 @@ const Gems = () => {
               <h3 className="text-xl font-bold font-playfair text-primary mb-3">
                 Will I get correct recommendations?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="font-playfair text-secondary">
                 Yes, you will definitely get the correct information. We read the horoscope carefully and 
                 suggest appropriate gemstones. We believe in giving 100% satisfaction to our customers.
               </p>
@@ -191,7 +191,7 @@ const Gems = () => {
               <h3 className="text-xl font-bold font-playfair text-primary mb-3">
                 What gem resolves my problems?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="font-playfair text-secondary">
                 Based on your birth chart analysis, our astrologers suggest best recommendations according 
                 to your birth chart and current planetary transits. These recommendations are simple to 
                 follow and give the best results.
@@ -202,7 +202,7 @@ const Gems = () => {
               <h3 className="text-xl font-bold font-playfair text-primary mb-3">
                 What's included in the report?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="font-playfair text-secondary">
                 Your gem recommendation report includes: horoscope study, gemstone suggestions as remedies, 
                 gemstones for prosperity, features of recommended gemstones, gem selection & setting guidance, 
                 and detailed instructions on how to wear them properly.
@@ -216,12 +216,12 @@ const Gems = () => {
           <Card className="p-8 border-2 border-secondary/30">
             <div className="inline-block bg-secondary/20 rounded-full px-6 py-3 mb-4">
               <span className="text-3xl font-bold text-primary">₹599</span>
-              <span className="text-muted-foreground ml-2">only</span>
+              <span className="font-playfair text-secondary ml-2">only</span>
             </div>
             <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
               Get Your Personalized Gem Recommendation
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="font-playfair text-secondary mb-6">
               Detailed analysis delivered to your email within 24 hours
             </p>
             <Button 

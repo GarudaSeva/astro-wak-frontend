@@ -11,15 +11,51 @@
     <meta property="og:title" content="Astro Wak - Divine Astrology Guidance" />
     <meta property="og:description" content="Expert astrology services in Hyderabad by Brahma Shri Jaanakiram Garu" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" /> -->
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@astrowak" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" /> -->
     
+    <link rel="icon" type="image/png" href="src\assets\image-removebg-preview.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root {
+    /* Updated global theme colors for better visibility */
+    --background: hsl(35, 25%, 92%);
+    --foreground: hsl(0, 30%, 12%);
+
+    --primary: hsl(0, 100%, 25%);
+    --primary-foreground: hsl(43, 60%, 92%);
+
+    --secondary: hsl(43, 90%, 50%);
+    --secondary-foreground: hsl(0, 50%, 15%);
+
+    --muted-foreground: hsl(43, 25%, 35%);
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  /* Make text-muted-foreground darker globally */
+  .text-muted-foreground {
+    color: hsl(43, 25%, 35%) !important;
+  }
+
+  /* Optional: stronger contrast in cards */
+  .card {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(var(--foreground));
+  }
+</style>
+  
+  
   </head>
 
   <body>

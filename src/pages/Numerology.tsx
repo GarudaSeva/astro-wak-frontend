@@ -13,12 +13,12 @@ const Numerology = () => {
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <Hash className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
-          <h1 className="text-5xl md:text-6xl font-bold font-playfair text-primary mb-6">
+        <div className="text-center mb-12 animate-fade-in-up mt-8">
+          {/* <Hash className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
+          <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
             Numerology
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Where numbers whisper the story of your life's true path
           </p>
         </div>
@@ -47,39 +47,39 @@ const Numerology = () => {
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
               The Power of Numbers
             </h2>
-            <div className="space-y-4 text-muted-foreground">
-              <p className="leading-relaxed">
+            <div className="space-y-4 font-playfair text-secondary">
+              <p className="leading-relaxed font-playfair text-secondary mb-2">
                 Numerology is the ancient science of numbers and their mystical influence on human life. 
                 Every number carries a unique vibration that resonates with the cosmic energies, 
                 shaping your personality, destiny, and life events.
               </p>
-              <p className="leading-relaxed">
+              <strong className="leading-relaxed font-playfair text-secondary">
                 Our numerology services reveal:
-              </p>
+              </strong>
               <ul className="space-y-3 ml-6">
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary mt-1">✦</span>
-                  <span><strong>Life Path Number:</strong> Your soul's purpose and destiny</span>
+                  <span className="text-secondary">✦</span>
+                  <span className="flex flex-row gap-2"><strong className="text-secondary">Life Path Number:</strong><p className="font-playfair text-secondary"> Your soul's purpose and destiny</p></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary mt-1">✦</span>
-                  <span><strong>Name Number:</strong> The vibration of your identity</span>
+                  <span className="text-secondary">✦</span>
+                  <span className="flex flex-row gap-2"><strong className="text-secondary">Name Number:</strong><p className="font-playfair text-secondary"> The vibration of your identity</p></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary mt-1">✦</span>
-                  <span><strong>Lucky Numbers:</strong> Numbers that attract prosperity</span>
+                  <span className="text-secondary">✦</span>
+                  <span className="flex flex-row gap-2"><strong className="text-secondary">Lucky Numbers:</strong><p className="font-playfair text-secondary"> Numbers that attract prosperity</p></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary mt-1">✦</span>
-                  <span><strong>Career Path:</strong> Professional directions aligned with your numbers</span>
+                  <span className="text-secondary">✦</span>
+                  <span className="flex flex-row gap-2"><strong className="text-secondary">Career Path:</strong><p className="font-playfair text-secondary"> Professional directions aligned with your numbers </p></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary mt-1">✦</span>
-                  <span><strong>Compatibility:</strong> Relationship harmony through numbers</span>
+                  <span className="text-secondary ">✦</span>
+                  <span className="flex flex-row gap-2"><strong className="text-secondary">Compatibility:</strong><p className="font-playfair text-secondary"> Relationship harmony through numbers </p></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary mt-1">✦</span>
-                  <span><strong>Name Correction:</strong> Optimizing your name for success</span>
+                  <span className="text-secondary">✦</span>
+                  <span className="flex flex-row gap-2"><strong className="text-secondary">Name Correction:</strong><p className="font-playfair text-secondary"> Optimizing your name for success </p></span>
                 </li>
               </ul>
             </div>
@@ -91,7 +91,7 @@ const Numerology = () => {
               <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
                 Benefits of Numerology
               </h3>
-              <div className="space-y-3 text-muted-foreground">
+              <div className="space-y-3 font-playfair text-secondary">
                 <div className="flex items-start gap-2">
                   <span className="text-2xl">🔮</span>
                   <div>
@@ -124,7 +124,7 @@ const Numerology = () => {
               <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
                 Unlock Your Numbers
               </h2>
-              <p className="text-muted-foreground mb-6">
+              <p className="mb-6 font-playfair text-secondary">
                 Discover your life path, lucky numbers, and name vibrations
               </p>
               <Button 

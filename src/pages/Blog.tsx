@@ -59,12 +59,12 @@ const Blog = () => {
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <BookOpen className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
-          <h1 className="text-5xl md:text-6xl font-bold font-playfair text-primary mb-6">
+        <div className="text-center mb-12 animate-fade-in-up mt-8">
+          {/* <BookOpen className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
+          <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
             Knowledge Center
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Explore the ancient wisdom of Vedic astrology and spiritual sciences
           </p>
         </div>
@@ -78,12 +78,12 @@ const Blog = () => {
             <h2 className="text-3xl md:text-4xl font-bold font-playfair text-primary mb-4">
               The Complete Guide to Vedic Astrology
             </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-lg font-playfair text-secondary mb-6 leading-relaxed">
               Dive deep into the ancient science of Jyotish (Vedic Astrology) and understand how 
               cosmic energies shape our destiny. This comprehensive guide covers everything from basic 
               concepts to advanced techniques used by traditional astrologers.
             </p>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+            <div className="flex items-center gap-4 text-sm font-playfair text-secondary mb-6">
               <span className="bg-accent/20 px-3 py-1 rounded-full">Astrology</span>
               <span>15 min read</span>
             </div>
@@ -110,11 +110,11 @@ const Blog = () => {
                 <h3 className="text-xl font-bold font-playfair text-primary mb-3 group-hover:text-secondary transition-colors">
                   {article.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                <p className="font-playfair text-secondary mb-4 text-sm leading-relaxed">
                   {article.excerpt}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">{article.readTime}</span>
+                  <span className="text-xs font-playfair text-secondary">{article.readTime}</span>
                   <Button variant="ghost" size="sm" className="group-hover:text-secondary">
                     Read More →
                   </Button>
@@ -141,7 +141,7 @@ const Blog = () => {
                   </h3>
                   <ExternalLink className="h-5 w-5 text-secondary flex-shrink-0" />
                 </div>
-                <p className="text-muted-foreground mb-4 text-sm">
+                <p className="font-playfair text-secondary mb-4 text-sm">
                   {resource.description}
                 </p>
                 <Button 
@@ -164,7 +164,7 @@ const Blog = () => {
             <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
               Stay Connected with Cosmic Wisdom
             </h2>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="font-playfair text-secondary mb-6 max-w-2xl mx-auto">
               Subscribe to receive astrological insights, gemstone guidance, and spiritual wisdom 
               directly in your inbox
             </p>
