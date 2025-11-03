@@ -31,51 +31,52 @@ const Numerology = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Information Section */}
-          <div className="space-y-6">
-            <Card className="p-8 border-2 border-secondary/30">
-              <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
-                The Power of Numbers
-              </h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p className="leading-relaxed">
-                  Numerology is the ancient science of numbers and their mystical influence on human life. 
-                  Every number carries a unique vibration that resonates with the cosmic energies, 
-                  shaping your personality, destiny, and life events.
-                </p>
-                <p className="leading-relaxed">
-                  Our numerology services reveal:
-                </p>
-                <ul className="space-y-3 ml-6">
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span><strong>Life Path Number:</strong> Your soul's purpose and destiny</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span><strong>Name Number:</strong> The vibration of your identity</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span><strong>Lucky Numbers:</strong> Numbers that attract prosperity</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span><strong>Career Path:</strong> Professional directions aligned with your numbers</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span><strong>Compatibility:</strong> Relationship harmony through numbers</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span><strong>Name Correction:</strong> Optimizing your name for success</span>
-                  </li>
-                </ul>
-              </div>
-            </Card>
+        <div className="space-y-8 mb-16">
+          {/* Main Card - Full Width */}
+          <Card className="p-8 border-2 border-secondary/30">
+            <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
+              The Power of Numbers
+            </h2>
+            <div className="space-y-4 text-muted-foreground">
+              <p className="leading-relaxed">
+                Numerology is the ancient science of numbers and their mystical influence on human life. 
+                Every number carries a unique vibration that resonates with the cosmic energies, 
+                shaping your personality, destiny, and life events.
+              </p>
+              <p className="leading-relaxed">
+                Our numerology services reveal:
+              </p>
+              <ul className="space-y-3 ml-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">✦</span>
+                  <span><strong>Life Path Number:</strong> Your soul's purpose and destiny</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">✦</span>
+                  <span><strong>Name Number:</strong> The vibration of your identity</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">✦</span>
+                  <span><strong>Lucky Numbers:</strong> Numbers that attract prosperity</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">✦</span>
+                  <span><strong>Career Path:</strong> Professional directions aligned with your numbers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">✦</span>
+                  <span><strong>Compatibility:</strong> Relationship harmony through numbers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">✦</span>
+                  <span><strong>Name Correction:</strong> Optimizing your name for success</span>
+                </li>
+              </ul>
+            </div>
+          </Card>
 
+          {/* Two Cards Side by Side */}
+          <div className="grid lg:grid-cols-2 gap-8">
             <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30">
               <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
                 Benefits of Numerology
@@ -107,11 +108,8 @@ const Numerology = () => {
                 </div>
               </div>
             </Card>
-          </div>
 
-          {/* CTA Section */}
-          <div>
-            <Card className="p-8 border-2 border-secondary/30 sticky top-24 text-center">
+            <Card className="p-8 border-2 border-secondary/30 text-center">
               <Hash className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
               <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
                 Unlock Your Numbers

@@ -4,19 +4,27 @@ import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Clock, Calendar } from "lucide-react";
 import ConsultationModal from "@/components/ConsultationModal";
+import weddingImg from "@/assets/occasions/wedding.jpg";
+import grihaPraveshImg from "@/assets/occasions/griha-pravesh.jpg";
+import businessImg from "@/assets/occasions/business.jpg";
+import educationImg from "@/assets/occasions/education.jpg";
+import vehicleImg from "@/assets/occasions/vehicle.jpg";
+import engagementImg from "@/assets/occasions/engagement.jpg";
+import namingImg from "@/assets/occasions/naming.jpg";
+import medicalImg from "@/assets/occasions/medical.jpg";
 
 const ShubhaMuhurt = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const occasions = [
-    { icon: "💒", title: "Wedding Ceremonies", description: "Auspicious timing for marriage rituals" },
-    { icon: "🏠", title: "Griha Pravesh", description: "Housewarming and moving in" },
-    { icon: "💼", title: "Business Opening", description: "Starting new ventures and enterprises" },
-    { icon: "📚", title: "Education Start", description: "Beginning academic pursuits" },
-    { icon: "🚗", title: "Vehicle Purchase", description: "Buying new vehicles" },
-    { icon: "💍", title: "Engagement", description: "Betrothal ceremonies" },
-    { icon: "🎭", title: "Name Ceremonies", description: "Naming rituals for newborns" },
-    { icon: "⚕️", title: "Medical Procedures", description: "Surgeries and treatments" },
+    { title: "Wedding Ceremonies", description: "Auspicious timing for marriage rituals", image: weddingImg },
+    { title: "Griha Pravesh", description: "Housewarming and moving in", image: grihaPraveshImg },
+    { title: "Business Opening", description: "Starting new ventures and enterprises", image: businessImg },
+    { title: "Education Start", description: "Beginning academic pursuits", image: educationImg },
+    { title: "Vehicle Purchase", description: "Buying new vehicles", image: vehicleImg },
+    { title: "Engagement", description: "Betrothal ceremonies", image: engagementImg },
+    { title: "Name Ceremonies", description: "Naming rituals for newborns", image: namingImg },
+    { title: "Medical Procedures", description: "Surgeries and treatments", image: medicalImg },
   ];
 
   return (
@@ -42,55 +50,56 @@ const ShubhaMuhurt = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Information Section */}
-          <div className="space-y-6">
-            <Card className="p-8 border-2 border-secondary/30">
-              <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
-                What is Shubha Muhurt?
-              </h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  Shubha Muhurt refers to the most auspicious time for conducting important ceremonies, 
-                  rituals, and life events. In Vedic astrology, time is not just a linear progression but 
-                  a cosmic dance of planetary energies that can either support or hinder our endeavors.
-                </p>
-                <p>
-                  By selecting the right muhurt (auspicious time), we align our actions with favorable 
-                  cosmic energies, ensuring success, prosperity, and divine blessings for our undertakings.
-                </p>
-                <p className="font-semibold text-foreground">
-                  Our Muhurt calculation considers:
-                </p>
-                <ul className="space-y-2 ml-6">
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✦</span>
-                    <span>Planetary positions and their strengths</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✦</span>
-                    <span>Nakshatra (lunar mansion) suitability</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✦</span>
-                    <span>Tithi (lunar day) appropriateness</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✦</span>
-                    <span>Lagna (ascendant) compatibility</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✦</span>
-                    <span>Your personal birth chart alignment</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✦</span>
-                    <span>Absence of inauspicious yogas</span>
-                  </li>
-                </ul>
-              </div>
-            </Card>
+        <div className="space-y-8 mb-16">
+          {/* Main Card - Full Width */}
+          <Card className="p-8 border-2 border-secondary/30">
+            <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
+              What is Shubha Muhurt?
+            </h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Shubha Muhurt refers to the most auspicious time for conducting important ceremonies, 
+                rituals, and life events. In Vedic astrology, time is not just a linear progression but 
+                a cosmic dance of planetary energies that can either support or hinder our endeavors.
+              </p>
+              <p>
+                By selecting the right muhurt (auspicious time), we align our actions with favorable 
+                cosmic energies, ensuring success, prosperity, and divine blessings for our undertakings.
+              </p>
+              <p className="font-semibold text-foreground">
+                Our Muhurt calculation considers:
+              </p>
+              <ul className="space-y-2 ml-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Planetary positions and their strengths</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Nakshatra (lunar mansion) suitability</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Tithi (lunar day) appropriateness</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Lagna (ascendant) compatibility</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Your personal birth chart alignment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Absence of inauspicious yogas</span>
+                </li>
+              </ul>
+            </div>
+          </Card>
 
+          {/* Two Cards Side by Side */}
+          <div className="grid lg:grid-cols-2 gap-8">
             <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30">
               <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
                 Why Muhurt Matters
@@ -122,11 +131,8 @@ const ShubhaMuhurt = () => {
                 </div>
               </div>
             </Card>
-          </div>
 
-          {/* CTA Section */}
-          <div>
-            <Card className="p-8 border-2 border-secondary/30 sticky top-24 text-center">
+            <Card className="p-8 border-2 border-secondary/30 text-center">
               <Clock className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
               <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
                 Find Your Perfect Timing
@@ -154,15 +160,23 @@ const ShubhaMuhurt = () => {
             {occasions.map((occasion, index) => (
               <Card 
                 key={index}
-                className="p-6 text-center hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
               >
-                <Calendar className="h-12 w-12 mx-auto mb-3 text-secondary group-hover:scale-110 transition-transform" />
-                <h3 className="font-bold font-playfair text-primary mb-2">
-                  {occasion.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {occasion.description}
-                </p>
+                <div className="relative h-40 overflow-hidden">
+                  <img 
+                    src={occasion.image} 
+                    alt={occasion.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="font-bold font-playfair text-primary mb-2">
+                    {occasion.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {occasion.description}
+                  </p>
+                </div>
               </Card>
             ))}
           </div>

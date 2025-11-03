@@ -57,17 +57,17 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <SlokaCard sloka="ప్రణమ్య శిరసాదేవం గౌరిపుత్రమ్ వినాయకం భక్తా వాసం స్మరేనిత్యం ఆయుః కామార్థ సిద్ధయే||" />
 
-          <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
+          <div className="mt-16 grid md:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary">
                 About Brahma Shri Jaanakiram Garu
               </h2>
-              <p className="text-lg text-foreground leading-relaxed bg-card/80 p-6 rounded-lg shadow-sm">
+              <p className="text-lg text-foreground/90 leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
                 Welcome to Astro Wak, your trusted gateway to divine guidance and cosmic wisdom. 
                 Led by the esteemed <span className="text-primary font-semibold">Brahma Shri Jaanakiram Garu</span>, 
                 we bring you authentic Vedic astrology services rooted in ancient traditions.
               </p>
-              <p className="text-lg text-foreground leading-relaxed bg-card/80 p-6 rounded-lg shadow-sm">
+              <p className="text-lg text-foreground/90 leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
                 With years of dedicated study and practice in astrology, numerology, gemstone therapy, 
                 and Vedic rituals, our mission is to illuminate your path with spiritual insights and 
                 practical guidance for life's journey.
@@ -75,38 +75,40 @@ const Home = () => {
               <blockquote className="border-l-4 border-secondary pl-6 py-3 italic text-xl text-primary bg-secondary/10 rounded-r-lg">
                 "Your cosmic guide to a brighter life journey."
               </blockquote>
-
-              <div className="space-y-3 pt-4">
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
-                  <p className="text-foreground">
-                    Walbridge apts, Radha Nagar, Sun City, Hyderabad – 500091
-                  </p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="h-6 w-6 text-secondary" />
-                  <div className="flex gap-4">
-                    <a href="tel:9553231199" className="text-foreground hover:text-secondary transition-colors font-semibold">
-                      +91 9553231199
-                    </a>
-                    <span className="text-muted-foreground">/</span>
-                    <a href="tel:9441662365" className="text-foreground hover:text-secondary transition-colors font-semibold">
-                      +91 9441662365
-                    </a>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="relative">
-              <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30 divine-glow">
-                <User className="h-48 w-48 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-2xl font-bold font-playfair text-center text-primary mb-2">
-                  Brahma Shri Jaanakiram Garu
-                </h3>
-                <p className="text-center text-muted-foreground">
-                  Expert Vedic Astrologer & Spiritual Guide
-                </p>
+            <div className="flex flex-col items-center">
+              <Card className="w-64 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30 divine-glow overflow-hidden">
+                <div className="aspect-[3/4] bg-muted flex items-center justify-center">
+                  <User className="h-32 w-32 text-muted-foreground/50" />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-bold font-playfair text-primary mb-1">
+                    Brahma Shri Jaanakiram Garu
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Expert Vedic Astrologer & Spiritual Guide
+                  </p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start gap-2 text-left">
+                      <MapPin className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
+                      <p className="text-foreground/80">
+                        Walbridge apts, Radha Nagar, Sun City, Hyderabad – 500091
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 justify-center pt-2">
+                      <Phone className="h-4 w-4 text-secondary" />
+                      <div className="flex flex-col gap-1">
+                        <a href="tel:9553231199" className="text-foreground hover:text-secondary transition-colors font-semibold">
+                          +91 9553231199
+                        </a>
+                        <a href="tel:9441662365" className="text-foreground hover:text-secondary transition-colors font-semibold">
+                          +91 9441662365
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Card>
             </div>
           </div>
@@ -135,7 +137,7 @@ const Home = () => {
                   className="p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
                 >
                   <div className="flex justify-center mb-4">
-                    <Icon className="h-16 w-16 text-secondary group-hover:scale-110 transition-transform" />
+                    <Icon className="h-12 w-12 text-secondary group-hover:scale-110 transition-transform" />
                   </div>
                   <h3 className="text-2xl font-bold font-playfair text-primary mb-3 text-center">
                     {service.title}

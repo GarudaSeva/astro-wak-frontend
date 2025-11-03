@@ -31,93 +31,105 @@ const Horoscope = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Information Section */}
-          <div className="space-y-6">
-            <Card className="p-8 border-2 border-secondary/30">
-              <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
-                What is Janma Patrika?
-              </h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p className="leading-relaxed">
-                  Janma Patrika, also known as the birth chart or horoscope, is a divine map of 
-                  the celestial bodies at the exact moment of your birth. This sacred document 
-                  captures the positions of planets, stars, and cosmic energies that shape your 
-                  life's journey.
-                </p>
-                <p className="leading-relaxed">
-                  Our comprehensive horoscope analysis includes:
-                </p>
-                <ul className="space-y-3 ml-6">
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span>Detailed birth chart (Rashi Kundali) analysis</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span>Planetary positions and their influences</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span>Dasha predictions and timing of events</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span>Career, marriage, and health predictions</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span>Remedies and gemstone recommendations</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary mt-1">✦</span>
-                    <span>Yogas and doshas in your chart</span>
-                  </li>
-                </ul>
+        <div className="space-y-8 mb-16">
+          {/* Main Card - Full Width */}
+          <Card className="p-8 border-2 border-secondary/30">
+            <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
+              What is Janma Patrika?
+            </h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Janma Patrika, also known as the birth chart or horoscope, is a sacred astrological 
+                document that captures the exact planetary positions at the moment of your birth. 
+                This cosmic snapshot serves as your personal spiritual GPS, revealing the celestial 
+                influences that shape your destiny.
+              </p>
+              <p>
+                Created using precise birth time, date, and location, your Janma Patrika is a 
+                comprehensive map of the twelve houses (bhavas) and nine planets (navagrahas). 
+                It's not just a prediction tool—it's a divine blueprint that helps you understand 
+                your strengths, challenges, and life purpose.
+              </p>
+              <p className="font-semibold text-foreground">
+                Our detailed horoscope analysis includes:
+              </p>
+              <ul className="space-y-2 ml-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Complete birth chart (Rasi and Navamsa)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Planetary positions and their significances</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Dasha predictions (planetary periods)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Career, marriage, and financial prospects</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Health indications and remedies</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">✦</span>
+                  <span>Auspicious timings for major life events</span>
+                </li>
+              </ul>
+            </div>
+          </Card>
+
+          {/* Two Cards Side by Side */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30">
+              <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
+                What Your Horoscope Reveals
+              </h3>
+              <div className="space-y-3 text-muted-foreground">
+                <div className="flex items-start gap-2">
+                  <span className="text-2xl">⭐</span>
+                  <div>
+                    <strong className="text-foreground">Life Purpose:</strong> Discover your dharma and soul's mission
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-2xl">⭐</span>
+                  <div>
+                    <strong className="text-foreground">Timing:</strong> Know when to act and when to wait
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-2xl">⭐</span>
+                  <div>
+                    <strong className="text-foreground">Relationships:</strong> Understand compatibility and marriage prospects
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-2xl">⭐</span>
+                  <div>
+                    <strong className="text-foreground">Remedies:</strong> Specific solutions to overcome obstacles
+                  </div>
+                </div>
               </div>
             </Card>
 
-            <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30">
-              <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
-                Why Choose Our Horoscope Service?
-              </h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="text-secondary text-xl">🌟</span>
-                  <span>Authentic Vedic astrology traditions</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-secondary text-xl">🌟</span>
-                  <span>Personalized analysis by experienced astrologer</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-secondary text-xl">🌟</span>
-                  <span>Detailed written report delivered to your email</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-secondary text-xl">🌟</span>
-                  <span>Practical remedies and guidance</span>
-                </li>
-              </ul>
-            </Card>
-          </div>
-
-          {/* CTA Section */}
-          <div>
-            <Card className="p-8 border-2 border-secondary/30 sticky top-24 text-center">
+            <Card className="p-8 border-2 border-secondary/30 text-center">
               <Star className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
               <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
-                Ready for Your Horoscope?
+                Get Your Horoscope
               </h2>
               <p className="text-muted-foreground mb-6">
-                Get personalized Vedic astrology insights delivered within 24-48 hours
+                Unlock the secrets of your cosmic blueprint today
               </p>
               <Button 
                 size="lg"
                 onClick={() => setModalOpen(true)}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
               >
-                Request Horoscope Now
+                Request Horoscope
               </Button>
             </Card>
           </div>
