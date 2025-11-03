@@ -2,29 +2,21 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
-import { Clock, Calendar } from "lucide-react";
+import { Clock, Calendar, Heart, Home, Briefcase, GraduationCap, Car, Users, Baby, Stethoscope } from "lucide-react";
 import ConsultationModal from "@/components/ConsultationModal";
-import weddingImg from "@/assets/occasions/wedding.jpg";
-import grihaPraveshImg from "@/assets/occasions/griha-pravesh.jpg";
-import businessImg from "@/assets/occasions/business.jpg";
-import educationImg from "@/assets/occasions/education.jpg";
-import vehicleImg from "@/assets/occasions/vehicle.jpg";
-import engagementImg from "@/assets/occasions/engagement.jpg";
-import namingImg from "@/assets/occasions/naming.jpg";
-import medicalImg from "@/assets/occasions/medical.jpg";
 
 const ShubhaMuhurt = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const occasions = [
-    { title: "Wedding Ceremonies", description: "Auspicious timing for marriage rituals", image: weddingImg },
-    { title: "Griha Pravesh", description: "Housewarming and moving in", image: grihaPraveshImg },
-    { title: "Business Opening", description: "Starting new ventures and enterprises", image: businessImg },
-    { title: "Education Start", description: "Beginning academic pursuits", image: educationImg },
-    { title: "Vehicle Purchase", description: "Buying new vehicles", image: vehicleImg },
-    { title: "Engagement", description: "Betrothal ceremonies", image: engagementImg },
-    { title: "Name Ceremonies", description: "Naming rituals for newborns", image: namingImg },
-    { title: "Medical Procedures", description: "Surgeries and treatments", image: medicalImg },
+    { title: "Wedding Ceremonies", description: "Auspicious timing for marriage rituals", icon: Heart },
+    { title: "Griha Pravesh", description: "Housewarming and moving in", icon: Home },
+    { title: "Business Opening", description: "Starting new ventures and enterprises", icon: Briefcase },
+    { title: "Education Start", description: "Beginning academic pursuits", icon: GraduationCap },
+    { title: "Vehicle Purchase", description: "Buying new vehicles", icon: Car },
+    { title: "Engagement", description: "Betrothal ceremonies", icon: Users },
+    { title: "Name Ceremonies", description: "Naming rituals for newborns", icon: Baby },
+    { title: "Medical Procedures", description: "Surgeries and treatments", icon: Stethoscope },
   ];
 
   return (
@@ -157,28 +149,25 @@ const ShubhaMuhurt = () => {
             Popular Occasions for Muhurt
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {occasions.map((occasion, index) => (
-              <Card 
-                key={index}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
-              >
-                <div className="relative h-40 overflow-hidden">
-                  <img 
-                    src={occasion.image} 
-                    alt={occasion.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6 text-center">
+            {occasions.map((occasion, index) => {
+              const Icon = occasion.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="p-6 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group text-center"
+                >
+                  <div className="flex justify-center mb-4">
+                    <Icon className="h-12 w-12 text-secondary group-hover:scale-110 transition-transform" />
+                  </div>
                   <h3 className="font-bold font-playfair text-primary mb-2">
                     {occasion.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {occasion.description}
                   </p>
-                </div>
-              </Card>
-            ))}
+                </Card>
+              );
+            })}
           </div>
         </div>
       </div>

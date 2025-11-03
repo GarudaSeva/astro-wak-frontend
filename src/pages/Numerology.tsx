@@ -4,6 +4,7 @@ import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Hash } from "lucide-react";
 import ConsultationModal from "@/components/ConsultationModal";
+import numerologyBanner from "@/assets/numerology-banner.jpg";
 
 const Numerology = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,7 +27,16 @@ const Numerology = () => {
         <div className="mb-16">
           <SlokaCard 
             sloka="ఓం పూర్ణమదః పూర్ణమిదం పూర్ణాత్ పూర్ణముదచ్యతే పూర్ణస్య పూర్ణమాదయ పూర్ణమేవావశిష్యతే||"
-            translation="That is whole, this is whole. From the whole emerges the whole. When the whole is taken from the whole, what remains is still the whole."
+            translation="Om, That is full, this is full. From fullness, fullness comes out. Taking fullness from fullness, what remains is also fullness."
+          />
+        </div>
+
+        {/* Numerology Banner */}
+        <div className="mb-16 rounded-lg overflow-hidden shadow-2xl border-4 border-secondary/30">
+          <img 
+            src={numerologyBanner} 
+            alt="Numerology - The Power of Numbers" 
+            className="w-full h-48 object-cover"
           />
         </div>
 

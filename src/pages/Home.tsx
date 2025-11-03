@@ -1,10 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, User, Phone, MapPin, Star, Hash, Gem, Clock, Flame } from "lucide-react";
+import { Sparkles, Phone, MapPin, Star, Hash, Gem, Clock, Flame } from "lucide-react";
 import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import SlokaCard from "@/components/SlokaCard";
 import ConsultationModal from "@/components/ConsultationModal";
+import astrologerPhoto from "@/assets/astrologer-photo.jpg";
 
 const Home = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -57,7 +58,44 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <SlokaCard sloka="ప్రణమ్య శిరసాదేవం గౌరిపుత్రమ్ వినాయకం భక్తా వాసం స్మరేనిత్యం ఆయుః కామార్థ సిద్ధయే||" />
 
-          <div className="mt-16 grid md:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+          <div className="mt-16 grid md:grid-cols-[300px_1fr] gap-12 items-start max-w-6xl mx-auto">
+            <div className="flex flex-col items-center space-y-6">
+              <div className="w-64 h-80 rounded-lg overflow-hidden shadow-xl border-4 border-secondary/30 divine-glow">
+                <img 
+                  src={astrologerPhoto} 
+                  alt="Brahma Shri Jaanakiram Garu"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-center space-y-3">
+                <h3 className="text-xl font-bold font-playfair text-primary">
+                  Brahma Shri Jaanakiram Garu
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Expert Vedic Astrologer & Spiritual Guide
+                </p>
+                <div className="space-y-2 text-sm pt-2">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
+                    <p className="text-foreground/80 text-left">
+                      Walbridge apts, Radha Nagar, Sun City, Hyderabad – 500091
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 justify-center pt-2">
+                    <Phone className="h-4 w-4 text-secondary" />
+                    <div className="flex flex-col gap-1">
+                      <a href="tel:9553231199" className="text-foreground hover:text-secondary transition-colors font-semibold">
+                        +91 9553231199
+                      </a>
+                      <a href="tel:9441662365" className="text-foreground hover:text-secondary transition-colors font-semibold">
+                        +91 9441662365
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary">
                 About Brahma Shri Jaanakiram Garu
@@ -75,41 +113,6 @@ const Home = () => {
               <blockquote className="border-l-4 border-secondary pl-6 py-3 italic text-xl text-primary bg-secondary/10 rounded-r-lg">
                 "Your cosmic guide to a brighter life journey."
               </blockquote>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <Card className="w-64 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30 divine-glow overflow-hidden">
-                <div className="aspect-[3/4] bg-muted flex items-center justify-center">
-                  <User className="h-32 w-32 text-muted-foreground/50" />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold font-playfair text-primary mb-1">
-                    Brahma Shri Jaanakiram Garu
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Expert Vedic Astrologer & Spiritual Guide
-                  </p>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-start gap-2 text-left">
-                      <MapPin className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
-                      <p className="text-foreground/80">
-                        Walbridge apts, Radha Nagar, Sun City, Hyderabad – 500091
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2 justify-center pt-2">
-                      <Phone className="h-4 w-4 text-secondary" />
-                      <div className="flex flex-col gap-1">
-                        <a href="tel:9553231199" className="text-foreground hover:text-secondary transition-colors font-semibold">
-                          +91 9553231199
-                        </a>
-                        <a href="tel:9441662365" className="text-foreground hover:text-secondary transition-colors font-semibold">
-                          +91 9441662365
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
             </div>
           </div>
         </div>

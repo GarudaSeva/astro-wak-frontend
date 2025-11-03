@@ -4,6 +4,8 @@ import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Flame } from "lucide-react";
 import ConsultationModal from "@/components/ConsultationModal";
+import diwaliImg from "@/assets/diwali-celebration.jpg";
+import swastikImg from "@/assets/swastik-symbol.png";
 
 const PoojaHoma = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -74,8 +76,28 @@ const PoojaHoma = () => {
         <div className="mb-16">
           <SlokaCard 
             sloka="ఓం సర్వమంగళమాంగళ్యే శివే సర్వార్థ సాధికే శరణ్యే త్రయంబకే గౌరీ నారాయణీ నమోస్తుతే||"
-            translation="O Auspicious One, who bestows all that is auspicious and sacred, O Shiva (the benevolent), the accomplisher of all aims, the giver of refuge, O three-eyed Goddess, O Gauri, O Narayani, salutations to You!"
+            translation="Om, to the One who is the auspiciousness of all that is auspicious, who is pure, who grants all desires, the one who is refuge, who has three eyes, Gauri (Parvati), Narayani, to You, I bow."
           />
+        </div>
+
+        {/* Divine Image Banner */}
+        <div className="mb-16 rounded-lg overflow-hidden shadow-2xl border-4 border-secondary/30">
+          <img 
+            src={diwaliImg} 
+            alt="Divine Celebration" 
+            className="w-full h-64 object-cover"
+          />
+        </div>
+
+        {/* Swastik Symbol */}
+        <div className="flex justify-center mb-12">
+          <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full p-4 divine-glow">
+            <img 
+              src={swastikImg} 
+              alt="Swastik Symbol" 
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
 
         {/* About Section */}
