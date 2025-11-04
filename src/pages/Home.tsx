@@ -145,7 +145,7 @@ const Home = () => {
               return (
                 <Card
                   key={index}
-                  className="p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
+                  className="p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-yellow-50 hover:border-secondary/50 group"
                 >
                   <div className="flex justify-center mb-4">
                     <Icon className="h-10 w-10 text-secondary group-hover:scale-110 transition-transform" />

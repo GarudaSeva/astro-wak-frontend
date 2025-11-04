@@ -9,14 +9,14 @@ const ShubhaMuhurt = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const occasions = [
-    { title: "Wedding Ceremonies", description: "Auspicious timing for marriage rituals", icon: Heart },
-    { title: "Griha Pravesh", description: "Housewarming and moving in", icon: Home },
-    { title: "Business Opening", description: "Starting new ventures and enterprises", icon: Briefcase },
-    { title: "Education Start", description: "Beginning academic pursuits", icon: GraduationCap },
-    { title: "Vehicle Purchase", description: "Buying new vehicles", icon: Car },
-    { title: "Engagement", description: "Betrothal ceremonies", icon: Users },
-    { title: "Name Ceremonies", description: "Naming rituals for newborns", icon: Baby },
-    { title: "Medical Procedures", description: "Surgeries and treatments", icon: Stethoscope },
+    { title: "Wedding Ceremonies", description: "Auspicious timing for marriage rituals",image: "src/assets/occasions/wedding.jpg", },
+    { title: "Griha Pravesh", description: "Housewarming and moving in", image: "src/assets/occasions/gruha-pravesam.png" },
+    { title: "Business Opening", description: "Starting new ventures and enterprises", image : "src/assets/occasions/business.jpg" },
+    { title: "Education Start", description: "Beginning academic pursuits", image : "src/assets/occasions/education.jpg" },
+    { title: "Vehicle Purchase", description: "Buying new vehicles", image : "src/assets/occasions/vehicle.jpg" },
+    { title: "Engagement", description: "Betrothal ceremonies", image : "src/assets/occasions/engagement.jpg" },
+    { title: "Name Ceremonies", description: "Naming rituals for newborns", image : "src/assets/occasions/naming.jpg" },
+    { title: "Medical Procedures", description: "Surgeries and treatments", image : "src/assets/occasions/medical-advice.png" },
   ];
 
   return (
@@ -149,27 +149,27 @@ const ShubhaMuhurt = () => {
           <h2 className="text-3xl font-bold font-playfair text-primary mb-8 text-center">
             Popular Occasions for Muhurt
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {occasions.map((occasion, index) => {
-              const Icon = occasion.icon;
-              return (
-                <Card 
-                  key={index}
-                  className="p-6 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group text-center"
-                >
-                  <div className="flex justify-center mb-4">
-                    <Icon className="h-12 w-12 text-secondary group-hover:scale-110 transition-transform" />
-                  </div>
-                  <h3 className="font-bold font-playfair text-primary mb-2">
-                    {occasion.title}
-                  </h3>
-                  <p className="text-sm font-playfair text-secondary">
-                    {occasion.description}
-                  </p>
-                </Card>
-              );
-            })}
+           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {occasions.map((occasion, index) => (
+        <Card
+          key={index}
+          className="p-6 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group text-center"
+        >
+          <div className="flex justify-center mb-4">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-secondary/20 group-hover:border-secondary/50 transition-all group-hover:scale-110">
+              <img
+                src={occasion.image || "/placeholder.svg"}
+                alt={occasion.title}
+                className="object-cover"
+                sizes="(max-width: 768px) 80px, 96px"
+              />
+            </div>
           </div>
+          <h3 className="font-bold font-playfair text-primary mb-2">{occasion.title}</h3>
+          <p className="text-sm font-playfair text-secondary">{occasion.description}</p>
+        </Card>
+      ))}
+    </div>
         </div>
       </div>
       

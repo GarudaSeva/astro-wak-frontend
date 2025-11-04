@@ -85,43 +85,44 @@ const Gems = () => {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             {gemstones.map((gem, index) => (
-              <Card 
-                key={index}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
-              >
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
-                  <img 
-                    src={gem.image} 
+              <Card
+              key={index}
+              className="overflow-hidden pr-4 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
+            >
+              <div className="flex flex-row items-start gap-4 p-5">
+                {/* Image on left side */}
+                <div className="relative w-44 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5">
+                  <img
+                    src={gem.image || "/placeholder.svg"}
                     alt={gem.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Gem className="h-6 w-6 text-secondary" />
-                    <div>
-                      <h3 className="text-xl font-bold font-playfair text-primary">
-                        {gem.name}
-                      </h3>
-                      <p className="text-sm font-playfair text-secondary">{gem.subtitle}</p>
-                    </div>
+
+                {/* Text on right side */}
+                <div className="flex-1 flex flex-col justify-start">
+                  <div className="flex flex-row items-baseline space-x-1">
+                    <h3 className="text-base font-bold font-playfair text-primary">{gem.name}</h3>
+                    <p className="text-xs font-playfair text-secondary">({gem.subtitle})</p>
                   </div>
-                  <div className="space-y-2 text-sm">
+
+                  <div className="space-y-1 text-xs mt-2">
                     <div className="flex justify-between">
-                      <span className="font-playfair text-secondary">Planet:</span>
-                      <span className="font-semibold text-foreground">{gem.planet}</span>
+                      <span className="font-playfair text-primary">Planet:</span>
+                      <span className="font-semibold font-playfair text-secondary">{gem.planet}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-playfair text-secondary">Color:</span>
-                      <span className="font-semibold text-foreground">{gem.color}</span>
+                      <span className="font-playfair text-primary">Color:</span>
+                      <span className="font-semibold font-playfair text-secondary">{gem.color}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-playfair text-secondary">Duration:</span>
-                      <span className="font-semibold text-foreground">{gem.duration}</span>
+                      <span className="font-playfair text-primary">Duration:</span>
+                      <span className="font-semibold font-playfair text-secondary">{gem.duration}</span>
                     </div>
                   </div>
                 </div>
-              </Card>
+              </div>
+            </Card>
             ))}
           </div>
           <p className="text-sm font-playfair text-secondary text-center">

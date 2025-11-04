@@ -17,9 +17,14 @@ const PoojaHoma = () => {
       benefits: "Success in new ventures, obstacle removal, wisdom"
     },
     {
-      title: "Navagraha Homa",
-      description: "Pacify all nine planets and balance their energies in your life",
-      benefits: "Planetary peace, health improvement, overall prosperity"
+      title: "Rudra Abhishekam",
+      description: "Powerful ritual for Lord Shiva for health and spiritual growth",
+      benefits: "Health recovery, spiritual progress, mental peace"
+    },
+    {
+      title: "Mahamrityunjaya Homa",
+      description: "Sacred fire ritual for protection from illness and untimely death",
+      benefits: "Health protection, longevity, victory over fears"
     },
     {
       title: "Lakshmi Pooja",
@@ -32,16 +37,6 @@ const PoojaHoma = () => {
       benefits: "Academic excellence, artistic skills, intellectual growth"
     },
     {
-      title: "Rudra Abhishekam",
-      description: "Powerful ritual for Lord Shiva for health and spiritual growth",
-      benefits: "Health recovery, spiritual progress, mental peace"
-    },
-    {
-      title: "Mahamrityunjaya Homa",
-      description: "Sacred fire ritual for protection from illness and untimely death",
-      benefits: "Health protection, longevity, victory over fears"
-    },
-    {
       title: "Sudarshana Homa",
       description: "Powerful ritual for protection from enemies and negative energies",
       benefits: "Protection from evil, victory over obstacles, spiritual shield"
@@ -50,6 +45,11 @@ const PoojaHoma = () => {
       title: "Chandi Homa",
       description: "Invoke Divine Mother's power for courage and success",
       benefits: "Strength, victory, removal of negativity"
+    },
+    {
+      title: "Navagraha Homa",
+      description: "Pacify all nine planets and balance their energies in your life",
+      benefits: "Planetary peace, health improvement, overall prosperity"
     },
     {
       title: "Ayushya Homa",
@@ -85,7 +85,7 @@ const PoojaHoma = () => {
           <img 
             src={diwaliImg} 
             alt="Divine Celebration" 
-            className="w-full h-64 object-cover"
+            className="w-full h-90 object-cover"
           />
         </div>
 
