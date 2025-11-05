@@ -81,16 +81,16 @@ const PoojaHoma = () => {
         </div>
 
         {/* Divine Image Banner */}
-        <div className="mb-16 rounded-lg overflow-hidden shadow-2xl border-4 border-secondary/30">
+        {/* <div className="mb-16 rounded-lg overflow-hidden shadow-2xl border-4 border-secondary/30">
           <img 
             src={diwaliImg} 
             alt="Divine Celebration" 
             className="w-full h-90 object-cover"
           />
-        </div>
+        </div> */}
 
         {/* Swastik Symbol */}
-        <div className="flex justify-center mb-12">
+        {/* <div className="flex justify-center mb-12">
           <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full p-4 divine-glow">
             <img 
               src={swastikImg} 
@@ -98,7 +98,7 @@ const PoojaHoma = () => {
               className="w-full h-full object-contain"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* About Section */}
         <div className="mb-16">

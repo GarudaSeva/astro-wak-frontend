@@ -223,7 +223,7 @@ const Gems = () => {
               Get Your Personalized Gem Recommendation
             </h2>
             <p className="font-playfair text-secondary mb-6">
-              Detailed analysis delivered to your email within 24 hours
+              Detailed analysis delivered to your WhatApp Chat within 24 hours
             </p>
             <Button 
               size="lg"

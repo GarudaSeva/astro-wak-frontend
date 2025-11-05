@@ -1,0 +1,46 @@
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { Card } from "../ui/card";
+
+const AccordionItem = ({
+  index,
+  question,
+  answer,
+}: {
+  index: number;
+  question: string;
+  answer: string;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Card
+      key={index}
+      className="p-6 border-2 border-secondary/30 cursor-pointer transition-all duration-300"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg md:text-xl font-bold font-playfair text-primary">
+          {question}
+        </h3>
+        <ChevronDown
+          className={`w-5 h-5 text-primary transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </div>
+
+      <div
+        className={`transition-all duration-500 ease-in-out overflow-hidden ${
+          isOpen ? "max-h-96 mt-3 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <p className="font-playfair text-secondary leading-relaxed">
+          {answer}
+        </p>
+      </div>
+    </Card>
+  );
+};
+
+export default AccordionItem;

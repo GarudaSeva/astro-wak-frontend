@@ -8,37 +8,31 @@ const Blog = () => {
       title: "Understanding Your Birth Chart",
       excerpt: "Learn how to read and interpret the fundamental elements of your Janma Kundali",
       category: "Astrology Basics",
-      readTime: "5 min read"
     },
     {
       title: "The Power of Gemstones in Vedic Astrology",
       excerpt: "Discover how gemstones can balance planetary energies and bring positive changes",
       category: "Gemstone Wisdom",
-      readTime: "7 min read"
     },
     {
       title: "Navagraha: The Nine Planetary Deities",
       excerpt: "Explore the significance of the nine planets and their influence on our lives",
       category: "Planetary Knowledge",
-      readTime: "8 min read"
     },
     {
       title: "Numerology: Your Life Path Number",
       excerpt: "Calculate and understand the deeper meaning of your Life Path Number",
       category: "Numerology",
-      readTime: "6 min read"
     },
     {
       title: "Auspicious Timings for Important Events",
       excerpt: "Why muhurt matters and how to choose the right time for ceremonies",
       category: "Muhurt",
-      readTime: "5 min read"
     },
     {
       title: "Remedies for Planetary Doshas",
       excerpt: "Practical Vedic remedies to mitigate negative planetary influences",
       category: "Remedies",
-      readTime: "10 min read"
     }
   ];
 
@@ -83,13 +77,19 @@ const Blog = () => {
               cosmic energies shape our destiny. This comprehensive guide covers everything from basic 
               concepts to advanced techniques used by traditional astrologers.
             </p>
-            <div className="flex items-center gap-4 text-sm font-playfair text-secondary mb-6">
+            <div className="flex items-center gap-12 text-sm font-playfair text-secondary mb-6">
               <span className="bg-accent/20 px-3 py-1 rounded-full">Astrology</span>
-              <span>15 min read</span>
-            </div>
-            <Button variant="default" size="lg" className="divine-glow">
-              Read Article
-            </Button>
+            
+            <a
+  href="https://jyotishbooks.wordpress.com/2025/10/25/parashari-jyotish-a-complete-guide-to-vedic-astrology-by-mani-ji/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="default" size="sm" className="divine-glow">
+    Read Article
+  </Button>
+</a>
+</div>
           </Card>
         </div>
 
@@ -113,12 +113,11 @@ const Blog = () => {
                 <p className="font-playfair text-secondary mb-4 text-sm leading-relaxed">
                   {article.excerpt}
                 </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-playfair text-secondary">{article.readTime}</span>
+                {/* <div className="flex items-center justify-between">
                   <Button variant="ghost" size="sm" className="group-hover:text-secondary">
                     Read More →
                   </Button>
-                </div>
+                </div> */}
               </Card>
             ))}
           </div>
@@ -168,16 +167,22 @@ const Blog = () => {
               Subscribe to receive astrological insights, gemstone guidance, and spiritual wisdom 
               directly in your inbox
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 border border-input rounded-md bg-background"
-              />
-              <Button size="lg" className="divine-glow">
-                Subscribe
-              </Button>
-            </div>
+            <div className="flex justify-center mt-6">
+  <Button
+    variant="default"
+    size="sm"
+    className="divine-glow"
+    asChild
+  >
+    <a
+      href="https://wa.me/919553231199?text=Hello%20I%20would%20like%20to%20book%20a%20consultation%20with%20Astro%20Wak."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Book Consultation
+    </a>
+  </Button>
+</div>
           </Card>
         </div>
       </div>

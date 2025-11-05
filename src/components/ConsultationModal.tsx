@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import Pay599Button from "./Pay599Button";
 
 interface ConsultationModalProps {
   open: boolean;
@@ -30,12 +31,12 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     let message = `*New ${serviceType.toUpperCase()} Consultation Request*\n\n`;
     message += `*Name:* ${formData.name}\n`;
     message += `*Email:* ${formData.email}\n`;
     message += `*Phone:* ${formData.phone}\n`;
-    
+
     if (serviceType === "gems") {
       message += `*Consultation Type:* ${formData.consultationType}\n`;
       if (formData.consultationType === "other") {
@@ -44,18 +45,18 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
       }
       message += `*Purpose:* ${formData.purpose}\n`;
     }
-    
+
     message += `*Birth Date:* ${formData.birthDate}\n`;
     message += `*Birth Time:* ${formData.birthTime}\n`;
     message += `*Birth Place:* ${formData.birthPlace}\n`;
-    
+
     if (formData.additionalInfo) {
       message += `*Additional Info:* ${formData.additionalInfo}\n`;
     }
 
     const whatsappUrl = `https://wa.me/919553231199?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
-    
+
     onOpenChange(false);
     setFormData({
       name: "",
@@ -89,19 +90,34 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
     }
   };
 
+  const isFormValid =
+    formData.name.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.phone.trim() !== "" &&
+    formData.birthDate.trim() !== "" &&
+    formData.birthTime.trim() !== "" &&
+    formData.birthPlace.trim() !== "" &&
+    (serviceType !== "gems" ||
+      (formData.consultationType === "self" ||
+        (formData.otherName.trim() !== "" &&
+          formData.otherGender.trim() !== "" &&
+          formData.purpose.trim() !== "")));
+
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-[#b1ac9c]">
         <DialogHeader>
           <DialogTitle className="text-2xl font-playfair text-primary">
             {getTitle()}
           </DialogTitle>
         </DialogHeader>
-        
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <Label htmlFor="name">Full Name *</Label>
             <Input
+              className="border-primary mt-2"
               id="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -114,6 +130,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
             <div>
               <Label htmlFor="email">Email *</Label>
               <Input
+                className="border-primary"
                 id="email"
                 type="email"
                 value={formData.email}
@@ -125,6 +142,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
             <div>
               <Label htmlFor="phone">Phone Number *</Label>
               <Input
+                className="border-primary"
                 id="phone"
                 type="tel"
                 value={formData.phone}
@@ -160,6 +178,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                   <div>
                     <Label htmlFor="otherName">Other Person Name *</Label>
                     <Input
+                      className="mt-2 border-primary"
                       id="otherName"
                       value={formData.otherName}
                       onChange={(e) => setFormData({ ...formData, otherName: e.target.value })}
@@ -168,11 +187,11 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                     />
                   </div>
                   <div>
-                    <Label>Gender *</Label>
+                    <Label className="ml-8">Gender *</Label>
                     <RadioGroup
                       value={formData.otherGender}
                       onValueChange={(value) => setFormData({ ...formData, otherGender: value })}
-                      className="flex gap-4 mt-2"
+                      className="flex gap-8 mt-4 ml-8"
                     >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="male" id="male" />
@@ -193,7 +212,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                   value={formData.purpose}
                   onValueChange={(value) => setFormData({ ...formData, purpose: value })}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="mt-2 border-primary">
                     <SelectValue placeholder="Select purpose" />
                   </SelectTrigger>
                   <SelectContent>
@@ -213,6 +232,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
             <div>
               <Label htmlFor="birthDate">Birth Date *</Label>
               <Input
+                className="border-primary"
                 id="birthDate"
                 type="date"
                 value={formData.birthDate}
@@ -220,9 +240,12 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                 required
               />
             </div>
-            <div>
-              <Label htmlFor="birthTime">Birth Time *</Label>
+            <div className="flex flex-col items-center">
+              <Label htmlFor="birthTime" className="mb-2 text-center">
+                Birth Time *
+              </Label>
               <Input
+                className="border-primary text-center w-1/2" // 👈 centers text & sets width
                 id="birthTime"
                 type="time"
                 value={formData.birthTime}
@@ -230,9 +253,11 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                 required
               />
             </div>
+
             <div>
               <Label htmlFor="birthPlace">Birth Place *</Label>
               <Input
+                className="border-primary"
                 id="birthPlace"
                 value={formData.birthPlace}
                 onChange={(e) => setFormData({ ...formData, birthPlace: e.target.value })}
@@ -241,27 +266,33 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
               />
             </div>
           </div>
+          {serviceType !== "gems" &&
+            <div>
+              <Label htmlFor="additionalInfo">Additional Information</Label>
+              <Textarea
+                className="border-primary"
+                id="additionalInfo"
+                value={formData.additionalInfo}
+                onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
+                placeholder="Any specific questions or concerns?"
+                rows={3}
+              />
+            </div>
+          }
 
-          <div>
-            <Label htmlFor="additionalInfo">Additional Information</Label>
-            <Textarea
-              id="additionalInfo"
-              value={formData.additionalInfo}
-              onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
-              placeholder="Any specific questions or concerns?"
-              rows={3}
-            />
-          </div>
+          {serviceType !== "gems" ? (
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
+            >
+              Send via WhatsApp
+            </Button>
+          ) : (
+            <Pay599Button name={formData.name} email={formData.email} disabled={!isFormValid} />
+          )}
 
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
-          >
-            Send via WhatsApp
-          </Button>
-
-          <p className="text-xs text-center text-muted-foreground">
+          <p className="text-xs text-center text-secondary">
             Your request will be sent to our WhatsApp for immediate assistance
           </p>
         </form>

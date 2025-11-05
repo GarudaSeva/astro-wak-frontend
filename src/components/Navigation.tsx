@@ -43,7 +43,7 @@ const Navigation = () => {
                 key={link.path}
                 to={link.path}
                 className={`px-4 py-2 rounded-lg transition-all duration-300 ${isActive(link.path)
-                    ? "bg-primary font-playfair text-secondary font-semibold"
+                    ? "bg-secondary font-playfair text-secondary font-semibold"
                     : " font-playfair text-secondary hover:bg-accent hover:text-accent-foreground"
                   }`}
               >

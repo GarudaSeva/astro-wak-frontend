@@ -1,9 +1,9 @@
 import { Phone, MapPin, Mail } from "lucide-react";
-import diyaIcon from "@/assets/diya-icon.png";
+import diyaIcon from "@/assets/lord-ganesh.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-muted text-muted-foreground py-12 mt-20">
+    <footer className="bg-muted text-secondary py-12 mt-20">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About Section */}

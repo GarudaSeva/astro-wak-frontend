@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection";
 import SlokaCard from "@/components/SlokaCard";
 import ConsultationModal from "@/components/ConsultationModal";
 import astrologerPhoto from "@/assets/astrologer-photo.jpg";
+import Pay599Button from "@/components/Pay599Button";
 
 const Home = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -49,6 +50,7 @@ const Home = () => {
     }
   ];
 
+  
   return (
     <div className="min-h-screen">
       <HeroSection />
@@ -71,7 +73,7 @@ const Home = () => {
                 <h3 className="text-xl font-bold font-playfair text-primary">
                   Brahma Shri Jaanakiram Garu
                 </h3>
-                <p className="text-sm text-muted-foreground ">
+                <p className="text-sm text-secondary">
                   Expert Vedic Astrologer & Spiritual Guide
                 </p>
                 <div className="space-y-2 text-sm pt-2">
