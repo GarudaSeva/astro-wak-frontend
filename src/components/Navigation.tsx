@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import swastik from "@/assets/image-removebg-preview.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-2 group">
             <img
-              src="src\assets\image-removebg-preview.png"
+              src={swastik}
               alt="Astro Wak Logo"
               className="h-10 w-12 object-contain transition-transform duration-300 group-hover:scale-110"
             />

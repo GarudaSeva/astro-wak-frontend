@@ -7,6 +7,7 @@ import SlokaCard from "@/components/SlokaCard";
 import ConsultationModal from "@/components/ConsultationModal";
 import astrologerPhoto from "@/assets/astrologer-photo.jpg";
 import Pay599Button from "@/components/Pay599Button";
+import logo from "@/assets/lord-ganesh.png"
 
 const Home = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -125,7 +126,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <img
-              src="src\assets\lord-ganesh.png"
+              src={logo}
               alt="Astro Wak Symbol"
               className="h-24 w-32 mx-auto mb-2 animate-twinkle drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]"
               style={{
