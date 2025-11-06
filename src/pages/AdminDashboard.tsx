@@ -174,7 +174,7 @@ const AdminDashboard = () => {
           </div>
         ) : (
           <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as any)} className="w-full">
-            <TabsList className="flex justify-center mb-6">
+            <TabsList className="flex justify-center mb-6 text-yellow-500">
               <TabsTrigger value="bookings">Gem Bookings</TabsTrigger>
               <TabsTrigger value="consultations">Consultations</TabsTrigger>
             </TabsList>
@@ -189,7 +189,7 @@ const AdminDashboard = () => {
                     placeholder="Search by name, email, order ID, or payment ID..."
                     value={bookingsFilters.search}
                     onChange={(e) => setBookingsFilters({ ...bookingsFilters, search: e.target.value })}
-                    className="pl-9 border-primary"
+                    className="pl-9 border-primary text-black placeholder:text-black"
                   />
                 </div>
 
@@ -241,7 +241,7 @@ const AdminDashboard = () => {
 
               {/* Table */}
               {bookings.length === 0 ? (
-                <p className="text-center text-secondary">No bookings found.</p>
+                <p className="text-center text-yellow-700">No bookings found.</p>
               ) : (
                 <Card className="p-6 overflow-x-auto border-2 border-secondary/30 shadow-md">
                   <Table>
@@ -301,7 +301,7 @@ const AdminDashboard = () => {
                     onChange={(e) =>
                       setConsultationFilters({ ...consultationFilters, search: e.target.value })
                     }
-                    className="pl-9 border-primary"
+                    className="pl-9 border-primary placeholder:text-black"
                   />
                 </div>
 
@@ -371,7 +371,7 @@ const AdminDashboard = () => {
 
               {/* Table */}
               {consultations.length === 0 ? (
-                <p className="text-center text-secondary">No consultations found.</p>
+                <p className="text-center text-yellow-700">No consultations found.</p>
               ) : (
                 <Card className="p-6 overflow-x-auto border-2 border-secondary/30 shadow-md">
                   <Table>
