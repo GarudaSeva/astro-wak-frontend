@@ -63,18 +63,18 @@ const PoojaHoma = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in-up mt-8">
-          {/* <Flame className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
+          {/* <Flame className="h-16 w-16 mx-auto mb-4 text-yellow-700 animate-twinkle" /> */}
           <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
             Pooja & Homa Services
           </h1>
-          <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
+          <p className="text-xl font-playfair text-yellow-700 max-w-3xl mx-auto">
             Manifest your desires & wishes through sacred rituals
           </p>
         </div>
 
         {/* Sloka */}
         <div className="mb-16">
-          <SlokaCard 
+          <SlokaCard
             sloka="ఓం సర్వమంగళమాంగళ్యే శివే సర్వార్థ సాధికే శరణ్యే త్రయంబకే గౌరీ నారాయణీ నమోస్తుతే||"
             translation="Om, to the One who is the auspiciousness of all that is auspicious, who is pure, who grants all desires, the one who is refuge, who has three eyes, Gauri (Parvati), Narayani, to You, I bow."
           />
@@ -106,50 +106,50 @@ const PoojaHoma = () => {
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
               The Power of Vedic Rituals
             </h2>
-            <div className="space-y-4 font-playfair text-secondary leading-relaxed">
+            <div className="space-y-4 font-playfair text-yellow-700 leading-relaxed">
               <p>
-                Pooja (worship) and Homa (fire ritual) are ancient Vedic practices that have been performed 
-                for thousands of years to invoke divine blessings, remove obstacles, and manifest positive 
-                energies in one's life. These sacred ceremonies create a powerful spiritual connection between 
+                Pooja (worship) and Homa (fire ritual) are ancient Vedic practices that have been performed
+                for thousands of years to invoke divine blessings, remove obstacles, and manifest positive
+                energies in one's life. These sacred ceremonies create a powerful spiritual connection between
                 the devotee and the divine forces.
               </p>
               <p>
-                During a Homa, offerings are made into the sacred fire (Agni) while chanting powerful mantras. 
-                Fire is considered the divine messenger that carries our prayers and offerings to the deities. 
-                The smoke, vibrations of mantras, and the sanctified atmosphere create transformative energies 
+                During a Homa, offerings are made into the sacred fire (Agni) while chanting powerful mantras.
+                Fire is considered the divine messenger that carries our prayers and offerings to the deities.
+                The smoke, vibrations of mantras, and the sanctified atmosphere create transformative energies
                 that purify the environment and the participants.
               </p>
-              <br/>
-              <strong className="font-semibold font-playfair text-secondary ">
+              <br />
+              <strong className="font-semibold font-playfair text-yellow-700 ">
                 Benefits of Performing Pooja & Homa:
               </strong>
               <ul className="space-y-2 ml-6">
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary">✦</span>
+                  <span className="text-yellow-700">✦</span>
                   <span>Removal of planetary doshas and negative influences</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary">✦</span>
+                  <span className="text-yellow-700">✦</span>
                   <span>Fulfillment of specific desires and goals</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary">✦</span>
+                  <span className="text-yellow-700">✦</span>
                   <span>Health improvement and disease prevention</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary">✦</span>
+                  <span className="text-yellow-700">✦</span>
                   <span>Financial prosperity and business success</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary">✦</span>
+                  <span className="text-yellow-700">✦</span>
                   <span>Spiritual growth and mental peace</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary">✦</span>
+                  <span className="text-yellow-700">✦</span>
                   <span>Protection from negative energies</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-secondary">✦</span>
+                  <span className="text-yellow-700">✦</span>
                   <span>Harmonious family relationships</span>
                 </li>
               </ul>
@@ -164,21 +164,21 @@ const PoojaHoma = () => {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
-              <Card 
+              <Card
                 key={index}
                 className="p-6 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-secondary/50 group"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <Flame className="h-8 w-8 text-secondary group-hover:animate-twinkle" />
+                  <Flame className="h-8 w-8 text-yellow-700 group-hover:animate-twinkle" />
                   <h3 className="text-xl font-bold font-playfair text-primary">
                     {service.title}
                   </h3>
                 </div>
-                <p className="font-playfair text-secondary mb-4 text-sm">
+                <p className="font-playfair text-yellow-700 mb-4 text-sm">
                   {service.description}
                 </p>
                 <div className="bg-accent/20 rounded-lg p-3">
-                  <p className="text-xs font-semibold text-secondary mb-1">Benefits:</p>
+                  <p className="text-xs font-semibold text-yellow-700 mb-1">Benefits:</p>
                   <p className="text-sm text-foreground">{service.benefits}</p>
                 </div>
               </Card>
@@ -189,14 +189,14 @@ const PoojaHoma = () => {
         {/* CTA Section */}
         <div className="max-w-2xl mx-auto text-center">
           <Card className="p-8 border-2 border-secondary/30">
-            <Flame className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
+            {/* <Flame className="h-16 w-16 mx-auto mb-4 text-yellow-700 animate-twinkle" /> */}
             <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
               Book Your Sacred Ritual
             </h2>
-            <p className="font-playfair text-secondary mb-6">
+            <p className="font-playfair text-yellow-700 mb-6">
               Choose from our comprehensive pooja and homa services
             </p>
-            <Button 
+            <Button
               size="lg"
               onClick={() => setModalOpen(true)}
               className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
@@ -206,9 +206,9 @@ const PoojaHoma = () => {
           </Card>
         </div>
       </div>
-      
-      <ConsultationModal 
-        open={modalOpen} 
+
+      <ConsultationModal
+        open={modalOpen}
         onOpenChange={setModalOpen}
         serviceType="pooja"
       />

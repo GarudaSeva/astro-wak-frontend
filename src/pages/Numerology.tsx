@@ -17,7 +17,7 @@ const Numerology = () => {
           <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
             Numerology
           </h1>
-          <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
+          <p className="text-xl font-playfair text-yellow-700 max-w-3xl mx-auto">
             Where numbers whisper the story of your life's true path
           </p>
         </div>
@@ -35,7 +35,7 @@ const Numerology = () => {
           <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
             The Power of Numbers
           </h2>
-          <div className="space-y-4 font-playfair text-secondary">
+          <div className="space-y-4 font-playfair text-yellow-700">
             <p className="leading-relaxed mb-2">
               Numerology is the ancient science of numbers and their mystical
               influence on human life. Every number carries a unique vibration
@@ -96,7 +96,7 @@ const Numerology = () => {
             <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
               Benefits of Numerology
             </h3>
-            <div className="space-y-3 font-playfair text-secondary">
+            <div className="space-y-3 font-playfair text-yellow-700">
               <div className="flex items-start gap-2">
                 <span className="text-2xl">🔮</span>
                 <div>
@@ -141,11 +141,11 @@ const Numerology = () => {
         {/* 3️⃣ Get Numerology Report - Centered Card */}
         <div className="flex justify-center">
           <Card className="p-8 border-2 border-secondary/30 text-center max-w-lg w-full">
-            {/* <Hash className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
+            {/* <Hash className="h-16 w-16 mx-auto mb-4 text-yellow-700 animate-twinkle" /> */}
             <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
               Unlock Your Numbers
             </h2>
-            <p className="mb-6 font-playfair text-secondary">
+            <p className="mb-6 font-playfair text-yellow-700">
               Discover your life path, lucky numbers, and name vibrations
             </p>
             <Button

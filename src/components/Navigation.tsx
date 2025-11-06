@@ -32,7 +32,7 @@ const Navigation = () => {
             />
             <div>
               <h1 className="text-2xl font-bold font-playfair text-primary">Astro Wak</h1>
-              <strong className="text-xs font-playfair text-secondary">Divine Guidance</strong>
+              <strong className="text-xs font-playfair text-yellow-700">Divine Guidance</strong>
             </div>
           </Link>
 
@@ -44,8 +44,8 @@ const Navigation = () => {
                 key={link.path}
                 to={link.path}
                 className={`px-4 py-2 rounded-lg transition-all duration-300 ${isActive(link.path)
-                    ? "bg-secondary font-playfair text-secondary font-semibold"
-                    : " font-playfair text-secondary hover:bg-accent hover:text-accent-foreground"
+                    ? "bg-secondary font-playfair text-yellow-700 font-semibold"
+                    : " font-playfair text-yellow-700 hover:bg-accent hover:text-accent-foreground"
                   }`}
               >
                 {link.label}

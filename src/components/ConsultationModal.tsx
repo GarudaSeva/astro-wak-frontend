@@ -103,21 +103,21 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
           formData.otherGender.trim() !== "" &&
           formData.purpose.trim() !== "")));
 
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-[#b1ac9c]">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-[#b1ac9c] rounded-2xl shadow-xl">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-playfair text-primary">
+          <DialogTitle className="text-2xl font-playfair text-primary text-center">
             {getTitle()}
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5 mt-3">
+          {/* Full Name */}
           <div>
-            <Label htmlFor="name">Full Name *</Label>
+            <Label htmlFor="name" className="text-yellow-700">Full Name *</Label>
             <Input
-              className="border-primary mt-2"
+              className="border-primary mt-2 placeholder:text-gray-700"
               id="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -126,11 +126,12 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          {/* Email & Phone */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="email">Email *</Label>
+              <Label htmlFor="email" className="text-yellow-700">Email *</Label>
               <Input
-                className="border-primary"
+                className="border-primary placeholder:text-gray-700"
                 id="email"
                 type="email"
                 value={formData.email}
@@ -140,66 +141,69 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
               />
             </div>
             <div>
-              <Label htmlFor="phone">Phone Number *</Label>
+              <Label htmlFor="phone" className="text-yellow-700">Phone Number *</Label>
               <Input
-                className="border-primary"
+                className="border-primary placeholder:text-gray-700"
                 id="phone"
                 type="tel"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="+91 "
+                placeholder="Enter phone number"
                 required
               />
             </div>
           </div>
 
+          {/* Gems Fields */}
           {serviceType === "gems" && (
             <>
               <div>
-                <Label>Consultation For *</Label>
+                <Label className="text-yellow-700">Consultation For *</Label>
                 <RadioGroup
                   value={formData.consultationType}
                   onValueChange={(value) => setFormData({ ...formData, consultationType: value })}
-                  className="flex gap-4 mt-2"
+                  className="flex gap-6 mt-2"
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="self" id="self" />
-                    <Label htmlFor="self" className="font-normal cursor-pointer">Self</Label>
+                    <Label htmlFor="self">Self</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="other" id="other" />
-                    <Label htmlFor="other" className="font-normal cursor-pointer">Other</Label>
+                    <Label htmlFor="other">Other</Label>
                   </div>
                 </RadioGroup>
               </div>
 
               {formData.consultationType === "other" && (
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="otherName">Other Person Name *</Label>
+                    <Label htmlFor="otherName" className="text-yellow-700">Other Person Name *</Label>
                     <Input
-                      className="mt-2 border-primary"
+                      className="mt-2 border-primary placeholder:text-gray-700"
                       id="otherName"
                       value={formData.otherName}
                       onChange={(e) => setFormData({ ...formData, otherName: e.target.value })}
-                      placeholder="Name"
+                      placeholder="Enter name"
                       required
                     />
                   </div>
                   <div>
-                    <Label className="ml-8">Gender *</Label>
+                    <Label className="text-yellow-700">Gender *</Label>
                     <RadioGroup
                       value={formData.otherGender}
                       onValueChange={(value) => setFormData({ ...formData, otherGender: value })}
-                      className="flex gap-8 mt-4 ml-8"
+                      className="flex gap-6 mt-3"
                     >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="male" id="male" />
-                        <Label htmlFor="male" className="font-normal cursor-pointer">Male</Label>
+                        <Label htmlFor="male">Male</Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="female" id="female" />
-                        <Label htmlFor="female" className="font-normal cursor-pointer">Female</Label>
+                        <Label htmlFor="female">Female</Label>
                       </div>
                     </RadioGroup>
                   </div>
@@ -207,12 +211,12 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
               )}
 
               <div>
-                <Label htmlFor="purpose">Purpose to Wear *</Label>
+                <Label htmlFor="purpose" className="text-yellow-700">Purpose to Wear *</Label>
                 <Select
                   value={formData.purpose}
                   onValueChange={(value) => setFormData({ ...formData, purpose: value })}
                 >
-                  <SelectTrigger className="mt-2 border-primary">
+                  <SelectTrigger className="mt-2 border-primary placeholder:text-gray-700">
                     <SelectValue placeholder="Select purpose" />
                   </SelectTrigger>
                   <SelectContent>
@@ -228,11 +232,12 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
             </>
           )}
 
-          <div className="grid grid-cols-3 gap-4">
+          {/* Birth Details */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <Label htmlFor="birthDate">Birth Date *</Label>
+              <Label htmlFor="birthDate" className="text-yellow-700">Birth Date *</Label>
               <Input
-                className="border-primary"
+                className="border-primary text-center placeholder:text-gray-700"
                 id="birthDate"
                 type="date"
                 value={formData.birthDate}
@@ -240,37 +245,49 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                 required
               />
             </div>
-            <div className="flex flex-col items-center">
-              <Label htmlFor="birthTime" className="mb-2 text-center">
+
+            <div className="relative">
+              <Label htmlFor="birthTime" className="text-yellow-700">
                 Birth Time *
               </Label>
-              <Input
-                className="border-primary text-center w-1/2" // 👈 centers text & sets width
-                id="birthTime"
-                type="time"
-                value={formData.birthTime}
-                onChange={(e) => setFormData({ ...formData, birthTime: e.target.value })}
-                required
-              />
+
+              <div className="relative mt-2">
+                <Input
+                  className="border-primary placeholder:text-gray-700 pl-10 text-center" // 👈 adds left padding
+                  id="birthTime"
+                  type="time"
+                  value={formData.birthTime}
+                  onChange={(e) => setFormData({ ...formData, birthTime: e.target.value })}
+                  required
+                />
+
+                {/* Clock icon inside input */}
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-yellow-700 pointer-events-none text-lg">
+                  🕒
+                </span>
+              </div>
             </div>
 
+
             <div>
-              <Label htmlFor="birthPlace">Birth Place *</Label>
+              <Label htmlFor="birthPlace" className="text-yellow-700">Birth Place *</Label>
               <Input
-                className="border-primary"
+                className="border-primary placeholder:text-gray-700"
                 id="birthPlace"
                 value={formData.birthPlace}
                 onChange={(e) => setFormData({ ...formData, birthPlace: e.target.value })}
-                placeholder="City"
+                placeholder="Enter city"
                 required
               />
             </div>
           </div>
-          {serviceType !== "gems" &&
+
+          {/* Additional Info */}
+          {serviceType !== "gems" && (
             <div>
-              <Label htmlFor="additionalInfo">Additional Information</Label>
+              <Label htmlFor="additionalInfo" className="text-yellow-700">Additional Information</Label>
               <Textarea
-                className="border-primary"
+                className="border-primary placeholder:text-gray-700"
                 id="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
@@ -278,8 +295,9 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                 rows={3}
               />
             </div>
-          }
+          )}
 
+          {/* Submit / Payment */}
           {serviceType !== "gems" ? (
             <Button
               type="submit"

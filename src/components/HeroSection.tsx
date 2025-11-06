@@ -11,7 +11,7 @@ const HeroSection = () => {
   return (
     <>
       <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden my-4"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden my-8"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(128, 0, 0, 0.6)), url(${heroBackground})`,
           backgroundSize: 'cover',
@@ -45,14 +45,16 @@ const HeroSection = () => {
             <img
               src={logo}
               alt="Astro Wak Symbol"
-              className="h-24 w-32 mx-auto mb-2 animate-twinkle drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]"
-              style={{
-                filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.7))',
-              }}
+              className="h-24 w-32 mx-auto mb-2 "
+              // className="h-24 w-32 mx-auto mb-2 animate-twinkle drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]"
+              // style={{
+              //   filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.7))',
+              // }}
             />
+            <strong className="text-yellow-600 text-xl ">ఓం శ్రీ గురుభ్యో నమః</strong>
 
             <h1 className="text-5xl md:text-7xl font-bold font-playfair text-white mb-6 leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-              Welcome to <span className="text-secondary drop-shadow-[0_0_20px_rgba(255,215,0,0.6)]">Astro Wak</span>
+              Welcome to <span className="text-yellow-600">Astro Wak</span>
             </h1>
 
             <p className="text-2xl md:text-3xl text-white font-semibold mb-4 max-w-3xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
@@ -84,11 +86,11 @@ const HeroSection = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+        {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
           <div className="w-6 h-10 border-2 border-secondary rounded-full flex justify-center">
             <div className="w-2 h-2 bg-secondary rounded-full mt-2 animate-pulse" />
           </div>
-        </div>
+        </div> */}
       </section>
 
       <ConsultationModal
