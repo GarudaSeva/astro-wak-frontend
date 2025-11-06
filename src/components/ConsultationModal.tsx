@@ -29,49 +29,66 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
     additionalInfo: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    let message = `*New ${serviceType.toUpperCase()} Consultation Request*\n\n`;
-    message += `*Name:* ${formData.name}\n`;
-    message += `*Email:* ${formData.email}\n`;
-    message += `*Phone:* ${formData.phone}\n`;
-
-    if (serviceType === "gems") {
-      message += `*Consultation Type:* ${formData.consultationType}\n`;
-      if (formData.consultationType === "other") {
-        message += `*Other Person Name:* ${formData.otherName}\n`;
-        message += `*Gender:* ${formData.otherGender}\n`;
-      }
-      message += `*Purpose:* ${formData.purpose}\n`;
-    }
-
-    message += `*Birth Date:* ${formData.birthDate}\n`;
-    message += `*Birth Time:* ${formData.birthTime}\n`;
-    message += `*Birth Place:* ${formData.birthPlace}\n`;
-
-    if (formData.additionalInfo) {
-      message += `*Additional Info:* ${formData.additionalInfo}\n`;
-    }
-
-    const whatsappUrl = `https://wa.me/919553231199?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
-
-    onOpenChange(false);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      consultationType: "self",
-      otherName: "",
-      otherGender: "",
-      purpose: "",
-      birthDate: "",
-      birthTime: "",
-      birthPlace: "",
-      additionalInfo: "",
+  // 🔹 1. Save data to MongoDB
+  try {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/consultations`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...formData,
+        serviceType,
+      }),
     });
-  };
+  } catch (err) {
+    console.error("❌ Failed to store consultation:", err);
+  }
+
+  // 🔹 2. Send WhatsApp Message
+  let message = `*New ${serviceType.toUpperCase()} Consultation Request*\n\n`;
+  message += `*Name:* ${formData.name}\n`;
+  message += `*Email:* ${formData.email}\n`;
+  message += `*Phone:* ${formData.phone}\n`;
+
+  if (serviceType === "gems") {
+    message += `*Consultation Type:* ${formData.consultationType}\n`;
+    if (formData.consultationType === "other") {
+      message += `*Other Person Name:* ${formData.otherName}\n`;
+      message += `*Gender:* ${formData.otherGender}\n`;
+    }
+    message += `*Purpose:* ${formData.purpose}\n`;
+  }
+
+  message += `*Birth Date:* ${formData.birthDate}\n`;
+  message += `*Birth Time:* ${formData.birthTime}\n`;
+  message += `*Birth Place:* ${formData.birthPlace}\n`;
+
+  if (formData.additionalInfo) {
+    message += `*Additional Info:* ${formData.additionalInfo}\n`;
+  }
+
+  const whatsappUrl = `https://wa.me/919553231199?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, "_blank");
+
+  // 🔹 3. Reset and close modal
+  onOpenChange(false);
+  setFormData({
+    name: "",
+    email: "",
+    phone: "",
+    consultationType: "self",
+    otherName: "",
+    otherGender: "",
+    purpose: "",
+    birthDate: "",
+    birthTime: "",
+    birthPlace: "",
+    additionalInfo: "",
+  });
+};
+
 
   const getTitle = () => {
     switch (serviceType) {
