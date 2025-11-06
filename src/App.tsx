@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop"; // ✅ Add this line
 import Home from "./pages/Home";
 import Horoscope from "./pages/Horoscope";
 import Numerology from "./pages/Numerology";
@@ -22,6 +23,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* 👇 Add this line inside BrowserRouter, before content */}
+        <ScrollToTop />
+
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-grow">
@@ -33,7 +37,7 @@ const App = () => (
               <Route path="/muhurt" element={<ShubhaMuhurt />} />
               <Route path="/pooja" element={<PoojaHoma />} />
               <Route path="/blog" element={<Blog />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
