@@ -251,7 +251,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                 Birth Time *
               </Label>
 
-              <div className="relative mt-2">
+              <div className="relative">
                 <Input
                   className="border-primary placeholder:text-gray-700 pl-10 text-center" // 👈 adds left padding
                   id="birthTime"

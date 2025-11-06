@@ -60,9 +60,11 @@ const Footer = () => {
             </p>
             <img src={diyaIcon} alt="Diya" className="text-yellow-700 h-12 w-12" />
           </div>
-          <p className="text-center text-yellow-700 text-sm">
-            © {new Date().getFullYear()} Astro Wak | All Rights Reserved | Developed by Build your vision
+          <p className="text-center text-yellow-700 text-sm flex flex-col sm:flex-row items-center justify-center gap-1 text-wrap">
+            <span>© {new Date().getFullYear()} Astro Wak | All Rights Reserved |</span>
+            <span>Developed by Build your vision</span>
           </p>
+
         </div>
       </div>
     </footer>
