@@ -11,7 +11,7 @@ const HeroSection = () => {
   return (
     <>
       <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden my-8"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden my-12"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(128, 0, 0, 0.6)), url(${heroBackground})`,
           backgroundSize: 'cover',
@@ -62,7 +62,7 @@ const HeroSection = () => {
             </p>
 
             <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-              Discover your cosmic destiny with Brahma Shri Jaanakiram Garu
+              Discover your cosmic destiny with <span className="text-yellow-600"><strong> Brahma Shri Jaanakiram Garu </strong></span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
