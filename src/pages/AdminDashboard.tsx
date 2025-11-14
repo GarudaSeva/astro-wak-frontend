@@ -232,7 +232,7 @@ const AdminDashboard = () => {
                   <Button
                     variant="outline"
                     onClick={() => clearFilters("bookings")}
-                    className="border-yellow-600 text-yellow-700 hover:bg-yellow-100"
+                    className="border-yellow-600 text-secondary hover:bg-yellow-100"
                   >
                     Clear
                   </Button>
@@ -241,7 +241,7 @@ const AdminDashboard = () => {
 
               {/* Table */}
               {bookings.length === 0 ? (
-                <p className="text-center text-yellow-700">No bookings found.</p>
+                <p className="text-center text-secondary">No bookings found.</p>
               ) : (
                 <Card className="p-6 overflow-x-auto border-2 border-secondary/30 shadow-md">
                   <Table>
@@ -362,7 +362,7 @@ const AdminDashboard = () => {
                   <Button
                     variant="outline"
                     onClick={() => clearFilters("consultations")}
-                    className="border-yellow-600 text-yellow-700 hover:bg-yellow-100"
+                    className="border-yellow-600 text-secondary hover:bg-yellow-100"
                   >
                     Clear
                   </Button>
@@ -371,7 +371,7 @@ const AdminDashboard = () => {
 
               {/* Table */}
               {consultations.length === 0 ? (
-                <p className="text-center text-yellow-700">No consultations found.</p>
+                <p className="text-center text-secondary">No consultations found.</p>
               ) : (
                 <Card className="p-6 overflow-x-auto border-2 border-secondary/30 shadow-md">
                   <Table>

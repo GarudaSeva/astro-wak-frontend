@@ -132,7 +132,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
         <form onSubmit={handleSubmit} className="space-y-5 mt-3">
           {/* Full Name */}
           <div>
-            <Label htmlFor="name" className="text-yellow-700">Full Name *</Label>
+            <Label htmlFor="name" className="text-secondary">Full Name *</Label>
             <Input
               className="border-primary mt-2 placeholder:text-gray-700"
               id="name"
@@ -146,7 +146,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
           {/* Email & Phone */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="email" className="text-yellow-700">Email *</Label>
+              <Label htmlFor="email" className="text-secondary">Email *</Label>
               <Input
                 className="border-primary placeholder:text-gray-700"
                 id="email"
@@ -158,7 +158,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
               />
             </div>
             <div>
-              <Label htmlFor="phone" className="text-yellow-700">Phone Number *</Label>
+              <Label htmlFor="phone" className="text-secondary">Phone Number *</Label>
               <Input
                 className="border-primary placeholder:text-gray-700"
                 id="phone"
@@ -177,7 +177,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
           {serviceType === "gems" && (
             <>
               <div>
-                <Label className="text-yellow-700">Consultation For *</Label>
+                <Label className="text-secondary">Consultation For *</Label>
                 <RadioGroup
                   value={formData.consultationType}
                   onValueChange={(value) => setFormData({ ...formData, consultationType: value })}
@@ -197,7 +197,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
               {formData.consultationType === "other" && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="otherName" className="text-yellow-700">Other Person Name *</Label>
+                    <Label htmlFor="otherName" className="text-secondary">Other Person Name *</Label>
                     <Input
                       className="mt-2 border-primary placeholder:text-gray-700"
                       id="otherName"
@@ -208,7 +208,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                     />
                   </div>
                   <div>
-                    <Label className="text-yellow-700">Gender *</Label>
+                    <Label className="text-secondary">Gender *</Label>
                     <RadioGroup
                       value={formData.otherGender}
                       onValueChange={(value) => setFormData({ ...formData, otherGender: value })}
@@ -228,7 +228,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
               )}
 
               <div>
-                <Label htmlFor="purpose" className="text-yellow-700">Purpose to Wear *</Label>
+                <Label htmlFor="purpose" className="text-secondary">Purpose to Wear *</Label>
                 <Select
                   value={formData.purpose}
                   onValueChange={(value) => setFormData({ ...formData, purpose: value })}
@@ -252,7 +252,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
           {/* Birth Details */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <Label htmlFor="birthDate" className="text-yellow-700">Birth Date *</Label>
+              <Label htmlFor="birthDate" className="text-secondary">Birth Date *</Label>
               <Input
                 className="border-primary text-center placeholder:text-gray-700"
                 id="birthDate"
@@ -264,7 +264,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
             </div>
 
             <div className="relative">
-              <Label htmlFor="birthTime" className="text-yellow-700">
+              <Label htmlFor="birthTime" className="text-secondary">
                 Birth Time *
               </Label>
 
@@ -279,7 +279,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
                 />
 
                 {/* Clock icon inside input */}
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-yellow-700 pointer-events-none text-lg">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none text-lg">
                   🕒
                 </span>
               </div>
@@ -287,7 +287,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
 
 
             <div>
-              <Label htmlFor="birthPlace" className="text-yellow-700">Birth Place *</Label>
+              <Label htmlFor="birthPlace" className="text-secondary">Birth Place *</Label>
               <Input
                 className="border-primary placeholder:text-gray-700"
                 id="birthPlace"
@@ -302,7 +302,7 @@ const ConsultationModal = ({ open, onOpenChange, serviceType }: ConsultationModa
           {/* Additional Info */}
           {serviceType !== "gems" && (
             <div>
-              <Label htmlFor="additionalInfo" className="text-yellow-700">Additional Information</Label>
+              <Label htmlFor="additionalInfo" className="text-secondary">Additional Information</Label>
               <Textarea
                 className="border-primary placeholder:text-gray-700"
                 id="additionalInfo"

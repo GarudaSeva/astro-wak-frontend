@@ -74,14 +74,14 @@ const Home = () => {
                 <h3 className="text-xl font-bold font-playfair text-primary">
                   Brahma Shri Jaanakiram Garu
                 </h3>
-                <p className="text-sm text-yellow-700">
+                <p className="text-sm text-secondary">
                   Expert Vedic Astrologer & Spiritual Guide
                 </p>
 
                 <div className="relative flex flex-col items-center text-center md:items-start md:text-left space-y-2 text-sm pt-2">
                   {/* Address */}
                   <div className="relative w-full max-w-[280px] mx-auto md:mx-0 pl-5">
-                    <MapPin className="absolute left-0 top-1 h-4 w-4 text-yellow-700" />
+                    <MapPin className="absolute left-0 top-1 h-4 w-4 text-secondary" />
                     <p className="text-foreground/80 leading-relaxed">
                       Walbridge apts, Radha Nagar, Sun City, Hyderabad – 500091
                     </p>
@@ -90,17 +90,17 @@ const Home = () => {
                   {/* Phone Numbers */}
                   <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-2 pt-2">
                     <div className="relative pl-5">
-                      <Phone className="absolute left-0 top-1 h-4 w-4 text-yellow-700" />
+                      <Phone className="absolute left-0 top-1 h-4 w-4 text-secondary" />
                       <div className="flex gap-6">
                         <a
                           href="tel:9553231199"
-                          className="text-foreground hover:text-yellow-700 transition-colors font-semibold"
+                          className="text-foreground hover:text-secondary transition-colors font-semibold"
                         >
                           +91 9553231199
                         </a>
                         <a
                           href="tel:9441662365"
-                          className="text-foreground hover:text-yellow-700 transition-colors font-semibold"
+                          className="text-foreground hover:text-secondary transition-colors font-semibold"
                         >
                           +91 9441662365
                         </a>
@@ -117,12 +117,12 @@ const Home = () => {
               <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary">
                 About Brahma Shri Jaanakiram Garu
               </h2>
-              <p className="text-lg font-playfair text-yellow-700 leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
+              <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
                 Welcome to Astro Wak, your trusted gateway to divine guidance and cosmic wisdom.
                 Led by the esteemed <span className="text-primary font-semibold">Brahma Shri Jaanakiram Garu</span>,
                 we bring you authentic Vedic astrology services rooted in ancient traditions.
               </p>
-              <p className="text-lg font-playfair text-yellow-700 leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
+              <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
                 With years of dedicated study and practice in astrology, numerology, gemstone therapy,
                 and Vedic rituals, our mission is to illuminate your path with spiritual insights and
                 practical guidance for life's journey.
@@ -151,7 +151,7 @@ const Home = () => {
             <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary mb-4">
               Our Services
             </h2>
-            <p className="text-xl max-w-2xl mx-auto font-playfair text-yellow-700">
+            <p className="text-xl max-w-2xl mx-auto font-playfair text-secondary">
               Comprehensive astrological guidance for every aspect of your life
             </p>
           </div>
@@ -165,17 +165,17 @@ const Home = () => {
                   className="p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-yellow-50 hover:border-secondary/50 group"
                 >
                   <div className="flex justify-center mb-4">
-                    <Icon className="h-10 w-10 text-yellow-700 group-hover:scale-110 transition-transform" />
+                    <Icon className="h-10 w-10 text-secondary group-hover:scale-110 transition-transform" />
                   </div>
                   <h3 className="text-2xl font-bold font-playfair text-primary mb-3 text-center">
                     {service.title}
                   </h3>
-                  <p className=" text-center font-playfair text-yellow-700 mb-6">
+                  <p className=" text-center font-playfair text-secondary mb-6">
                     {service.description}
                   </p>
                   <Button
                     variant="outline"
-                    className="w-full group-hover:bg-secondary group-hover:text-yellow-700-foreground transition-colors"
+                    className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors"
                     onClick={() => {
                       setSelectedService(service.serviceType);
                       setModalOpen(true);
@@ -202,7 +202,7 @@ const Home = () => {
           <Button
             size="lg"
             variant="outline"
-            className="text-lg px-8 py-6 bg-secondary hover:bg-secondary/90 text-yellow-700-foreground border-secondary divine-glow"
+            className="text-lg px-8 py-6 bg-secondary hover:bg-secondary/90 text-secondary-foreground border-secondary divine-glow"
             asChild
           >
             <a href="tel:9553231199">Call Now: +91 9553231199</a>

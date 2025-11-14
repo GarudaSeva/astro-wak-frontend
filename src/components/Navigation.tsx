@@ -10,7 +10,7 @@ const Navigation = () => {
 
   const navLinks = [
     { path: "/", label: "Home" },
-    { path: "/horoscope", label: "Janma Patrika" },
+    { path: "/horoscope", label: "Horoscope" },
     { path: "/numerology", label: "Numerology" },
     { path: "/gems", label: "Gems" },
     { path: "/muhurt", label: "Shubha Muhurt" },
@@ -31,11 +31,14 @@ const Navigation = () => {
               className="h-10 w-12 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <div>
-              <h1 className="text-2xl font-bold font-playfair text-primary">Astro Wak</h1>
-              <strong className="text-xs font-playfair text-yellow-700">Divine Guidance</strong>
+              <h1 className="text-2xl font-bold font-playfair text-primary">
+                Astro Wak
+              </h1>
+              <strong className="text-xs font-playfair text-secondary">
+                Divine Guidance
+              </strong>
             </div>
           </Link>
-
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
@@ -43,10 +46,12 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg transition-all duration-300 ${isActive(link.path)
-                    ? "bg-secondary font-playfair text-yellow-700 font-semibold"
-                    : " font-playfair text-yellow-700 hover:bg-accent hover:text-accent-foreground"
-                  }`}
+                onClick={() => setIsOpen(false)}
+                className={`px-4 py-3 rounded-lg transition-all ${
+                  isActive(link.path)
+                    ? "bg-accent text-primary font-semibold" // Lighter active state
+                    : "text-foreground hover:bg-accent"
+                }`}
               >
                 {link.label}
               </Link>
@@ -75,10 +80,11 @@ const Navigation = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 rounded-lg transition-all ${isActive(link.path)
+                  className={`px-4 py-3 rounded-lg transition-all ${
+                    isActive(link.path)
                       ? "bg-primary text-primary-foreground font-semibold"
                       : "text-foreground hover:bg-accent"
-                    }`}
+                  }`}
                 >
                   {link.label}
                 </Link>

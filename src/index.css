@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Astrology Theme Colors */
-    --background: 35 20% 87%;
+    --background: 35 20% 97%;
     --foreground: 0 50% 15%;
 
     --card: 0 0% 100%;
@@ -23,8 +23,9 @@ All colors MUST be HSL.
     --primary-foreground: 43 100% 95%;
 
     /* Royal Gold as Secondary */
-    --secondary: 39 80% 50%;
-    --secondary-foreground: 0 100% 25%;
+    --secondary: 43 92% 33%; /* text-yellow-700 */
+--secondary-foreground: 0 100% 98%; /* white or light text for contrast */
+
 
     /* Cosmic Navy Blue as Muted */
     --muted: 220 70% 10%;
@@ -74,8 +75,10 @@ All colors MUST be HSL.
     --primary: 43 100% 50%;
     --primary-foreground: 0 100% 25%;
 
-    --secondary: 0 100% 30%;
-    --secondary-foreground: 43 100% 95%;
+   /* Royal Gold as Secondary → Changed to Tailwind yellow-700 */
+--secondary: 43 92% 33%; /* text-yellow-700 */
+--secondary-foreground: 0 0% 98%; /* white text for good contrast */
+
 
     --muted: 220 60% 15%;
     --muted-foreground: 43 60% 70%;

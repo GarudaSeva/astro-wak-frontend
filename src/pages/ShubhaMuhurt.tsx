@@ -32,11 +32,11 @@ const ShubhaMuhurt = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in-up mt-8">
-          {/* <Clock className="h-16 w-16 mx-auto mb-4 text-yellow-700 animate-twinkle" /> */}
+          {/* <Clock className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
           <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
             Shubha Muhurt
           </h1>
-          <p className="text-xl font-playfair text-yellow-700 max-w-3xl mx-auto">
+          <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Auspicious time for rituals, customs & celebrations
           </p>
         </div>
@@ -56,7 +56,7 @@ const ShubhaMuhurt = () => {
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
               What is Shubha Muhurt?
             </h2>
-            <div className="space-y-4 font-playfair text-yellow-700 leading-relaxed">
+            <div className="space-y-4 font-playfair text-secondary leading-relaxed">
               <p>
                 Shubha Muhurt refers to the most auspicious time for conducting important ceremonies,
                 rituals, and life events. In Vedic astrology, time is not just a linear progression but
@@ -67,32 +67,32 @@ const ShubhaMuhurt = () => {
                 cosmic energies, ensuring success, prosperity, and divine blessings for our undertakings.
               </p>
               <br />
-              <strong className="font-semibold font-playfair text-yellow-700 ">
+              <strong className="font-semibold font-playfair text-secondary ">
                 Our Muhurt calculation considers:
               </strong>
               <ul className="space-y-2 ml-6">
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-700">✦</span>
+                  <span className="text-secondary">✦</span>
                   <span>Planetary positions and their strengths</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-700">✦</span>
+                  <span className="text-secondary">✦</span>
                   <span>Nakshatra (lunar mansion) suitability</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-700">✦</span>
+                  <span className="text-secondary">✦</span>
                   <span>Tithi (lunar day) appropriateness</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-700">✦</span>
+                  <span className="text-secondary">✦</span>
                   <span>Lagna (ascendant) compatibility</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-700">✦</span>
+                  <span className="text-secondary">✦</span>
                   <span>Your personal birth chart alignment</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-700">✦</span>
+                  <span className="text-secondary">✦</span>
                   <span>Absence of inauspicious yogas</span>
                 </li>
               </ul>
@@ -105,27 +105,27 @@ const ShubhaMuhurt = () => {
               <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
                 Why Muhurt Matters
               </h3>
-              <div className="space-y-3 font-playfair text-yellow-700">
+              <div className="space-y-3 font-playfair text-secondary">
                 <div className="flex items-start gap-2">
-                  <Calendar className="h-6 w-6 text-yellow-700 flex-shrink-0 mt-1" />
+                  <Calendar className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">Divine Alignment:</strong> Synchronize with cosmic energies
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Calendar className="h-6 w-6 text-yellow-700 flex-shrink-0 mt-1" />
+                  <Calendar className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">Success Assurance:</strong> Minimize obstacles and maximize favorable outcomes
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Calendar className="h-6 w-6 text-yellow-700 flex-shrink-0 mt-1" />
+                  <Calendar className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">Ancestral Wisdom:</strong> Follow time-tested Vedic traditions
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Calendar className="h-6 w-6 text-yellow-700 flex-shrink-0 mt-1" />
+                  <Calendar className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">Peace of Mind:</strong> Confidence from divine timing
                   </div>
@@ -134,11 +134,11 @@ const ShubhaMuhurt = () => {
             </Card>
 
             <Card className="p-8 border-2 border-secondary/30 text-center">
-              <Clock className="h-16 w-16 mx-auto mb-4 text-yellow-700 animate-twinkle" />
+              <Clock className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
               <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
                 Find Your Perfect Timing
               </h2>
-              <p className="font-playfair text-yellow-700 mb-6">
+              <p className="font-playfair text-secondary mb-6">
                 Get auspicious muhurt for your important life events
               </p>
               <Button
@@ -174,7 +174,7 @@ const ShubhaMuhurt = () => {
                   </div>
                 </div>
                 <h3 className="font-bold font-playfair text-primary mb-2">{occasion.title}</h3>
-                <p className="text-sm font-playfair text-yellow-700">{occasion.description}</p>
+                <p className="text-sm font-playfair text-secondary">{occasion.description}</p>
               </Card>
             ))}
           </div>
