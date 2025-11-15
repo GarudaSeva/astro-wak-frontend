@@ -1,38 +1,59 @@
 import { Card } from "@/components/ui/card";
-import mandalaPattern from "@/assets/mandala-pattern.png";
 
 interface SlokaCardProps {
   sloka: string;
   translation?: string;
+  image?: string;             // Dynamic background image
+  badge?: string;             // Text above sloka
+  opacity?: number;           // Background image opacity
+  height?: string;            // Card height (e.g., "h-80" or "h-[400px]")
 }
 
-const SlokaCard = ({ sloka, translation }: SlokaCardProps) => {
+const SlokaCard = ({
+  sloka,
+  translation,
+  image,
+  badge = "Sacred Sloka",
+  opacity = 1.8,
+  height = "h-60", 
+}: SlokaCardProps) => {
   return (
-    <Card className="p-8 bg-card/80 backdrop-blur-sm border-2 border-secondary/30 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-      {/* Background Pattern */}
-      <div 
-        className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity"
-        style={{
-          backgroundImage: `url(${mandalaPattern})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      
-      <div className="relative z-10">
-        <div className="text-center mb-4">
-          <div className="inline-block px-4 py-1 bg-secondary/20 rounded-full">
-            <span className="text-sm font-semibold text-secondary ">Sacred Sloka</span>
-          </div>
-        </div>
+    <Card
+      className={`relative p-8 rounded-3xl overflow-hidden group border border-secondary/40 shadow-lg hover:shadow-2xl transition-all duration-500 ${height}`}
+    >
+      {/* Background Image */}
+      {image && (
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
+          style={{
+            backgroundImage: `url(${image})`,
+            opacity: opacity,
+          }}
+        />
+      )}
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500" />
+
+      {/* Content */}
+      <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4">
+
         
-        <p className="sloka-text text-xl md:text-2xl font-playfair text-secondary text-center leading-relaxed mb-4">
+        {/* Badge */}
+        {/* <div className="inline-block mb-4 px-5 py-1 rounded-full bg-secondary/20 border border-secondary/40">
+          <span className="text-sm font-semibold text-accent">
+            {badge}
+          </span>
+        </div> */}
+
+        {/* Sloka */}
+        <p className="sloka-text text-2xl md:text-3xl font-playfair text-accent leading-relaxed mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
           {sloka}
         </p>
-        
+
+        {/* Translation */}
         {translation && (
-          <p className="text-sm  text-primary text-center italic border-t border-border pt-4">
+          <p className="text-sm md:text-base text-yellow-200 italic border-t border-white/20 pt-4 mt-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             {translation}
           </p>
         )}

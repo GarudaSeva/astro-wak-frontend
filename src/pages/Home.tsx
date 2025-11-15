@@ -1,56 +1,72 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Phone, MapPin, Star, Hash, Gem, Clock, Flame } from "lucide-react";
+import {
+  Sparkles,
+  Phone,
+  MapPin,
+  Star,
+  Hash,
+  Gem,
+  Clock,
+  Flame,
+} from "lucide-react";
 import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import SlokaCard from "@/components/SlokaCard";
 import ConsultationModal from "@/components/ConsultationModal";
 import astrologerPhoto from "@/assets/astrologer-photo.jpg";
 import Pay599Button from "@/components/Pay599Button";
-import logo from "@/assets/lord-ganesh.png"
+import logo from "@/assets/lord-ganesh.png";
+import slokaBackfround from "@/assets/slokas/home.png";
 
 const Home = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState<"horoscope" | "numerology" | "gems" | "muhurt" | "pooja">("horoscope");
+  const [selectedService, setSelectedService] = useState<
+    "horoscope" | "numerology" | "gems" | "muhurt" | "pooja"
+  >("horoscope");
 
   const services = [
     {
       title: "Janma Patrika",
-      description: "Detailed birth chart analysis revealing your cosmic blueprint and life path",
+      description:
+        "Detailed birth chart analysis revealing your cosmic blueprint and life path",
       icon: Star,
       link: "/horoscope",
-      serviceType: "horoscope" as const
+      serviceType: "horoscope" as const,
     },
     {
       title: "Numerology",
-      description: "Discover the hidden meanings in numbers and their influence on your destiny",
+      description:
+        "Discover the hidden meanings in numbers and their influence on your destiny",
       icon: Hash,
       link: "/numerology",
-      serviceType: "numerology" as const
+      serviceType: "numerology" as const,
     },
     {
       title: "Gemstone Consultation",
-      description: "Personalized gemstone recommendations for planetary balance and prosperity",
+      description:
+        "Personalized gemstone recommendations for planetary balance and prosperity",
       icon: Gem,
       link: "/gems",
-      serviceType: "gems" as const
+      serviceType: "gems" as const,
     },
     {
       title: "Shubha Muhurt",
-      description: "Auspicious timing for rituals, ceremonies, and important life events",
+      description:
+        "Auspicious timing for rituals, ceremonies, and important life events",
       icon: Clock,
       link: "/muhurt",
-      serviceType: "muhurt" as const
+      serviceType: "muhurt" as const,
     },
     {
       title: "Pooja & Homa",
-      description: "Sacred rituals and fire ceremonies for spiritual growth and blessings",
+      description:
+        "Sacred rituals and fire ceremonies for spiritual growth and blessings",
       icon: Flame,
       link: "/pooja",
-      serviceType: "pooja" as const
-    }
+      serviceType: "pooja" as const,
+    },
   ];
-
 
   return (
     <div className="min-h-screen">
@@ -59,7 +75,11 @@ const Home = () => {
       {/* About Section */}
       <section className="py-10 bg-gradient-to-br from-background via-primary/5 to-background">
         <div className="container mx-auto px-4">
-          <SlokaCard sloka="ప్రణమ్య శిరసాదేవం గౌరిపుత్రమ్ వినాయకం భక్తా వాసం స్మరేనిత్యం ఆయుః కామార్థ సిద్ధయే||" />
+          <SlokaCard
+            sloka="ప్రణమ్య శిరసాదేవం గౌరిపుత్రమ్ వినాయకం భక్తా వాసం స్మరేనిత్యం ఆయుః కామార్థ సిద్ధయే||"
+            image={slokaBackfround}
+            height="h-60"
+          />
 
           <div className="mt-16 grid md:grid-cols-[300px_1fr] gap-12 items-start max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-6">
@@ -108,24 +128,27 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 px-4">
               <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary">
                 About Brahma Shri Jaanakiram Garu
               </h2>
               <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
-                Welcome to Astro Wak, your trusted gateway to divine guidance and cosmic wisdom.
-                Led by the esteemed <span className="text-primary font-semibold">Brahma Shri Jaanakiram Garu</span>,
-                we bring you authentic Vedic astrology services rooted in ancient traditions.
+                Welcome to Astro Wak, your trusted gateway to divine guidance
+                and cosmic wisdom. Led by the esteemed{" "}
+                <span className="text-primary font-semibold">
+                  Brahma Shri Jaanakiram Garu
+                </span>
+                , we bring you authentic Vedic astrology services rooted in
+                ancient traditions.
               </p>
               <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
-                With years of dedicated study and practice in astrology, numerology, gemstone therapy,
-                and Vedic rituals, our mission is to illuminate your path with spiritual insights and
-                practical guidance for life's journey.
+                With years of dedicated study and practice in astrology,
+                numerology, gemstone therapy, and Vedic rituals, our mission is
+                to illuminate your path with spiritual insights and practical
+                guidance for life's journey.
               </p>
               <blockquote className="border-l-4 border-secondary pl-6 py-3 italic text-xl text-primary bg-secondary/10 rounded-r-lg">
                 "Your cosmic guide to a brighter life journey."
@@ -139,15 +162,6 @@ const Home = () => {
       <section className="py-10 bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
-            <img
-              src={logo}
-              alt="Astro Wak Symbol"
-              className="h-24 w-32 mx-auto mb-2 animate-twinkle drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]"
-              style={{
-                filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.7))',
-              }}
-            />
-
             <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary mb-4">
               Our Services
             </h2>

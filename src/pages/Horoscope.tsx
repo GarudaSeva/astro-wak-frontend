@@ -4,6 +4,8 @@ import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Star } from "lucide-react";
 import ConsultationModal from "@/components/ConsultationModal";
+import horoscope from "@/assets/slokas/horoscope.png"
+import HoroscopeComponent from "@/components/horoscopeComponent";
 
 const Horoscope = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -11,24 +13,25 @@ const Horoscope = () => {
   return (
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-12 animate-fade-in-up mt-8">
-          {/* <Star className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
           <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
-            Janma Patrika
+            Horoscope Services
           </h1>
           <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Your destiny, decoded through the wisdom of planets
           </p>
         </div>
 
-        {/* Sloka */}
         <div className="mb-16">
           <SlokaCard
             sloka="జననీ జన్మ సౌఖ్యనాం వర్ధనీ కుల సంపదాం పదవీ పూర్వ పుణ్యనాం లిఖ్యతే జన్మ పత్రిక||"
             translation="The birth chart is written as a record of past merits, bringing joy at birth, prosperity to the family, and enhancement of fortunes."
+            image={horoscope}
+            opacity={10.5}
           />
         </div>
+
+      <HoroscopeComponent/>
 
         {/* Content Grid */}
         <div className="space-y-8 mb-16">
