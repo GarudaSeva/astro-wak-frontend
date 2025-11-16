@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
-import { Star } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import ConsultationModal from "@/components/ConsultationModal";
 import horoscope from "@/assets/slokas/horoscope.png";
 import HoroscopeComponent from "@/components/horoscopeComponent";
@@ -128,7 +128,7 @@ const Horoscope = () => {
               <div className="space-y-4 font-playfair text-secondary">
                 {/* Life Purpose */}
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">⭐</span>
+                  <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">Life Purpose:</strong>
                     Understand your dharma, karmic patterns, and soul’s
@@ -138,7 +138,7 @@ const Horoscope = () => {
 
                 {/* Timing */}
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">⭐</span>
+                  <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">
                       Planetary Timings (Dasha):
@@ -150,7 +150,7 @@ const Horoscope = () => {
 
                 {/* Career */}
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">⭐</span>
+                  <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">
                       Career Direction:
@@ -162,7 +162,7 @@ const Horoscope = () => {
 
                 {/* Relationships */}
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">⭐</span>
+                  <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">
                       Relationships & Marriage:
@@ -174,7 +174,7 @@ const Horoscope = () => {
 
                 {/* Wealth */}
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">⭐</span>
+                  <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">
                       Finance & Wealth:
@@ -186,7 +186,7 @@ const Horoscope = () => {
 
                 {/* Health */}
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">⭐</span>
+                  <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">
                       Health Tendencies:
@@ -198,7 +198,7 @@ const Horoscope = () => {
 
                 {/* Remedies */}
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl">⭐</span>
+                  <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <strong className="text-foreground">Remedies:</strong>
                     Gemstones, mantras, poojas, and lifestyle corrections to
