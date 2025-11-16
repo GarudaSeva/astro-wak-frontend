@@ -19,6 +19,15 @@ import Pay599Button from "@/components/Pay599Button";
 import logo from "@/assets/lord-ganesh.png";
 import slokaBackfround from "@/assets/slokas/home.png";
 import { Sun, Heart } from "lucide-react";
+import image1 from "@/assets/objectives/card1.png"
+import image2 from "@/assets/objectives/card2.png"
+import image3 from "@/assets/objectives/card3.png"
+import image4 from "@/assets/objectives/card4.png"
+import image5 from "@/assets/objectives/card5.png"
+import image6 from "@/assets/objectives/card6.png"
+import image7 from "@/assets/objectives/card7.png"
+import image8 from "@/assets/objectives/card8.png"
+
 
 const Home = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -291,7 +300,7 @@ const Home = () => {
 
 
       {/* Objectives Section */}
-     <section className="py-12 bg-background">
+   <section className="py-12 bg-background">
   <div className="container mx-auto px-4 max-w-6xl">
     
     <h2 className="text-center text-4xl md:text-5xl font-bold font-playfair text-primary mb-12">
@@ -303,42 +312,42 @@ const Home = () => {
         {
           title: "Illuminate Lives Through Divine Knowledge",
           desc: "Just as Surya dispels darkness, AstroWak illuminates the mind and soul through astrology, numerology and spiritual guidance.",
-          img: logo, // your image here
+          img: image1,
         },
         {
           title: "Bridge Ancient Wisdom with Modern Life",
           desc: "AstroWak translates timeless Vedic teachings into practical, modern-friendly guidance for conscious living.",
-          img: "/icons/vedas.png",
+          img: image2,
         },
         {
           title: "Empower Through Conscious Dialogue",
           desc: "Inspired by Lord Ganesha, our consultations are not predictions but meaningful, insightful conversations rooted in compassion.",
-          img: "/icons/ganesha.png",
+          img: image3,
         },
         {
           title: "Guide Spiritual Awakening & Inner Transformation",
           desc: "Every reading becomes a mirror for deep reflection — helping you grow, heal and align with your higher purpose.",
-          img: "/icons/transformation.png",
+          img: image4,
         },
         {
           title: "Honour Surya – The Source of Truth & Energy",
           desc: "Surya represents clarity, vitality and divine illumination — the foundation of all astrological insights at AstroWak.",
-          img: "/icons/sun-energy.png",
+          img: image5,
         },
         {
           title: "Embody the Wisdom of Lord Ganesha",
           desc: "Guided by Vakpathaye, AstroWak removes obstacles of confusion and opens the path to clarity, purity, and spiritual understanding.",
-          img: "/icons/ganesha-blessing.png",
+          img: image6,
         },
         {
           title: "Harmonize Cosmic Energies with Daily Life",
           desc: "Through astrology, gems, pooja, muhurtha — we help you align your life with cosmic rhythms for effortless flow.",
-          img: "/icons/gemstone.png",
+          img: image7,
         },
         {
           title: "Serve with Trust, Compassion & Authenticity",
           desc: "AstroWak offers a safe, respectful, deeply spiritual space where seekers feel heard, understood and supported.",
-          img: "/icons/heart-love.png",
+          img: image8,
         },
       ].map((item, i) => (
         <div
@@ -347,12 +356,13 @@ const Home = () => {
             i % 2 === 1 ? "md:flex-row-reverse" : ""
           }`}
         >
-          {/* IMAGE IN CIRCLE */}
-          <div className="flex-shrink-0 bg-secondary/10 p-6 rounded-full shadow-inner flex items-center justify-center w-28 h-28">
+          {/* PERFECT CIRCLE IMAGE */}
+          <div className="flex-shrink-0 w-28 h-28 rounded-full bg-secondary/10 shadow-inner 
+                          flex items-center justify-center overflow-hidden">
             <img
               src={item.img}
               alt={item.title}
-              className="w-16 h-16 object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
 
@@ -371,6 +381,7 @@ const Home = () => {
 
   </div>
 </section>
+
 
 
      
