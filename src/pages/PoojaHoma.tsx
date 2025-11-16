@@ -17,6 +17,7 @@ import mahamrityunjayaImg from "@/assets/services/mahamrityunjaya-homa.jpg";
 import sudarshanImg from "@/assets/services/sudarshana-homa.jpg";
 import chandiImg from "@/assets/services/chandi-homa.jpg";
 import ayushyaImg from "@/assets/services/ayushya-homa.jpg";
+import poojasBanner from  "@/assets/slokas/poojas-homas.png"
 
 const PoojaHoma = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -332,6 +333,7 @@ const PoojaHoma = () => {
           <SlokaCard
             sloka="ఓం సర్వమంగళమాంగళ్యే శివే సర్వార్థ సాధికే శరణ్యే త్రయంబకే గౌరీ నారాయణీ నమోస్తుతే||"
             translation="Om, to the One who is the auspiciousness of all that is auspicious, who is pure, who grants all desires, the one who is refuge, who has three eyes, Gauri (Parvati), Narayani, to You, I bow."
+             image={poojasBanner}
           />
         </div>
 

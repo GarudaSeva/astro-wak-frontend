@@ -4,7 +4,7 @@ import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Star } from "lucide-react";
 import ConsultationModal from "@/components/ConsultationModal";
-import horoscope from "@/assets/slokas/horoscope.png"
+import horoscope from "@/assets/slokas/horoscope.png";
 import HoroscopeComponent from "@/components/horoscopeComponent";
 
 const Horoscope = () => {
@@ -22,7 +22,7 @@ const Horoscope = () => {
           </p>
         </div>
 
-        <div className="mb-16">
+      <div className="my-16">
           <SlokaCard
             sloka="జననీ జన్మ సౌఖ్యనాం వర్ధనీ కుల సంపదాం పదవీ పూర్వ పుణ్యనాం లిఖ్యతే జన్మ పత్రిక||"
             translation="The birth chart is written as a record of past merits, bringing joy at birth, prosperity to the family, and enhancement of fortunes."
@@ -31,114 +31,187 @@ const Horoscope = () => {
           />
         </div>
 
-      <HoroscopeComponent/>
-
         {/* Content Grid */}
         <div className="space-y-8 mb-16">
           {/* Main Card - Full Width */}
           <Card className="p-8 border-2 border-secondary/30">
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
-              What is Janma Patrika?
+              What is Horoscope?
             </h2>
+
             <div className="space-y-4 font-playfair text-secondary leading-relaxed">
               <p>
-                Janma Patrika, also known as the birth chart or horoscope, is a sacred astrological
-                document that captures the exact planetary positions at the moment of your birth.
-                This cosmic snapshot serves as your personal spiritual GPS, revealing the celestial
-                influences that shape your destiny.
+                A <strong>Horoscope</strong>—also known as{" "}
+                <strong>Janma Patrika</strong> or
+                <strong> Birth Chart</strong>—is a divine celestial map created
+                at the exact moment of your birth. It captures the unique
+                positions of the Sun, Moon, planets, stars, and constellations
+                influencing your life journey.
               </p>
-              <p >
-                Created using precise birth time, date, and location, your Janma Patrika is a
-                comprehensive map of the twelve houses (bhavas) and nine planets (navagrahas).
-                It's not just a prediction tool—it's a divine blueprint that helps you understand
-                your strengths, challenges, and life purpose.
+
+              <p>
+                This sacred chart reveals your <strong>personality</strong>,
+                <strong>strengths</strong>, <strong>challenges</strong>,
+                <strong>karmic patterns</strong>, and{" "}
+                <strong>life purpose</strong>. It is not merely a prediction
+                tool — it is your{" "}
+                <span className="text-primary font-semibold">
+                  Spiritual Blueprint
+                </span>
+                , guiding you with cosmic understanding.
               </p>
-              <br />
-              <strong className="font-semibold font-playfair text-secondary ">
-                Our detailed horoscope analysis includes:
+
+              <p>
+                Based on your birth <strong>date, time, and location</strong>,
+                your horoscope maps the <strong>12 houses (Bhavas)</strong> and{" "}
+                <strong>9 planets (Navagrahas)</strong>, showing how each area
+                of life—career, marriage, health, wealth, and destiny—is shaped.
+              </p>
+
+              <strong className="font-semibold text-secondary block mt-6">
+                A detailed horoscope reveals:
               </strong>
+
               <ul className="space-y-2 ml-6">
                 <li className="flex items-start gap-2">
                   <span className="text-secondary">✦</span>
-                  <span>Complete birth chart (Rasi and Navamsa)</span>
+                  <span>Your complete birth chart (Lagna, Rasi & Navamsa)</span>
                 </li>
+
                 <li className="flex items-start gap-2">
                   <span className="text-secondary">✦</span>
-                  <span>Planetary positions and their significances</span>
+                  <span>
+                    Planetary positions and their impact on each life area
+                  </span>
                 </li>
+
                 <li className="flex items-start gap-2">
                   <span className="text-secondary">✦</span>
-                  <span>Dasha predictions (planetary periods)</span>
+                  <span>Dasha & Bhukti cycles (life periods and timings)</span>
                 </li>
+
                 <li className="flex items-start gap-2">
                   <span className="text-secondary">✦</span>
-                  <span>Career, marriage, and financial prospects</span>
+                  <span>
+                    Marriage, career, finance & personal growth insights
+                  </span>
                 </li>
+
                 <li className="flex items-start gap-2">
                   <span className="text-secondary">✦</span>
-                  <span>Health indications and remedies</span>
+                  <span>Health tendencies and planet-based remedies</span>
                 </li>
+
                 <li className="flex items-start gap-2">
                   <span className="text-secondary">✦</span>
-                  <span>Auspicious timings for major life events</span>
+                  <span>
+                    Auspicious timings & important life-event predictions
+                  </span>
                 </li>
               </ul>
+
+              <p className="mt-4">
+                A Horoscope is your <strong>cosmic guide</strong>—helping you
+                understand who you are, why certain things happen, and how to
+                align with your highest destiny.
+              </p>
             </div>
           </Card>
 
           {/* Two Cards Side by Side */}
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-1 gap-8">
             <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30">
               <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
                 What Your Horoscope Reveals
               </h3>
-              <div className="space-y-3 font-playfair text-secondary">
+
+              <div className="space-y-4 font-playfair text-secondary">
+                {/* Life Purpose */}
                 <div className="flex items-start gap-2">
                   <span className="text-2xl">⭐</span>
                   <div>
-                    <strong className="text-foreground">Life Purpose:</strong> Discover your dharma and soul's mission
+                    <strong className="text-foreground">Life Purpose:</strong>
+                    Understand your dharma, karmic patterns, and soul’s
+                    direction.
                   </div>
                 </div>
+
+                {/* Timing */}
                 <div className="flex items-start gap-2">
                   <span className="text-2xl">⭐</span>
                   <div>
-                    <strong className="text-foreground">Timing:</strong> Know when to act and when to wait
+                    <strong className="text-foreground">
+                      Planetary Timings (Dasha):
+                    </strong>
+                    Know the right time to start, grow, pause, or transform any
+                    aspect of life.
                   </div>
                 </div>
+
+                {/* Career */}
                 <div className="flex items-start gap-2">
                   <span className="text-2xl">⭐</span>
                   <div>
-                    <strong className="text-foreground">Relationships:</strong> Understand compatibility and marriage prospects
+                    <strong className="text-foreground">
+                      Career Direction:
+                    </strong>
+                    Identify your strengths, talents, opportunities, and ideal
+                    work path.
                   </div>
                 </div>
+
+                {/* Relationships */}
                 <div className="flex items-start gap-2">
                   <span className="text-2xl">⭐</span>
                   <div>
-                    <strong className="text-foreground">Remedies:</strong> Specific solutions to overcome obstacles
+                    <strong className="text-foreground">
+                      Relationships & Marriage:
+                    </strong>
+                    Compatibility, emotional patterns, marriage timing, and
+                    partner traits.
+                  </div>
+                </div>
+
+                {/* Wealth */}
+                <div className="flex items-start gap-2">
+                  <span className="text-2xl">⭐</span>
+                  <div>
+                    <strong className="text-foreground">
+                      Finance & Wealth:
+                    </strong>
+                    Income flow, savings, investments, and financial stability
+                    indicators.
+                  </div>
+                </div>
+
+                {/* Health */}
+                <div className="flex items-start gap-2">
+                  <span className="text-2xl">⭐</span>
+                  <div>
+                    <strong className="text-foreground">
+                      Health Tendencies:
+                    </strong>
+                    Physical, mental, and emotional well-being based on
+                    planetary influences.
+                  </div>
+                </div>
+
+                {/* Remedies */}
+                <div className="flex items-start gap-2">
+                  <span className="text-2xl">⭐</span>
+                  <div>
+                    <strong className="text-foreground">Remedies:</strong>
+                    Gemstones, mantras, poojas, and lifestyle corrections to
+                    remove obstacles.
                   </div>
                 </div>
               </div>
             </Card>
-
-            <Card className="p-8 border-2 border-secondary/30 text-center">
-              <Star className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" />
-              <h2 className="text-3xl font-bold font-playfair text-primary mb-4">
-                Get Your Horoscope
-              </h2>
-              <p className="mb-6 font-playfair text-secondary">
-                Unlock the secrets of your cosmic blueprint today
-              </p>
-              <Button
-                size="lg"
-                onClick={() => setModalOpen(true)}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
-              >
-                Request Horoscope
-              </Button>
-            </Card>
           </div>
         </div>
       </div>
+
+      <HoroscopeComponent />
 
       <ConsultationModal
         open={modalOpen}

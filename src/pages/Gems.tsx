@@ -13,6 +13,7 @@ import diamondImg from "@/assets/gems/diamond.jpg";
 import blueSapphireImg from "@/assets/gems/blue-sapphire.jpg";
 import hessoniteImg from "@/assets/gems/hessonite.jpg";
 import catsEyeImg from "@/assets/gems/cats-eye.jpg";
+import gemsBanner from "@/assets/slokas/genStone-banner.png"
 
 const Gems = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -48,6 +49,9 @@ const Gems = () => {
           <SlokaCard
             sloka="అర్కేందు రక్తజ్ఞ గురు భృగు మందాహి కేతవః మణిక్యం మౌక్తికం చాధం విద్రుమం గారుడం పునః | పుష్యరాగం లసధ్వజ్రం నీలం గోమేధికం శుభం వైఢూర్యం నవరత్నాని ముద్రాంతైః కల్పయేచ్ఛుభం ||"
             translation="The nine sacred gemstones - Ruby, Pearl, Coral, Emerald, Yellow Sapphire, Diamond, Blue Sapphire, Hessonite, and Cat's Eye - correspond to the nine celestial bodies and bring auspicious blessings when worn properly."
+            image={gemsBanner}
+            opacity={2.6}
+            // height="h-70"
           />
         </div>
 

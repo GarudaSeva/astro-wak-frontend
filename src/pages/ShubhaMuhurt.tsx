@@ -13,6 +13,7 @@ import namingImage from "@/assets/occasions/naming.jpg";
 import medicalAdviceImage from "@/assets/occasions/medical-advice.png";
 import educationImage from "@/assets/occasions/education.jpg";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
+import genStoneBanner from "@/assets/slokas/subha-muhurat-banner.png"
 
 import {
   Baby,
@@ -373,6 +374,8 @@ const ShubhaMuhurt = () => {
           <SlokaCard
             sloka="ఆదిత్యాది గ్రహస్సర్వేః సనక్షత్రాణాం స్వరాశయః కుర్వంతు మంగళమ్ నిత్యం యస్త్యైషా లగ్న పత్రికా||"
             translation="May all planets starting from the Sun, along with the constellations in their respective houses, always bestow auspiciousness as indicated in this lagna patrika (time chart)."
+            image={genStoneBanner}
+            opacity={1.9}
           />
         </div>
 

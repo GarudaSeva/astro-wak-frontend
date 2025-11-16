@@ -16,14 +16,16 @@ import {
 } from "lucide-react";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
 import slokaBg from "@/assets/sloka-bg.jpg";
-import askExpertImg from "@/assets/services/ask-expert.jpg";
-import janamPatriImg from "@/assets/services/janam-patri.jpg";
+import askExpertImg from "@/assets/services/ask-expert.png";
+import janamPatriImg from "@/assets/services/janma-patri.png";
 import detailedReportImg from "@/assets/services/detailed-report.jpg";
-import careerImg from "@/assets/services/career-business.jpg";
-import matchingImg from "@/assets/services/matching.jpg";
-import marriageImg from "@/assets/services/marriage-children.jpg";
+import careerImg from "@/assets/services/career-business.png";
+import matchingImg from "@/assets/services/matching-horoscopr.jpg";
+import marriageImg from "@/assets/services/marriage-children.png";
 import healthImg from "@/assets/services/health.jpg";
 import wealthImg from "@/assets/services/wealth.jpg";
+import varshaphala from "@/assets/services/varshaphala.png"
+import doshaReport from "@/assets/services/image copy.png"
 
 const HoroscopeComponent = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
@@ -195,7 +197,7 @@ Our experts provide guidance on best investment timings, wealth-building strateg
     {
       title: "Varshaphala & Planets Transit Reports",
       price:"Rs. 599/-",
-      image: janamPatriImg,
+      image: varshaphala,
       shortDescription:
         "Annual predictions and planetary transit effects on your life.",
       description: `Get your annual Varshaphala (yearly predictions) and understand how current planetary transits are affecting your life. This report covers the entire year ahead with month-by-month predictions.
@@ -213,7 +215,7 @@ Understand the effects of major transits like Saturn, Jupiter, Rahu-Ketu on your
     {
       title: "Dosha Report",
       price:"Rs. 599/-",
-      image: detailedReportImg,
+      image: doshaReport,
       shortDescription: "Comprehensive dosha analysis and remedial solutions.",
       description: `Get detailed analysis of various doshas in your horoscope like Manglik Dosha, Kaal Sarp Dosha, Pitra Dosha, and others. Understand their effects on different areas of your life and get effective remedies.
 

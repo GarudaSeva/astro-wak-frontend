@@ -18,6 +18,7 @@ import astrologerPhoto from "@/assets/astrologer-photo.jpg";
 import Pay599Button from "@/components/Pay599Button";
 import logo from "@/assets/lord-ganesh.png";
 import slokaBackfround from "@/assets/slokas/home.png";
+import { Sun, Heart } from "lucide-react";
 
 const Home = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -75,66 +76,36 @@ const Home = () => {
       {/* About Section */}
       <section className="py-10 bg-gradient-to-br from-background via-primary/5 to-background">
         <div className="container mx-auto px-4">
-          <SlokaCard
-            sloka="ప్రణమ్య శిరసాదేవం గౌరిపుత్రమ్ వినాయకం భక్తా వాసం స్మరేనిత్యం ఆయుః కామార్థ సిద్ధయే||"
-            image={slokaBackfround}
-            height="h-60"
-          />
 
-          <div className="mt-16 grid md:grid-cols-[300px_1fr] gap-12 items-start max-w-6xl mx-auto">
-            <div className="flex flex-col items-center space-y-6">
-              <div className="w-64 h-80 rounded-lg overflow-hidden shadow-xl border-4 border-secondary/30 divine-glow">
-                <img
-                  src={astrologerPhoto}
-                  alt="Brahma Shri Jaanakiram Garu"
-                  className="w-full h-full object-cover"
-                />
+          <h2 className="text-4xl mt-10 md:text-5xl font-bold font-playfair text-primary text-center">
+            About Brahma Shri Jaanakiram Garu
+          </h2>
+
+          <div className="mt-12 grid md:grid-cols-[300px_1fr] gap-12 items-start max-w-8xl mx-auto">
+            {/* ===== MOBILE VIEW (Heading → Photo → Content → Long Bio → Quote) ===== */}
+            <div className="md:hidden space-y-6 px-4 order-1">
+              {/* Photo */}
+              <div className="flex justify-center">
+                <div className="w-72 h-72 rounded-lg overflow-hidden shadow-xl border-4 border-secondary/30 divine-glow">
+                  <img
+                    src={astrologerPhoto}
+                    alt="Brahma Shri Jaanakiram Garu"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <div className="text-center space-y-3">
+
+              {/* Name Under Photo */}
+              <div className="text-center space-y-2">
                 <h3 className="text-xl font-bold font-playfair text-primary">
                   Brahma Shri Jaanakiram Garu
                 </h3>
                 <p className="text-sm text-secondary">
                   Expert Vedic Astrologer & Spiritual Guide
                 </p>
-
-                <div className="relative flex flex-col items-center text-center md:items-start md:text-left space-y-2 text-sm pt-2">
-                  {/* Address */}
-                  <div className="relative w-full max-w-[280px] mx-auto md:mx-0 pl-5">
-                    <MapPin className="absolute left-0 top-1 h-4 w-4 text-secondary" />
-                    <p className="text-foreground/80 leading-relaxed">
-                      Walbridge apts, Radha Nagar, Sun City, Hyderabad – 500091
-                    </p>
-                  </div>
-
-                  {/* Phone Numbers */}
-                  <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-2 pt-2">
-                    <div className="relative pl-5">
-                      <Phone className="absolute left-0 top-1 h-4 w-4 text-secondary" />
-                      <div className="flex gap-6">
-                        <a
-                          href="tel:9553231199"
-                          className="text-foreground hover:text-secondary transition-colors font-semibold"
-                        >
-                          +91 9553231199
-                        </a>
-                        <a
-                          href="tel:9441662365"
-                          className="text-foreground hover:text-secondary transition-colors font-semibold"
-                        >
-                          +91 9441662365
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
 
-            <div className="space-y-6 px-4">
-              <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary">
-                About Brahma Shri Jaanakiram Garu
-              </h2>
+              {/* Paragraph 1 */}
               <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
                 Welcome to Astro Wak, your trusted gateway to divine guidance
                 and cosmic wisdom. Led by the esteemed{" "}
@@ -142,21 +113,267 @@ const Home = () => {
                   Brahma Shri Jaanakiram Garu
                 </span>
                 , we bring you authentic Vedic astrology services rooted in
-                ancient traditions.
+                ancient traditions. With years of dedicated study and practice
+                in astrology, numerology, gemstone therapy, and Vedic rituals,
+                our mission is to illuminate your path with spiritual insights
+                and practical guidance for life's journey.
               </p>
+
+              {/* ⭐ Long Biography Paragraph */}
               <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
-                With years of dedicated study and practice in astrology,
-                numerology, gemstone therapy, and Vedic rituals, our mission is
-                to illuminate your path with spiritual insights and practical
-                guidance for life's journey.
+                Brahma Sree Jaanakiram Sarma — son of Late Parimi Sreerama
+                Murthy Garu — is a renowned Smartha Pandit, Astrologer, Muhurtha
+                and Vastu expert with over 23 years of dedicated practice. With
+                mastery in Vedas, Vedangas, Jyotisham, Vaastu, and other
+                Sastras, he is celebrated for translating ancient scriptures
+                into modern, practical wisdom. Widely respected across Andhra
+                Pradesh and Telangana, he has guided thousands of individuals
+                with compassion, clarity, and deep spiritual insight.
               </p>
+
+              {/* Quote */}
+              <blockquote className="border-l-4 border-secondary pl-6 py-3 italic text-xl text-primary bg-secondary/10 rounded-r-lg">
+                "Your cosmic guide to a brighter life journey."
+              </blockquote>
+            </div>
+
+            {/* ===== DESKTOP VIEW (Photo Left → Content Right) ===== */}
+            <div className="hidden md:flex flex-col items-center space-y-6">
+              <div className="w-84 h-96 rounded-lg overflow-hidden shadow-xl border-4 border-secondary/30 divine-glow">
+                <img
+                  src={astrologerPhoto}
+                  alt="Brahma Shri Jaanakiram Garu"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="text-center space-y-2">
+                <h3 className="text-xl font-bold font-playfair text-primary">
+                  Brahma Shri Jaanakiram Garu
+                </h3>
+                <p className="text-sm text-secondary">
+                  Expert Vedic Astrologer & Spiritual Guide
+                </p>
+              </div>
+            </div>
+
+            <div className="hidden md:block space-y-6 px-4">
+              {/* Paragraph 1 */}
+              <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
+                Welcome to Astro Wak, your trusted gateway to divine guidance
+                and cosmic wisdom. Led by the esteemed{" "}
+                <span className="text-primary font-semibold">
+                  Brahma Shri Jaanakiram Garu
+                </span>
+                , we bring you authentic Vedic astrology services rooted in
+                ancient traditions. With years of dedicated study and practice
+                in astrology, numerology, gemstone therapy, and Vedic rituals,
+                our mission is to illuminate your path with spiritual insights
+                and practical guidance for life's journey.
+              </p>
+
+              {/* ⭐ Long Biography Paragraph */}
+              <p className="text-lg font-playfair text-secondary leading-relaxed bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-secondary/20">
+                Brahma Sree Jaanakiram Sarma — son of Late Parimi Sreerama
+                Murthy Garu — is a renowned Smartha Pandit, Astrologer, Muhurtha
+                and Vastu expert with over 23 years of dedicated practice. With
+                mastery in Vedas, Vedangas, Jyotisham, Vaastu, and other
+                Sastras, he is celebrated for translating ancient scriptures
+                into modern, practical wisdom. Widely respected across Andhra
+                Pradesh and Telangana, he has guided thousands of individuals
+                with compassion, clarity, and deep spiritual insight.
+              </p>
+
               <blockquote className="border-l-4 border-secondary pl-6 py-3 italic text-xl text-primary bg-secondary/10 rounded-r-lg">
                 "Your cosmic guide to a brighter life journey."
               </blockquote>
             </div>
           </div>
+
+<div className="my-12">
+  <SlokaCard
+            sloka="ప్రణమ్య శిరసాదేవం గౌరిపుత్రమ్ వినాయకం భక్తా వాసం స్మరేనిత్యం ఆయుః కామార్థ Siddhayē||"
+            image={slokaBackfround}
+            height="h-60"
+          />
+</div>
+          
         </div>
       </section>
+
+<section className="py-12 bg-gradient-to-b from-background to-primary/10">
+  <div className="container mx-auto px-6 max-w-8xl">
+
+    <h2 className="text-center text-4xl md:text-5xl font-bold font-playfair text-primary mb-12">
+      What is AstroWak?
+    </h2>
+
+    {/* ONE CLEAN VERTICAL CARD */}
+    <div className="bg-card/80 p-10 md:p-14 rounded-2xl shadow-xl border border-secondary/20 space-y-8">
+
+      {/* INTRO */}
+      <div className="max-w-8xl mx-auto space-y-4">
+        <p className="text-lg md:text-xl font-playfair text-secondary leading-relaxed text-left">
+          AstroWak is a sacred bridge between cosmic intelligence and divine wisdom.
+          “Astro” represents Surya — the source of light, clarity, and cosmic order.
+          “Wak” (from Vāk) represents the divine speech of Lord Ganesha — wisdom,
+          communication, and conscious understanding.
+        </p>
+
+        <p className="text-lg md:text-xl font-playfair text-secondary leading-relaxed text-left">
+          AstroWak integrates ancient Vedic sciences with modern accessibility,
+          offering astrology, numerology, gem guidance, poojas & homas,
+          muhurtha selection, and spiritual rituals with compassion, clarity, and authenticity.
+        </p>
+
+        <p className="text-lg md:text-xl font-playfair text-secondary leading-relaxed text-left">
+          Rooted in the symbolism of the <strong>Lotus</strong> (purity),
+          <strong> Surya</strong> (illumination), and <strong>Ganesha</strong>
+          (auspicious beginnings), AstroWak helps every seeker understand their
+          energies, karmic patterns, and life direction with divine clarity.
+        </p>
+      </div>
+
+      {/* SURYA SECTION */}
+      <div className="max-w-8xl mx-auto space-y-4">
+        <h3 className="text-3xl font-bold font-playfair text-primary text-left">
+          Surya — The Cosmic Source of Light & Life
+        </h3>
+
+        <p className="text-secondary font-playfair text-lg leading-relaxed text-left">
+          In Vedic tradition, Surya is Pratyaksha Daivam — the visible God and 
+          the center of the Navagrahas. He symbolizes truth, vitality, illumination, 
+          and life force.
+        </p>
+
+        <ul className="text-secondary font-playfair text-lg leading-relaxed space-y-2 text-left">
+          <li>• <strong>Clarity</strong> — revealing the truth hidden in one’s chart</li>
+          <li>• <strong>Vitality</strong> — energizing purpose and direction</li>
+          <li>• <strong>Illumination</strong> — awakening inner wisdom</li>
+        </ul>
+
+        <p className="text-secondary font-playfair text-lg leading-relaxed text-left">
+          Just as the Sun sustains the cosmos, AstroWak sustains spiritual clarity 
+          and helps seekers align with cosmic harmony.
+        </p>
+      </div>
+
+
+      {/* WAK SECTION */}
+      <div className="max-w-8xl mx-auto space-y-5">
+        <h3 className="text-3xl font-bold font-playfair text-primary text-left">
+          Wak — The Divine Word of Lord Ganesha
+        </h3>
+
+        <p className="text-secondary font-playfair text-lg leading-relaxed text-left">
+          “Wak” (Vāk) is associated with Lord Ganesha as Vakpathaye — the Lord 
+          of Speech, Knowledge, and Conscious Understanding.
+        </p>
+
+        <ul className="text-secondary font-playfair text-lg leading-relaxed space-y-2 text-left">
+          <li>• <strong>Divine Communication</strong> — clarity in expression</li>
+          <li>• <strong>Wisdom</strong> — interpreting cosmic messages</li>
+          <li>• <strong>Obstacle Removal</strong> — clearing emotional & mental blocks</li>
+        </ul>
+
+        <p className="text-secondary font-playfair text-lg leading-relaxed text-left">
+          “Wak” transforms astrology from information into meaningful spiritual 
+          conversation, helping seekers understand life with deeper awareness.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+      {/* Objectives Section */}
+     <section className="py-12 bg-background">
+  <div className="container mx-auto px-4 max-w-6xl">
+    
+    <h2 className="text-center text-4xl md:text-5xl font-bold font-playfair text-primary mb-12">
+      Objectives of AstroWak
+    </h2>
+
+    <div className="space-y-12">
+      {[
+        {
+          title: "Illuminate Lives Through Divine Knowledge",
+          desc: "Just as Surya dispels darkness, AstroWak illuminates the mind and soul through astrology, numerology and spiritual guidance.",
+          img: logo, // your image here
+        },
+        {
+          title: "Bridge Ancient Wisdom with Modern Life",
+          desc: "AstroWak translates timeless Vedic teachings into practical, modern-friendly guidance for conscious living.",
+          img: "/icons/vedas.png",
+        },
+        {
+          title: "Empower Through Conscious Dialogue",
+          desc: "Inspired by Lord Ganesha, our consultations are not predictions but meaningful, insightful conversations rooted in compassion.",
+          img: "/icons/ganesha.png",
+        },
+        {
+          title: "Guide Spiritual Awakening & Inner Transformation",
+          desc: "Every reading becomes a mirror for deep reflection — helping you grow, heal and align with your higher purpose.",
+          img: "/icons/transformation.png",
+        },
+        {
+          title: "Honour Surya – The Source of Truth & Energy",
+          desc: "Surya represents clarity, vitality and divine illumination — the foundation of all astrological insights at AstroWak.",
+          img: "/icons/sun-energy.png",
+        },
+        {
+          title: "Embody the Wisdom of Lord Ganesha",
+          desc: "Guided by Vakpathaye, AstroWak removes obstacles of confusion and opens the path to clarity, purity, and spiritual understanding.",
+          img: "/icons/ganesha-blessing.png",
+        },
+        {
+          title: "Harmonize Cosmic Energies with Daily Life",
+          desc: "Through astrology, gems, pooja, muhurtha — we help you align your life with cosmic rhythms for effortless flow.",
+          img: "/icons/gemstone.png",
+        },
+        {
+          title: "Serve with Trust, Compassion & Authenticity",
+          desc: "AstroWak offers a safe, respectful, deeply spiritual space where seekers feel heard, understood and supported.",
+          img: "/icons/heart-love.png",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className={`flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl bg-card/70 shadow-lg border border-secondary/20 ${
+            i % 2 === 1 ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          {/* IMAGE IN CIRCLE */}
+          <div className="flex-shrink-0 bg-secondary/10 p-6 rounded-full shadow-inner flex items-center justify-center w-28 h-28">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-16 h-16 object-contain"
+            />
+          </div>
+
+          {/* TEXT BLOCK */}
+          <div className="space-y-3">
+            <h3 className="text-2xl font-bold font-playfair text-primary">
+              {item.title}
+            </h3>
+            <p className="text-secondary font-playfair text-lg leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+
+     
 
       {/* Services Section */}
       <section className="py-10 bg-card">

@@ -4,11 +4,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import SlokaCard from "@/components/SlokaCard";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
-import numerologyBanner from "@/assets/numerology-banner.jpg";
+import numerologyBanner from "@/assets/slokas/numerology-banner.png";
 
-import numerologyReportImg from "@/assets/services/numerology-report.jpg";
+import numerologyReportImg from "@/assets/numerology/numerology-report.png";
 import babyNamingImg from "@/assets/services/baby-naming.jpg";
-import businessNumerologyImg from "@/assets/services/business-numerology.jpg";
+import nameNumerology from "@/assets/numerology/name-numerology.png";
+import nameCorrection from "@/assets/numerology/name-correction.png"
+import matchMatching from "@/assets/numerology/match-making.png"
+import business from "@/assets/numerology/business.png"
+import familyNumerology from "@/assets/numerology/family-numerology.png"
 
 interface Service {
   id: string;
@@ -63,7 +67,7 @@ This personalized numerology report includes a detailed analysis of your core nu
     title: "Name Correction Report",
     price: "₹519",
     shortDesc: "Correct your name vibration to align your destiny and unlock better growth using Chaldean numerology.",
-    image: babyNamingImg,
+    image: nameCorrection,
     fullDescription: `Your name carries a specific vibration that directly affects your personal and professional life. If your birth name does not match your birth number, it may create obstacles, delays, or reduced progress.
 
 This report analyzes your current name, identifies mismatches with your date of birth, and suggests corrected name spellings for better success, harmony, and growth.`,
@@ -96,7 +100,7 @@ This report analyzes your current name, identifies mismatches with your date of 
     title: "Baby Names & Numerology Report",
     price: "₹519",
     shortDesc: "Get auspicious and numerology-aligned baby name suggestions based on Chaldean numerology.",
-    image: babyNamingImg,
+    image: nameNumerology,
     fullDescription: `A baby’s name influences personality, confidence, success, and life path. Using Chaldean numerology, this report suggests the most suitable names aligned with the baby’s date of birth and vibration energy.
 
 The report also analyzes the strength, meaning, and numerological progression of each recommended name.`,
@@ -128,7 +132,7 @@ The report also analyzes the strength, meaning, and numerological progression of
     title: "Numerology Match Making Report",
     price: "₹555",
     shortDesc: "Check date-of-birth compatibility for relationships, marriage, and long-term bonding.",
-    image: babyNamingImg,
+    image: matchMatching,
     fullDescription: `This numerology match-making report analyzes the DOB compatibility of two people using Chaldean numerology. It reveals relationship strength, emotional compatibility, future challenges, and remedies for better harmony.`,
     benefits: [
       "Understand compatibility between partners",
@@ -158,7 +162,7 @@ The report also analyzes the strength, meaning, and numerological progression of
     title: "Numerology for Business",
     price: "₹555",
     shortDesc: "Choose an auspicious business name aligned with your birth numbers and success vibrations.",
-    image: businessNumerologyImg,
+    image: business,
     fullDescription: `A business name influences success, customers, financial growth, and brand reputation. This report checks the compatibility of your proposed business names with your birth numbers and suggests the most successful name combinations.`,
     benefits: [
       "Business names aligned with your birth number",
@@ -190,7 +194,7 @@ The report also analyzes the strength, meaning, and numerological progression of
     title: "Complete Family Numerology Report",
     price: "₹1,216",
     shortDesc: "Full numerology analysis for up to 3 family members covering destiny, growth, harmony, and remedies.",
-    image: babyNamingImg,
+    image: familyNumerology,
     fullDescription: `This comprehensive family numerology report provides detailed analysis for up to three members. It reveals each person's strengths, challenges, and compatibility within the family using Chaldean numerology.`,
     benefits: [
       "Individual numerology analysis for each member",
@@ -243,6 +247,16 @@ const Numerology = () => {
           </p>
         </div>
 
+
+   {/* Sloka */}
+        <div className="mb-16">
+          <SlokaCard
+            sloka="ఓం పూర్ణమదః పూర్ణమిదం పూర్ణాత్ పూర్ణముదచ్యతే పూర్ణస్య పూర్ణమాదయ పూర్ణమేవావశిష్యతే||"
+            // translation="Om, That is full, this is full. From fullness, fullness comes out. Taking fullness from fullness, what remains is also fullness."
+            image={numerologyBanner}
+            height="h-60"
+          />
+        </div>
       
 
         {/* 1️⃣ The Power of Numbers - Full Width */}
@@ -304,15 +318,7 @@ const Numerology = () => {
           </div>
         </Card>
 
-          {/* Sloka */}
-        <div className="mb-16">
-          <SlokaCard
-            sloka="ఓం పూర్ణమదః పూర్ణమిదం పూర్ణాత్ పూర్ణముదచ్యతే పూర్ణస్య పూర్ణమాదయ పూర్ణమేవావశిష్యతే||"
-            // translation="Om, That is full, this is full. From fullness, fullness comes out. Taking fullness from fullness, what remains is also fullness."
-            image={numerologyBanner}
-            height="h-60"
-          />
-        </div>
+       
       </div>
     </div>
 

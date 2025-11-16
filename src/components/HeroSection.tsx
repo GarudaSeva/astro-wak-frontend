@@ -35,7 +35,7 @@ const HeroSection = () => {
           {[...Array(20)].map((_, i) => (
             <Star
               key={i}
-              className="absolute text-secondary animate-twinkle"
+              className="absolute text-accent animate-twinkle"
               style={{
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
@@ -49,7 +49,7 @@ const HeroSection = () => {
 
         {/* Content */}
         <div className="container mx-auto px-4 relative z-20 text-center">
-          <div className="animate-fade-in-up bg-black/30 backdrop-blur-md p-6 md:p-12 rounded-3xl border border-secondary/30">
+          <div className="animate-fade-in-up bg-black/30 backdrop-blur-md p-6 md:p-12 rounded-3xl border border-accent/30">
             <img
               src={logo}
               alt="Astro Wak Symbol"
@@ -89,7 +89,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-lg px-6 py-4 md:px-8 md:py-6 bg-secondary hover:bg-secondary/90 text-secondary-foreground border-secondary divine-glow"
+                className="text-lg px-6 py-4 md:px-8 md:py-6 bg-accent hover:bg-accent/90 text-accent-foreground border-accent divine-glow"
                 asChild
               >
                 <a href="tel:9553231199">Call Now</a>
@@ -104,8 +104,8 @@ const HeroSection = () => {
           className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20"
         >
           <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 animate-bounce z-20 text-accent">
-            <div className="w-6 h-10 border-2 border-secondary rounded-full flex justify-center">
-              <div className="w-2 h-2 bg-secondary rounded-full mt-2 animate-pulse" />
+            <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
+              <div className="w-2 h-2 bg-accent rounded-full mt-2 animate-pulse" />
             </div>
           </div>
         </button>
