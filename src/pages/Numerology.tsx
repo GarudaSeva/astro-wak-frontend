@@ -7,12 +7,12 @@ import ServiceDetailModal from "@/components/ServiceDetailModal";
 import numerologyBanner from "@/assets/slokas/numerology-banner.png";
 
 import numerologyReportImg from "@/assets/numerology/numerology-report.png";
-import babyNamingImg from "@/assets/services/baby-naming.jpg";
 import nameNumerology from "@/assets/numerology/name-numerology.png";
 import nameCorrection from "@/assets/numerology/name-correction.png"
 import matchMatching from "@/assets/numerology/match-making.png"
 import business from "@/assets/numerology/business.png"
 import familyNumerology from "@/assets/numerology/family-numerology.png"
+import { ServiceKey } from "@/types/serviceKeys";
 
 interface Service {
   id: string;
@@ -25,6 +25,7 @@ interface Service {
   process?: string[];
   deliverables?: string[];
   additionalInfo?: string;
+  serviceType: ServiceKey;
 }
 
 const services: Service[] = [
@@ -59,7 +60,8 @@ This personalized numerology report includes a detailed analysis of your core nu
       "Missing and repeating number significance",
       "Remedies & personalized suggestions"
     ],
-    additionalInfo: "Delivered within 3-4 working days. Report is fully personalized based on Chaldean numerology."
+    additionalInfo: "Delivered within 3-4 working days. Report is fully personalized based on Chaldean numerology.",
+    serviceType: "numerology_complete"
   },
 
   {
@@ -92,7 +94,8 @@ This report analyzes your current name, identifies mismatches with your date of 
       "Steps for adopting the corrected name",
       "Remedies and expert suggestions"
     ],
-    additionalInfo: "Add preferred alternative names in the comment box for customized corrections."
+    additionalInfo: "Add preferred alternative names in the comment box for customized corrections.",
+    serviceType : "numerology_name_correction"
   },
 
   {
@@ -124,7 +127,8 @@ The report also analyzes the strength, meaning, and numerological progression of
       "Name pyramid and progression analysis",
       "Cultural + modern naming options"
     ],
-    additionalInfo: "Includes 5 naming filters: General, Word search, Numerology, Religion, Birth Star/Rasi."
+    additionalInfo: "Includes 5 naming filters: General, Word search, Numerology, Religion, Birth Star/Rasi.",
+    serviceType: "numerology_baby_name"
   },
 
   {
@@ -154,7 +158,8 @@ The report also analyzes the strength, meaning, and numerological progression of
       "Strengths and challenges of the pair",
       "Remedies for improving compatibility"
     ],
-    additionalInfo: "Highly recommended before marriage or serious relationships."
+    additionalInfo: "Highly recommended before marriage or serious relationships.",
+    serviceType: "numerology_match_making"
   },
 
   {
@@ -186,14 +191,15 @@ The report also analyzes the strength, meaning, and numerological progression of
       "Auspicious launch and registration dates",
       "Logo numerology guidance"
     ],
-    additionalInfo: "Perfect for new businesses, rebranding, or product naming."
+    additionalInfo: "Perfect for new businesses, rebranding, or product naming.",
+    serviceType: "numerology_business"
   },
 
   {
     id: "family-numerology",
-    title: "Complete Family Numerology Report",
+    title: "Numerology for Complete Family ",
     price: "₹1,216",
-    shortDesc: "Full numerology analysis for up to 3 family members covering destiny, growth, harmony, and remedies.",
+    shortDesc: "Numerology analysis for up to 3 family members covering destiny, growth, and remedies.",
     image: familyNumerology,
     fullDescription: `This comprehensive family numerology report provides detailed analysis for up to three members. It reveals each person's strengths, challenges, and compatibility within the family using Chaldean numerology.`,
     benefits: [
@@ -216,7 +222,8 @@ The report also analyzes the strength, meaning, and numerological progression of
       "Personal Year, Month, and Date vibrations",
       "Remedies and improvement suggestions"
     ],
-    additionalInfo: "Ideal for understanding overall family balance and future harmony."
+    additionalInfo: "Ideal for understanding overall family balance and future harmony.",
+    serviceType: "numerology_family"
   }
 ];
 
@@ -232,7 +239,7 @@ const Numerology = () => {
 
   return (
     <div>
-    <div className="min-h-screen pt-24 pb-4">
+    <div className="min-h-screen pt-24 ">
       <div className="container mx-auto px-4">
 
         
@@ -328,7 +335,7 @@ const Numerology = () => {
       <section className="py-2 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-primary mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-primary mb-4">
               Our Numerology Services
             </h2>
             <p className="text-secondary max-w-2xl mx-auto">
@@ -382,7 +389,7 @@ const Numerology = () => {
           process={selectedService.process}
           deliverables={selectedService.deliverables}
           additionalInfo={selectedService.additionalInfo}
-          serviceType="numerology"
+          serviceType={selectedService.serviceType} 
         />
       )}
 

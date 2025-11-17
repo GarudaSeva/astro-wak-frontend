@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Star, ArrowDown } from "lucide-react";
+import {  Star } from "lucide-react";
 import { useState } from "react";
 import heroBackground from "@/assets/hero-cosmic-bg.jpg";
-import ConsultationModal from "./ConsultationModal";
 import logo from "@/assets/lord-ganesh.png";
+import ConsultationModalAdvanced from "./ConsultationModalAdvanced";
 
 const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -111,7 +111,8 @@ const HeroSection = () => {
         </button>
       </section>
 
-      <ConsultationModal
+      <ConsultationModalAdvanced
+        price={599}
         open={modalOpen}
         onOpenChange={setModalOpen}
         serviceType="horoscope"

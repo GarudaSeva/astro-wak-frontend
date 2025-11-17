@@ -1,21 +1,17 @@
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { CheckCircle } from "lucide-react";
-import ConsultationModal from "@/components/ConsultationModal";
 import horoscope from "@/assets/slokas/horoscope.png";
 import HoroscopeComponent from "@/components/horoscopeComponent";
 
 const Horoscope = () => {
-  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up mt-8">
           <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
-            Horoscope Services
+            Horoscope
           </h1>
           <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Your destiny, decoded through the wisdom of planets
@@ -210,14 +206,9 @@ const Horoscope = () => {
           </div>
         </div>
       </div>
+      
 
       <HoroscopeComponent />
-
-      <ConsultationModal
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-        serviceType="horoscope"
-      />
     </div>
   );
 };

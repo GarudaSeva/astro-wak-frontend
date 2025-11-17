@@ -2,8 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
-import { Gem, CheckCircle } from "lucide-react";
-import ConsultationModal from "@/components/ConsultationModal";
+import { CheckCircle } from "lucide-react";
 import rubyImg from "@/assets/gems/ruby.jpg";
 import pearlImg from "@/assets/gems/pearl.jpg";
 import coralImg from "@/assets/gems/coral.jpg";
@@ -14,6 +13,7 @@ import blueSapphireImg from "@/assets/gems/blue-sapphire.jpg";
 import hessoniteImg from "@/assets/gems/hessonite.jpg";
 import catsEyeImg from "@/assets/gems/cats-eye.jpg";
 import gemsBanner from "@/assets/slokas/genStone-banner.png"
+import ConsultationModalAdvanced from "@/components/ConsultationModalAdvanced";
 
 const Gems = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -240,7 +240,8 @@ const Gems = () => {
         </div>
       </div>
 
-      <ConsultationModal
+      <ConsultationModalAdvanced
+        price={599}
         open={modalOpen}
         onOpenChange={setModalOpen}
         serviceType="gems"

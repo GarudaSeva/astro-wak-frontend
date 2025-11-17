@@ -1,21 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import SlokaCard from "@/components/SlokaCard";
-import {
-  Star,
-  MessageCircle,
-  FileText,
-  Briefcase,
-  Heart,
-  Users,
-  Activity,
-  TrendingUp,
-  Calendar,
-  Shield,
-} from "lucide-react";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
-import slokaBg from "@/assets/sloka-bg.jpg";
 import askExpertImg from "@/assets/services/ask-expert.png";
 import janamPatriImg from "@/assets/services/janma-patri.png";
 import detailedReportImg from "@/assets/services/detailed-report.jpg";
@@ -237,7 +223,15 @@ Our expert astrologers provide simple yet powerful remedies to reduce or nullify
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <div className="min-h-screen pb-16">
+      <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-primary mb-4">
+              Our Horoscope Services
+            </h2>
+            <p className="text-secondary max-w-2xl mx-auto">
+              Accurate and personalized horoscope guidance based on your birth chart, planets, and cosmic alignment.
+                          </p>
+          </div>
       <div className="container mx-auto px-4">
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

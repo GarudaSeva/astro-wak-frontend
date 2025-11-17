@@ -1,17 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
-import { Clock, CheckCircle, Heart, Home, Briefcase, GraduationCap, Car, Users, Stethoscope } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import ConsultationModal from "@/components/ConsultationModal";
+import { CheckCircle } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import weddingImage from "@/assets/occasions/wedding.jpg";
 import gruhaPravesamImage from "@/assets/occasions/gruha-pravesam.png";
-import businessImage from "@/assets/occasions/business.jpg";
 import vehicleImage from "@/assets/occasions/vehicle.jpg";
-import engagementImage from "@/assets/occasions/engagement.jpg";
 import namingImage from "@/assets/occasions/naming.jpg";
-import medicalAdviceImage from "@/assets/occasions/medical-advice.png";
-import educationImage from "@/assets/occasions/education.jpg";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
 import genStoneBanner from "@/assets/slokas/subha-muhurat-banner.png"
 import annaPrasana from "@/assets/occasions/annaprasana.png"
@@ -19,18 +14,8 @@ import kesakandana from  "@/assets/occasions/kesa-kandana.png"
 import earpeicing from "@/assets/occasions/ear-peicing.png"
 import bhoomipooja from  "@/assets/occasions/bhoomi-pooja.png"
 import aksaraBasya from "@/assets/occasions/aksarabasyam.png"
+import { ServiceKey } from "@/types/serviceKeys";
 
-import {
-  Baby,
-  Utensils,
-  Scissors,
-  Sparkles,
-  BookOpen,
-  HeartHandshake,
-  Construction,
-  DoorOpen,
-  CalendarCheck
-} from "lucide-react";
 
 
 interface Service {
@@ -44,14 +29,16 @@ interface Service {
   process?: string[];
   deliverables?: string[];
   additionalInfo?: string;
+  serviceType : ServiceKey;
 }
 
 const services: Service[] = [
   {
     id: "namakarana",
-    title: "Namakarana (Naming Ceremony) Muhurat",
+    serviceType: "muhurt_namakaranam",
+    title: "Namakarana Muhurat",
     price: "₹599",
-    shortDesc: "Auspicious naming ceremony muhurat for bestowing love, prosperity, and blessings on your newborn.",
+    shortDesc: "Auspicious naming ceremony muhurat for bestowing newborn.",
     icon: namingImage,
     fullDescription: `Namakarana is one of the most sacred samskaras in Hindu tradition. It is performed to officially give the baby a name in an auspicious muhurat that brings love, luck, prosperity, wealth, health, and divine blessings.
 
@@ -80,6 +67,7 @@ The ceremony is usually performed on the 11th, 21st, 29th day, or in the 3rd mon
   },
   {
     id: "annaprasana",
+    serviceType: "muhurt_annaprasana",
     title: "Annaprasana Muhurat",
     price: "₹599",
     shortDesc: "Auspicious muhurat for your baby's first solid food ceremony.",
@@ -114,7 +102,8 @@ The ceremony also includes a symbolic ritual where various objects are placed in
   },
   {
     id: "kesa-khandana",
-    title: "Kesa Khandana (Mundan) Muhurat",
+    serviceType: "muhurt_kesa_khandana",
+    title: "Kesa Khandana Muhurat",
     price: "₹599",
     shortDesc: "Auspicious muhurat for the child’s first hair removal (Mundan) ritual.",
     icon: kesakandana,
@@ -146,7 +135,8 @@ Girls undergo this ritual (called Chaula Karma) in even years such as 2, 4, 6, e
   },
   {
     id: "karna-vedha",
-    title: "Karna Vedha (Ear Piercing) Muhurat",
+    serviceType:"muhurt_karna_vedha",
+    title: "Karna Vedha Muhurat",
     price: "₹599",
     shortDesc: "Auspicious time for performing the sacred ear-piercing ritual.",
     icon: earpeicing,
@@ -177,7 +167,8 @@ The ideal age for Karna Vedha is between 3 to 5 years. If done at the correct mu
   },
   {
     id: "aksharabhyasa",
-    title: "Aksharabhyasa (Vidyarambham) Muhurat",
+    serviceType: "muhurt_aksharabhyasa",
+    title: "Aksharabhyasa Muhurat",
     price: "₹599",
     shortDesc: "Auspicious muhurat to begin a child’s education journey.",
     icon: aksaraBasya,
@@ -207,12 +198,10 @@ It is usually performed in the 3rd year or in other auspicious odd years. The ce
     ],
     additionalInfo: "Proper muhurat ensures educational success, improved intellect, and a strong learning foundation."
   },
-
-  // CONTINUING THE SAME services ARRAY…
-
   {
     id: "vivaha-muhurat",
-    title: "Vivaha (Marriage) Muhurat",
+    serviceType:"muhurt_vivaha",
+    title: "Vivaha Muhurat",
     price: "₹499",
     shortDesc: "Auspicious marriage muhurat based on both bride and groom’s horoscopes.",
     icon: weddingImage, // or Ring
@@ -244,10 +233,10 @@ This service checks compatibility, identifies auspicious wedding days, and provi
     ],
     additionalInfo: "Bride and groom details are required separately for accurate matching. Ideal for planning marriage dates within the year."
   },
-
   {
     id: "bhoomi-pooja",
-    title: "Bhoomi Pooja / Sankhustapana Muhurat",
+    serviceType: "muhurt_bhoomi_pooja",
+    title: "Bhoomi Pooja Muhurat",
     price: "₹499",
     shortDesc: "Auspicious timing for land worship and beginning house construction.",
     icon: bhoomipooja, // or MountainSun
@@ -279,10 +268,10 @@ The ritual includes Vastu Puja, Balidaana, leveling of land, seed sowing, and la
     ],
     additionalInfo: "Performed before starting construction. Includes rituals like Vastu Puja, Balidaana, seed sowing, and Shila Nyasa."
   },
-
   {
     id: "griha-pravesh",
-    title: "Griha Pravesh (Housewarming) Muhurat",
+    serviceType: "muhurt_gruha_pravesh",
+    title: "Griha Pravesh Muhurat",
     price: "₹499",
     shortDesc: "Find the perfect time to enter your new home for prosperity and positivity.",
     icon: gruhaPravesamImage,
@@ -315,12 +304,12 @@ Auspicious days are calculated using the Panchang while considering the homeowne
     ],
     additionalInfo: "Includes guidance on Ganesh Puja, Navagraha Shanti, Havan, and Satyanarayana Vratam for maximum positivity."
   },
-
   {
     id: "other-muhurats",
-    title: "Other Muhurats (Business, Vehicle, Registration, C-Section, Travel, etc.)",
+    serviceType:"muhurt_other",
+    title: "Other Muhurats",
     price: "₹499",
-    shortDesc: "Get auspicious muhurats for various important life events and activities.",
+    shortDesc: "Get auspicious muhurats for various important life events and activities.(Business, Vehicle, Registration, Travel, etc.)",
     icon: vehicleImage,
     fullDescription: `We also provide muhurat selection for various significant life events beyond traditional ceremonies. These include business openings, land registration, vehicle usage, C-section timings, travel muhurats, and many more.
 
@@ -519,17 +508,12 @@ const ShubhaMuhurt = () => {
         </div>
       </div>
 
-      <ConsultationModal
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-        serviceType="muhurt"
-      />
     </div>
 
-    <section className="py-16 px-4 bg-background">
+    <section className="py-1 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-primary mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-primary mb-4">
               Our Muhurat Services
             </h2>
             <p className="text-secondary max-w-2xl mx-auto">
@@ -602,7 +586,7 @@ const ShubhaMuhurt = () => {
           process={selectedService.process}
           deliverables={selectedService.deliverables}
           additionalInfo={selectedService.additionalInfo}
-          serviceType="muhurt"
+          serviceType={selectedService.serviceType}
         />
       )}
     </div>

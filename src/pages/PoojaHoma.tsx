@@ -3,11 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import SlokaCard from "@/components/SlokaCard";
 import { Flame } from "lucide-react";
-import ConsultationModal from "@/components/ConsultationModal";
-import diwaliImg from "@/assets/diwali-celebration.jpg";
-import swastikImg from "@/assets/swastik-symbol.png";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
-
 import ganapatiImg from "@/assets/services/ganapati-homa.jpg";
 import navagrahaImg from "@/assets/services/navagraha-homa.jpg";
 import lakshmiImg from "@/assets/services/lakshmi-pooja.jpg";
@@ -321,7 +317,7 @@ const PoojaHoma = () => {
         <div className="text-center mb-12 animate-fade-in-up mt-8">
           {/* <Flame className="h-16 w-16 mx-auto mb-4 text-secondary animate-twinkle" /> */}
           <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
-            Pooja & Homa Services
+            Pooja & Homas
           </h1>
           <p className="text-xl font-playfair text-secondary max-w-3xl mx-auto">
             Manifest your desires & wishes through sacred rituals
@@ -339,7 +335,7 @@ const PoojaHoma = () => {
 
 
         {/* About Section */}
-        <div className="mb-16">
+        <div className="mb-4">
           <Card className="p-8 border-2 border-secondary/30">
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
               The Power of Vedic Rituals
@@ -397,18 +393,13 @@ const PoojaHoma = () => {
 
       </div>
 
-      <ConsultationModal
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-        serviceType="pooja"
-      />
     </div>
 
  <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in-up">
-          <h1 className="text-5xl md:text-6xl font-bold font-playfair text-primary mb-6">
-            Pooja & Homa Services
+          <h1 className="text-5xl md:text-5xl font-bold font-playfair text-primary mb-6">
+            Our Pooja & Homa Services
           </h1>
           <p className="text-xl text-secondary max-w-3xl mx-auto">
             Manifest your desires & wishes through sacred Vedic fire rituals and traditional worship ceremonies

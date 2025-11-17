@@ -1,24 +1,16 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
-  Sparkles,
-  Phone,
-  MapPin,
   Star,
   Hash,
   Gem,
   Clock,
   Flame,
 } from "lucide-react";
-import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import SlokaCard from "@/components/SlokaCard";
-import ConsultationModal from "@/components/ConsultationModal";
 import astrologerPhoto from "@/assets/astrologer-photo.jpg";
-import Pay599Button from "@/components/Pay599Button";
-import logo from "@/assets/lord-ganesh.png";
 import slokaBackfround from "@/assets/slokas/home.png";
-import { Sun, Heart } from "lucide-react";
 import image1 from "@/assets/objectives/card1.png"
 import image2 from "@/assets/objectives/card2.png"
 import image3 from "@/assets/objectives/card3.png"
@@ -27,63 +19,58 @@ import image5 from "@/assets/objectives/card5.png"
 import image6 from "@/assets/objectives/card6.png"
 import image7 from "@/assets/objectives/card7.png"
 import image8 from "@/assets/objectives/card8.png"
+import { Link } from "react-router-dom";
+import ServicesOverviewSection from "@/components/ServicesOverviewSection";
 
 
 const Home = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState<
-    "horoscope" | "numerology" | "gems" | "muhurt" | "pooja"
-  >("horoscope");
 
   const services = [
-    {
-      title: "Janma Patrika",
-      description:
-        "Detailed birth chart analysis revealing your cosmic blueprint and life path",
-      icon: Star,
-      link: "/horoscope",
-      serviceType: "horoscope" as const,
-    },
-    {
-      title: "Numerology",
-      description:
-        "Discover the hidden meanings in numbers and their influence on your destiny",
-      icon: Hash,
-      link: "/numerology",
-      serviceType: "numerology" as const,
-    },
-    {
-      title: "Gemstone Consultation",
-      description:
-        "Personalized gemstone recommendations for planetary balance and prosperity",
-      icon: Gem,
-      link: "/gems",
-      serviceType: "gems" as const,
-    },
-    {
-      title: "Shubha Muhurt",
-      description:
-        "Auspicious timing for rituals, ceremonies, and important life events",
-      icon: Clock,
-      link: "/muhurt",
-      serviceType: "muhurt" as const,
-    },
-    {
-      title: "Pooja & Homa",
-      description:
-        "Sacred rituals and fire ceremonies for spiritual growth and blessings",
-      icon: Flame,
-      link: "/pooja",
-      serviceType: "pooja" as const,
-    },
-  ];
+  {
+    title: "Horoscope",
+    description: "Detailed birth chart analysis revealing your cosmic blueprint and life path",
+    icon: Star,
+    link: "/horoscope",
+    serviceType: "horoscope" as const,
+  },
+  {
+    title: "Numerology",
+    description: "Discover the hidden meanings in numbers and their influence on your destiny",
+    icon: Hash,
+    link: "/numerology",
+    serviceType: "numerology" as const,
+  },
+  {
+    title: "Gemstone Consultation",
+    description: "Personalized gemstone recommendations for planetary balance and prosperity",
+    icon: Gem,
+    link: "/gems",
+    serviceType: "gems" as const,
+  },
+  {
+    title: "Shubha Muhurt",
+    description: "Auspicious timing for rituals, ceremonies, and important life events",
+    icon: Clock,
+    link: "/muhurt",   // <-- rename to your correct route
+    serviceType: "muhurt" as const,
+  },
+  {
+    title: "Pooja & Homa",
+    description: "Sacred rituals and fire ceremonies for spiritual growth and blessings",
+    icon: Flame,
+    link: "/pooja",
+    serviceType: "pooja" as const,
+  },
+];
+
 
   return (
     <div className="min-h-screen">
       <HeroSection />
 
+
       {/* About Section */}
-      <section className="py-10 bg-gradient-to-br from-background via-primary/5 to-background">
+      <section className="py-8">
         <div className="container mx-auto px-4">
 
           <h2 className="text-4xl mt-10 md:text-5xl font-bold font-playfair text-primary text-center">
@@ -210,7 +197,7 @@ const Home = () => {
         </div>
       </section>
 
-<section className="py-12 bg-gradient-to-b from-background to-primary/10">
+<section className="py-4">
   <div className="container mx-auto px-6 max-w-8xl">
 
     <h2 className="text-center text-4xl md:text-5xl font-bold font-playfair text-primary mb-12">
@@ -295,12 +282,7 @@ const Home = () => {
   </div>
 </section>
 
-
-
-
-
-      {/* Objectives Section */}
-   <section className="py-12 bg-background">
+   <section className="py-16 bg-background">
   <div className="container mx-auto px-4 max-w-6xl">
     
     <h2 className="text-center text-4xl md:text-5xl font-bold font-playfair text-primary mb-12">
@@ -387,50 +369,55 @@ const Home = () => {
      
 
       {/* Services Section */}
-      <section className="py-10 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary mb-4">
-              Our Services
-            </h2>
-            <p className="text-xl max-w-2xl mx-auto font-playfair text-secondary">
-              Comprehensive astrological guidance for every aspect of your life
-            </p>
-          </div>
+      
+      <section className="py-8">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-8">
+      <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary mb-4">
+        Our Services
+      </h2>
+      <p className="text-xl max-w-2xl mx-auto font-playfair text-secondary">
+        Comprehensive astrological guidance for every aspect of your life
+      </p>
+    </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <Card
-                  key={index}
-                  className="p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-yellow-50 hover:border-secondary/50 group"
-                >
-                  <div className="flex justify-center mb-4">
-                    <Icon className="h-10 w-10 text-secondary group-hover:scale-110 transition-transform" />
-                  </div>
-                  <h3 className="text-2xl font-bold font-playfair text-primary mb-3 text-center">
-                    {service.title}
-                  </h3>
-                  <p className=" text-center font-playfair text-secondary mb-6">
-                    {service.description}
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors"
-                    onClick={() => {
-                      setSelectedService(service.serviceType);
-                      setModalOpen(true);
-                    }}
-                  >
-                    Book Now
-                  </Button>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, index) => {
+        const Icon = service.icon;
+        return (
+          <Card
+            key={index}
+            className="p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-yellow-50 hover:border-secondary/50 group"
+          >
+            {/* <div className="flex justify-center mb-4">
+              <Icon className="h-10 w-10 text-secondary group-hover:scale-110 transition-transform" />
+            </div> */}
+
+            <h3 className="text-2xl font-bold font-playfair text-primary mb-3 text-center">
+              {service.title}
+            </h3>
+
+            <p className="text-center font-playfair text-secondary mb-6">
+              {service.description}
+            </p>
+
+            {/* ⭐ EXPLORE Button using react-router-dom ⭐ */}
+            <Link to={service.link} className="w-full">
+              <Button
+                variant="secondary"
+                className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors"
+              >
+                Explore
+              </Button>
+            </Link>
+          </Card>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<ServicesOverviewSection/>
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground cosmic-pattern">
@@ -452,11 +439,7 @@ const Home = () => {
         </div>
       </section>
 
-      <ConsultationModal
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-        serviceType={selectedService}
-      />
+
     </div>
   );
 };

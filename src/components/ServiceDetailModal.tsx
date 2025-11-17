@@ -2,7 +2,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
-import ConsultationModal from "./ConsultationModal";
+import ConsultationModalAdvanced from "./ConsultationModalAdvanced";
+import type { ServiceKey } from "@/types/serviceKeys";
 
 interface ServiceDetailModalProps {
   open: boolean;
@@ -14,7 +15,7 @@ interface ServiceDetailModalProps {
   process?: string[];
   deliverables?: string[];
   additionalInfo?: string;
-  serviceType: "horoscope" | "numerology" | "gems" | "muhurt" | "pooja";
+  serviceType: ServiceKey;
 }
 
 const ServiceDetailModal = ({
@@ -27,32 +28,42 @@ const ServiceDetailModal = ({
   process,
   deliverables,
   additionalInfo,
-  serviceType
+  serviceType,
 }: ServiceDetailModalProps) => {
   const [consultationOpen, setConsultationOpen] = useState(false);
 
   const handleBookNow = () => {
     onOpenChange(false);
-    setConsultationOpen(true);
+    // Use setTimeout to ensure state updates properly before opening next modal
+    setTimeout(() => {
+      setConsultationOpen(true);
+    }, 100);
   };
 
   return (
     <>
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-3xl max-h-[90vh]">
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
           <DialogHeader>
-            <DialogTitle className="text-3xl font-playfair text-primary">{title}</DialogTitle>
+            <DialogTitle className="text-3xl font-playfair text-primary">
+              {title}
+            </DialogTitle>
             {price && <p className="text-2xl font-bold text-secondary">{price}</p>}
           </DialogHeader>
-          <ScrollArea className="max-h-[60vh] pr-4">
-            <div className="space-y-6">
+
+          <ScrollArea className="flex-1 overflow-scroll pr-4">
+            <div className="space-y-6 pb-6">
               <div>
-                <p className="text-secondary leading-relaxed whitespace-pre-line">{description}</p>
+                <p className="text-secondary leading-relaxed whitespace-pre-line">
+                  {description}
+                </p>
               </div>
 
               {benefits && benefits.length > 0 && (
                 <div>
-                  <h3 className="text-xl font-bold font-playfair text-primary mb-3">Benefits</h3>
+                  <h3 className="text-xl font-bold font-playfair text-primary mb-3">
+                    Benefits
+                  </h3>
                   <ul className="space-y-2">
                     {benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-2">
@@ -66,7 +77,9 @@ const ServiceDetailModal = ({
 
               {process && process.length > 0 && (
                 <div>
-                  <h3 className="text-xl font-bold font-playfair text-primary mb-3">Process</h3>
+                  <h3 className="text-xl font-bold font-playfair text-primary mb-3">
+                    Process
+                  </h3>
                   <ul className="space-y-2">
                     {process.map((step, index) => (
                       <li key={index} className="flex items-start gap-3">
@@ -80,7 +93,9 @@ const ServiceDetailModal = ({
 
               {deliverables && deliverables.length > 0 && (
                 <div>
-                  <h3 className="text-xl font-bold font-playfair text-primary mb-3">Deliverables</h3>
+                  <h3 className="text-xl font-bold font-playfair text-primary mb-3">
+                    Deliverables
+                  </h3>
                   <ul className="space-y-2">
                     {deliverables.map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
@@ -101,29 +116,27 @@ const ServiceDetailModal = ({
               )}
             </div>
           </ScrollArea>
-          <div className="flex gap-4 pt-4 border-t">
+
+          <div className="flex gap-4 pt-4 border-t border-border mt-auto">
             <Button
               onClick={handleBookNow}
-              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
+              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
               size="lg"
             >
               Book Now
             </Button>
-            <Button
-              onClick={() => onOpenChange(false)}
-              variant="outline"
-              size="lg"
-            >
+            <Button onClick={() => onOpenChange(false)} variant="outline" size="lg">
               Close
             </Button>
           </div>
         </DialogContent>
       </Dialog>
 
-      <ConsultationModal
+      <ConsultationModalAdvanced
         open={consultationOpen}
         onOpenChange={setConsultationOpen}
         serviceType={serviceType}
+        price={price ? parseFloat(price) : undefined}
       />
     </>
   );

@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, ExternalLink } from "lucide-react";
+import {  ExternalLink } from "lucide-react";
 
 const Blog = () => {
   const articles = [

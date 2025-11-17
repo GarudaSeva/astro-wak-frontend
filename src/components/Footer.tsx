@@ -1,5 +1,4 @@
 import { Phone, MapPin, Mail } from "lucide-react";
-import diyaIcon from "@/assets/lord-ganesh.png";
 
 const Footer = () => {
   return (
