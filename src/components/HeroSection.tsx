@@ -80,10 +80,14 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6 md:mt-8">
               <Button
                 size="lg"
-                onClick={() => setModalOpen(true)}
+                onClick={() => {
+    document.getElementById("services")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
                 className="text-lg px-6 py-4 md:px-8 md:py-6 bg-primary hover:bg-primary/90 text-primary-foreground divine-glow"
               >
-                Get Your Horoscope
+                Get Your Horoscope Now
               </Button>
 
               <Button

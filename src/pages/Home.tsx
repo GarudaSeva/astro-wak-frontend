@@ -370,7 +370,7 @@ const Home = () => {
 
       {/* Services Section */}
       
-      <section className="py-8">
+      <section className="py-8" id="services">
   <div className="container mx-auto px-4">
     <div className="text-center mb-8">
       <h2 className="text-4xl md:text-5xl font-bold font-playfair text-primary mb-4">
