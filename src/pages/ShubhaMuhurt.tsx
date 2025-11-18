@@ -17,7 +17,7 @@ export interface MuhuratService {
   title: string;
   price: string;
   shortDesc: string;
-  icon: any;
+  image: any;
   description: string;
   benefits?: string[];
   process?: string[];
@@ -211,7 +211,7 @@ const ShubhaMuhurt = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {muhuratServices.map((service) => {
-              const IconComponent = service.icon;
+              const IconComponent = service.image;
               return (
                <Card
   key={service.id}
@@ -221,11 +221,11 @@ const ShubhaMuhurt = () => {
   <div className="w-28 h-28 rounded-full bg-primary/10 flex items-center justify-center 
                   mb-4 group-hover:bg-primary/20 transition-colors shadow-md overflow-hidden">
 
-    {typeof service.icon === "function" ? (
-      <service.icon className="w-14 h-14 text-primary" />
+    {typeof service.image === "function" ? (
+      <service.image className="w-14 h-14 text-primary" />
     ) : (
       <img
-        src={service.icon}
+        src={service.image}
         alt={service.title}
         className="w-full h-full object-cover"
       />

@@ -17,7 +17,7 @@ export interface MuhuratService {
   title: string;
   price: string;
   shortDesc: string;
-  icon: any;
+  image: any;
   description: string;
   benefits?: string[];
   process?: string[];
@@ -34,7 +34,7 @@ const muhuratServices: MuhuratService[] = [
     title: "Namakarana Muhurat",
     price: "₹599",
     shortDesc: "Auspicious naming ceremony muhurat for bestowing newborn.",
-    icon: namingImage,
+    image: namingImage,
     description: `Namakarana is one of the most sacred samskaras in Hindu tradition. It is performed to officially give the baby a name in an auspicious muhurat that brings love, luck, prosperity, wealth, health, and divine blessings.
 
 The ceremony is usually performed on the 11th, 21st, 29th day, or in the 3rd month from the birth of the child. The naming day varies across cultures, castes, and states, but the essence remains the same — welcoming the newborn into the world with a meaningful and blessed name.`,
@@ -67,7 +67,7 @@ The ceremony is usually performed on the 11th, 21st, 29th day, or in the 3rd mon
     title: "Annaprasana Muhurat",
     price: "₹599",
     shortDesc: "Auspicious muhurat for your baby's first solid food ceremony.",
-    icon: annaPrasana,
+    image: annaPrasana,
     description: `Annaprasana is the sacred ceremony of feeding solid food (usually rice) to a baby for the first time. It is generally performed between 6 months to 1 year of age.
 
 For boys, it is traditionally done in even months (6th, 8th, 10th, 12th).  
@@ -103,7 +103,7 @@ The ceremony also includes a symbolic ritual where various objects are placed in
     title: "Kesa Khandana Muhurat",
     price: "₹599",
     shortDesc: "Auspicious muhurat for the child’s first hair removal (Mundan) ritual.",
-    icon: kesakandana,
+    image: kesakandana,
     description: `Kesa Khandana, also known as Mundan or Chaul Sanskar, is one of the sixteen important Samskaras. The ceremony involves shaving the child’s hair for the first time and is believed to remove past karmic influences and bring blessings.
 
 It is usually performed within the first year, typically at 7, 9, or 11 months.  
@@ -137,7 +137,7 @@ Girls undergo this ritual (called Chaula Karma) in even years such as 2, 4, 6, e
     title: "Karna Vedha Muhurat",
     price: "₹599",
     shortDesc: "Auspicious time for performing the sacred ear-piercing ritual.",
-    icon: earpeicing,
+    image: earpeicing,
     description: `Karna Vedha is the sacred ear-piercing ceremony performed in early childhood. It is considered one of the most important samskaras ensuring prosperity, clarity, and protection.
 
 The ideal age for Karna Vedha is between 3 to 5 years. If done at the correct muhurat, this ritual is believed to enhance the child's future prospects, positivity, and fortune.`,
@@ -170,7 +170,7 @@ The ideal age for Karna Vedha is between 3 to 5 years. If done at the correct mu
     title: "Aksharabhyasa Muhurat",
     price: "₹599",
     shortDesc: "Auspicious muhurat to begin a child’s education journey.",
-    icon: aksaraBasya,
+    image: aksaraBasya,
     description: `Aksharabhyasa or Vidyarambham marks the beginning of a child’s learning experience. This sacred ritual introduces the child to education, writing, and knowledge.
 
 It is usually performed in the 3rd year or in other auspicious odd years. The ceremony includes introducing the child to letters using slate, paper, or rice grains and offering prayers to Guru and deities for wisdom.`,
@@ -204,7 +204,7 @@ It is usually performed in the 3rd year or in other auspicious odd years. The ce
     title: "Vivaha Muhurat",
     price: "₹499",
     shortDesc: "Auspicious marriage muhurat based on both bride and groom’s horoscopes.",
-    icon: weddingImage, // or Ring
+    image: weddingImage, // or Ring
     description: `Marriage is one of the most significant milestones in life. Selecting an auspicious Vivaha Muhurat ensures harmony, compatibility, and long-lasting prosperity.
 
 A marriage muhurat is determined using the horoscopes of both the bride and groom. Factors such as Nakshatra, planetary positions, and doshas are examined to ensure the wedding takes place at a divinely favorable time.
@@ -240,7 +240,7 @@ This service checks compatibility, identifies auspicious wedding days, and provi
     title: "Bhoomi Pooja Muhurat",
     price: "₹499",
     shortDesc: "Auspicious timing for land worship and beginning house construction.",
-    icon: bhoomipooja, // or MountainSun
+    image: bhoomipooja, // or MountainSun
     description: `Bhoomi Pooja (Bhumi Puja) or Sankhustapana is performed before starting construction of a house or building. This sacred ritual honors Mother Earth and Vastu Purusha—the deity of directions—to bring prosperity, stability, and protection.
 
 It is ideally performed in the northeast corner of the land. House construction should not begin during Ashada Shukla to Kartik Shukla, as per traditional belief.
@@ -276,7 +276,7 @@ The ritual includes Vastu Puja, Balidaana, leveling of land, seed sowing, and la
     title: "Griha Pravesh Muhurat",
     price: "₹499",
     shortDesc: "Find the perfect time to enter your new home for prosperity and positivity.",
-    icon: gruhaPravesamImage,
+    image: gruhaPravesamImage,
     description: `Griha Pravesh is the sacred ceremony performed before entering a newly built home. A proper muhurat ensures positivity, harmony, prosperity, and protection from negative influences.
 
 The ceremony includes Ganesh Puja, Navagraha Shanti, Vastu Havan, and Satyanarayana Swami Vratam. Only one Griha Pravesh is done per home, so choosing the right muhurat is essential.
@@ -313,7 +313,7 @@ Auspicious days are calculated using the Panchang while considering the homeowne
     title: "Other Muhurats",
     price: "₹499",
     shortDesc: "Get auspicious muhurats for various important life events and activities.(Business, Vehicle, Registration, Travel, etc.)",
-    icon: vehicleImage,
+    image: vehicleImage,
     description: `We also provide muhurat selection for various significant life events beyond traditional ceremonies. These include business openings, land registration, vehicle usage, C-section timings, travel muhurats, and many more.
 
 Each muhurat is calculated using the individual’s birth chart, planetary positions, Nakshatra, and Panchang to ensure the most favorable and safest timing.`,
