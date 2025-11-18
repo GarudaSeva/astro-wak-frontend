@@ -34,7 +34,7 @@ const PoojaHoma = () => {
           <div className="mb-16">
             <SlokaCard
               sloka="ఓం సర్వమంగళమాంగళ్యే శివే సర్వార్థ సాధికే శరణ్యే త్రయంబకే గౌరీ నారాయణీ నమోస్తుతే||"
-              translation="Om, to the One who is the auspiciousness of all that is auspicious..."
+              // translation="Om, to the One who is the auspiciousness of all that is auspicious..."
               image={poojasBanner}
             />
           </div>
