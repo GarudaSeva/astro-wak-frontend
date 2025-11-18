@@ -14,9 +14,11 @@ import hessoniteImg from "@/assets/gems/hessonite.jpg";
 import catsEyeImg from "@/assets/gems/cats-eye.jpg";
 import gemsBanner from "@/assets/slokas/genStone-banner.png"
 import ConsultationModalAdvanced from "@/components/ConsultationModalAdvanced";
+import { useNavigate } from "react-router-dom";
 
 const Gems = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const gemstones = [
     { name: "Ruby", subtitle: "Manikya", planet: "Sun", duration: "4 years", color: "Red", image: rubyImg },
@@ -230,12 +232,20 @@ const Gems = () => {
               Detailed analysis delivered to your WhatApp Chat within 24 hours
             </p>
             <Button
-              size="lg"
-              onClick={() => setModalOpen(true)}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
-            >
-              Request Gem Report Now
-            </Button>
+  size="lg"
+  onClick={() =>
+    navigate(`/book/gems`, {
+      state: {
+        price: 599,
+        title: "Gemstone Consultation",
+        serviceType: "gems",
+      },
+    })
+  }
+  className="bg-primary hover:bg-primary/90 text-primary-foreground divine-glow px-8 py-6 text-lg"
+>
+  Request Gem Report Now
+</Button>
           </Card>
         </div>
       </div>
