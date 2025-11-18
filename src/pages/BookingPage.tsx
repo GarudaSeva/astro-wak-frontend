@@ -623,7 +623,7 @@ export default function ConsultationForm() {
     price,
     bookingFor,
 
-    formData: form, // 🔥 stores all dynamic fields
+    bookingData: form, // 🔥 stores all dynamic fields
   };
 
   try {
