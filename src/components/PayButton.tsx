@@ -8,21 +8,27 @@ declare global {
 }
 
 interface PayButtonProps {
-  amount: number;                // ₹ Amount (required)
-  title?: string;                // Button title
-  description?: string;          // Razorpay checkout description
-  name?: string;                 // User name
-  email?: string;                // User email
-  disabled?: boolean;            // Disable button
+  amount: number;
+  title?: string;
+  description?: string;
+  name?: string;
+  email?: string;
+  disabled?: boolean;
+
+  // NEW CALLBACKS ↓↓↓
+  onSuccess?: (data: any) => void;
+  onFailure?: (error: any) => void;
 }
 
 export default function PayButton({
   amount,
   title = `Pay ₹${amount}`,
   description = "AstroWak Payment",
-  name ,
-  email ,
+  name,
+  email,
   disabled = false,
+  onSuccess,
+  onFailure,
 }: PayButtonProps) {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
@@ -34,7 +40,7 @@ export default function PayButton({
     setLoading(true);
 
     try {
-      // 👉 STEP 1: Create Order on Backend
+      // STEP 1: Create Order
       const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/payments/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -52,7 +58,7 @@ export default function PayButton({
         return;
       }
 
-      // 👉 STEP 2: Razorpay Checkout Options
+      // STEP 2: Razorpay Options
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: amount_paise,
@@ -64,7 +70,7 @@ export default function PayButton({
         theme: { color: "#1f98adff" },
 
         handler: async function (response: any) {
-          // 👉 STEP 3: Verify Payment on Backend
+          // STEP 3: Verify Payment
           const verifyRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/payments/verify-payment`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -78,19 +84,22 @@ export default function PayButton({
           });
 
           const result = await verifyRes.json();
-          console.log(result , 'result of payment')
 
           if (result.success) {
             toast({
               title: "✅ Payment Successful",
               description: "Your payment has been verified!",
             });
+
+            onSuccess?.(result); // 🔥 send data to parent
           } else {
             toast({
               title: "❌ Verification Failed",
               description: "Signature mismatch. Contact support.",
               variant: "destructive",
             });
+
+            onFailure?.(result); // 🔥 send error to parent
           }
         },
 
@@ -103,11 +112,14 @@ export default function PayButton({
       razorpay.open();
     } catch (error) {
       console.error("Payment Error:", error);
+
       toast({
         title: "Payment Failed 😢",
         description: "Something went wrong. Try again.",
         variant: "destructive",
       });
+
+      onFailure?.(error); // send error to parent
     }
 
     setLoading(false);
@@ -117,8 +129,13 @@ export default function PayButton({
     <button
       onClick={handlePayment}
       disabled={loading || disabled}
-      className={`w-full font-semibold px-6 py-2 rounded-lg shadow-md transition-all disabled:opacity-60
-      ${loading ? "bg-gray-400" : "bg-yellow-500 hover:bg-yellow-600 text-white"}`}
+      className={`
+        w-fit px-6 py-2 
+        mx-auto 
+        rounded-lg shadow-md font-semibold 
+        transition-all disabled:opacity-60
+        ${loading ? "bg-gray-400" : "bg-yellow-500 hover:bg-yellow-600 text-white"}
+      `}
     >
       {loading ? "Processing..." : title}
     </button>

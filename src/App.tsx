@@ -15,13 +15,17 @@ import PoojaHoma from "./pages/PoojaHoma";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/AdminDashboard";
+import ServiceDetailsPage from "./pages/ServiceDetailsPage";
+import ConsultationPage from "./pages/BookingPage";
+import ConsultationForm from "./pages/BookingPage";
 
 const queryClient = new QueryClient();
 
 // ✅ Helper Layout Component
 const Layout = () => {
   const location = useLocation();
-  const hideFooter = location.pathname === "/admin"; // 👈 condition
+  const hideFooter = location.pathname === "/admin" || 
+  location.pathname.startsWith("/book/");
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -36,6 +40,15 @@ const Layout = () => {
           <Route path="/pooja" element={<PoojaHoma />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<AdminDashboard />} />
+
+          <Route path="/horoscope/:slug" element={<ServiceDetailsPage/>} />
+          <Route path="/numerology/:slug" element={<ServiceDetailsPage/>} />
+          <Route path="/pooja/:slug" element={<ServiceDetailsPage />} />
+          <Route path="/muhurt/:slug" element={<ServiceDetailsPage />} />
+
+          <Route path="/book/:serviceType" element={<ConsultationForm />} />
+
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
