@@ -28,7 +28,7 @@ const horoscopeServices: HoroscopeService[] = [
       title: "Ask An Expert / Talk to Astrologer",
       serviceType: "horoscope",
       slug: "ask-expert",
-      price: "Rs. 2,516/-",
+      price: "₹2,516",
       image: askExpertImg,
       shortDescription:
         "Horoscope highlights hand-written by ASTROWAK team. Get personal consultation.",
@@ -64,7 +64,7 @@ Thus, if you got any pressing issues related to love, marriage, health, career, 
       title: "Janam Patri / Horoscope",
       serviceType: "horoscope",
       slug: "janam-patri",
-      price: "Rs. 1,517/-",
+      price: "₹1,517",
       image: janamPatriImg,
       shortDescription:
         "Complete birth chart revealing your cosmic blueprint and life path.",
@@ -86,7 +86,7 @@ Your horoscope is a sacred document that captures the exact planetary positions 
       title: "Detailed Life Report",
       serviceType: "horoscope",
       slug: "detailed-life-report",
-      price: "Rs. 1216/-",
+      price: "₹1216",
       image: detailedReportImg,
       shortDescription:
         "Comprehensive analysis of all major life areas with predictions.",
@@ -106,7 +106,7 @@ Our expert astrologers will analyze your horoscope thoroughly and provide accura
       title: "Career, Business & Finance",
       serviceType: "horoscope",
       slug: "career-business-finance",
-      price:"Rs. 599/-",
+      price:"₹599",
       image: careerImg,
       shortDescription:
         "Professional astrology guidance for career growth and financial success.",
@@ -126,7 +126,7 @@ Understand the best career paths for you, timing for job changes, business partn
       title: "Matching Horoscopes & Compatibility",
       serviceType: "horoscope",
       slug: "matching-compatibility",
-      price:"Rs. 599/-",
+      price:"₹599",
       image: matchingImg,
       shortDescription:
         "Comprehensive horoscope matching for marriage and relationships.",
@@ -146,7 +146,7 @@ Understand the physical, mental, and spiritual compatibility with your partner. 
       title: "Marriage & Children",
       serviceType: "horoscope",
       slug: "marriage-children",
-      price:"Rs. 599/-",
+      price:"₹599",
       image: marriageImg,
       shortDescription:
         "Marriage timing, spouse characteristics, and children prospects.",
@@ -166,7 +166,7 @@ Our experts provide detailed predictions about married life, spouse's nature, fa
       title: "Health Analysis",
       slug: "health-analysis",
       serviceType: "horoscope",
-      price:"Rs. 599/-",
+      price:"₹599",
       image: healthImg,
       shortDescription:
         "Health predictions and remedies based on planetary positions.",
@@ -186,7 +186,7 @@ Understand your body constitution, susceptibility to diseases, and the best ways
       title: "Wealth & Prosperity",
       serviceType: "horoscope",
       slug : "wealth-prosperity",
-      price:"Rs. 599/-",
+      price:"₹599",
       image: wealthImg,
       shortDescription:
         "Financial prosperity analysis and wealth accumulation guidance.",
@@ -206,7 +206,7 @@ Our experts provide guidance on best investment timings, wealth-building strateg
       title: "Varshaphala & Planets Transit Reports",
       slug: "planets-transit-report",
       serviceType: "horoscope",
-      price:"Rs. 599/-",
+      price:"₹599",
       image: varshaphala,
       shortDescription:
         "Annual predictions and planetary transit effects on your life.",
@@ -226,10 +226,10 @@ Understand the effects of major transits like Saturn, Jupiter, Rahu-Ketu on your
       title: "Dosha Report",
       slug: "dosha-report",
       serviceType: "horoscope",
-      price:"Rs. 599/-",
+      price:"₹599",
       image: doshaReport,
       shortDescription: "Comprehensive dosha analysis and remedial solutions.",
-      description: `Get detailed analysis of various doshas in your horoscope like Manglik Dosha, Kaal Sarp Dosha, Pitra Dosha, and others. Understand their effects on different areas of your life and get effective remedies.
+      description: `Get detailed analysis of various doshas in your horoscope like Manglik Dosha, Kaal Sarp Dosha, Pitra Dosha, and othe₹Understand their effects on different areas of your life and get effective remedies.
 
 Our expert astrologers provide simple yet powerful remedies to reduce or nullify the negative effects of doshas and improve your life quality.`,
       benefits: [

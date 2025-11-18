@@ -611,21 +611,54 @@ export default function ConsultationForm() {
     return null;
   };
 
-  const handleSubmitWhatsApp = () => {
-    let msg = `*${String(title).toUpperCase()} REQUEST*\n\n`;
+  const handleSubmitWhatsApp = async () => {
+  // Prepare payload for backend
+  const payload = {
+    name: form.name,
+    email: form.email,
+    phone: form.phone,
 
-    Object.keys(form).forEach((k) => {
-      if (form[k]) msg += `*${k}:* ${form[k]}\n`;
-    });
+    serviceType,
+    title,
+    price,
+    bookingFor,
 
-    // also include bookingFor info
-    msg += `*Booking For:* ${bookingFor}\n`;
-
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,
-      "_blank"
-    );
+    formData: form, // 🔥 stores all dynamic fields
   };
+
+  try {
+    // 1️⃣ SAVE TO BACKEND
+    const res = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/consultations`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    const result = await res.json();
+    console.log("Consultation saved:", result);
+
+  } catch (error) {
+    console.error("Error saving consultation:", error);
+  }
+
+  // 2️⃣ OPEN WHATSAPP
+  let msg = `*${String(title).toUpperCase()} REQUEST*\n\n`;
+
+  Object.keys(form).forEach((key) => {
+    if (form[key]) msg += `*${key}:* ${form[key]}\n`;
+  });
+
+  msg += `*Booking For:* ${bookingFor}\n`;
+
+  window.open(
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,
+    "_blank"
+  );
+};
+
 
   if (!fields.length) {
     return (
