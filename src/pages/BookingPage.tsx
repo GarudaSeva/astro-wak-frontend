@@ -280,57 +280,54 @@ export default function ConsultationForm() {
 
   // Rendering summary unchanged except styling kept minimal
   const renderSummary = () => {
-  return (
-    <div className="space-y-4 px-4 md:px-10 lg:px-20 xl:px-40 2xl:px-60">
-      
-      <div className="p-4 rounded-lg space-y-3 bg-transparent">
-        <p className="font-semibold text-secondary">Your Details</p>
-        {getBasicFields().map(
-          (f) =>
-            form[f.name] && (
-              <div key={f.name} className="flex justify-between text-sm">
-                <span className="text-secondary capitalize">{f.label}:</span>
-                <span className="font-medium text-secondary">
-                  {form[f.name]}
-                </span>
-              </div>
-            )
-        )}
-      </div>
-
-      <div className="p-4 rounded-lg space-y-3 bg-transparent">
-        <p className="font-semibold text-secondary">Service Details</p>
-        {getServiceFields().map(
-          (f) =>
-            form[f.name] && (
-              <div key={f.name} className="flex justify-between text-sm">
-                <span className="text-secondary capitalize">{f.label}:</span>
-                <span className="font-medium text-secondary">
-                  {form[f.name]}
-                </span>
-              </div>
-            )
-        )}
-      </div>
-
-      <div className="p-4 rounded-lg space-y-3 bg-transparent">
-        <p className="font-semibold text-secondary">Order Summary</p>
-        <div className="flex justify-between text-sm mb-3">
-          <span className="text-secondary">Service:</span>
-          <span className="font-medium text-secondary">{title}</span>
+    return (
+      <div className="space-y-4 px-4 md:px-10 lg:px-20 xl:px-40 2xl:px-60">
+        <div className="p-4 rounded-lg space-y-3 bg-transparent">
+          <p className="font-semibold text-secondary">Your Details</p>
+          {getBasicFields().map(
+            (f) =>
+              form[f.name] && (
+                <div key={f.name} className="flex justify-between text-sm">
+                  <span className="text-secondary capitalize">{f.label}:</span>
+                  <span className="font-medium text-secondary">
+                    {form[f.name]}
+                  </span>
+                </div>
+              )
+          )}
         </div>
-        <div className="flex justify-between text-base pt-3">
-          <span className="font-semibold">Total Amount:</span>
-          <span className="font-bold text-purple-600 dark:text-purple-400">
-            ₹ {price}
-          </span>
+
+        <div className="p-4 rounded-lg space-y-3 bg-transparent">
+          <p className="font-semibold text-secondary">Service Details</p>
+          {getServiceFields().map(
+            (f) =>
+              form[f.name] && (
+                <div key={f.name} className="flex justify-between text-sm">
+                  <span className="text-secondary capitalize">{f.label}:</span>
+                  <span className="font-medium text-secondary">
+                    {form[f.name]}
+                  </span>
+                </div>
+              )
+          )}
+        </div>
+
+        <div className="p-4 rounded-lg space-y-3 bg-transparent">
+          <p className="font-semibold text-secondary">Order Summary</p>
+          <div className="flex justify-between text-sm mb-3">
+            <span className="text-secondary">Service:</span>
+            <span className="font-medium text-secondary">{title}</span>
+          </div>
+          <div className="flex justify-between text-base pt-3">
+            <span className="font-semibold">Total Amount:</span>
+            <span className="font-bold text-purple-600 dark:text-purple-400">
+              ₹ {price}
+            </span>
+          </div>
         </div>
       </div>
-
-    </div>
-  );
-};
-
+    );
+  };
 
   const renderStepContent = () => {
     if (currentStep === 1) {
@@ -568,23 +565,22 @@ export default function ConsultationForm() {
               {renderSummary()}
 
               <div className="p-4 rounded-lg bg-transparent px-4 md:px-10 lg:px-20 xl:px-40 2xl:px-60">
-  <div className="flex items-start gap-3">
-    <Checkbox
-      checked={acceptedTerms}
-      onCheckedChange={(v) => setAcceptedTerms(!!v)}
-      id="step3-terms"
-      className="mt-1 rounded-sm"
-    />
-    <label
-      htmlFor="step3-terms"
-      className="text-sm cursor-pointer text-secondary"
-    >
-      I agree to the Terms & Conditions and confirm all the
-      details provided above are accurate.
-    </label>
-  </div>
-</div>
-
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    checked={acceptedTerms}
+                    onCheckedChange={(v) => setAcceptedTerms(!!v)}
+                    id="step3-terms"
+                    className="mt-1 rounded-sm"
+                  />
+                  <label
+                    htmlFor="step3-terms"
+                    className="text-sm cursor-pointer text-secondary"
+                  >
+                    I agree to the Terms & Conditions and confirm all the
+                    details provided above are accurate.
+                  </label>
+                </div>
+              </div>
             </>
           ) : (
             <div className="text-center space-y-6 py-8">
@@ -612,53 +608,20 @@ export default function ConsultationForm() {
   };
 
   const handleSubmitWhatsApp = async () => {
-  // Prepare payload for backend
-  const payload = {
-    name: form.name,
-    email: form.email,
-    phone: form.phone,
+    // 2️⃣ OPEN WHATSAPP
+    let msg = `*${String(title).toUpperCase()} REQUEST*\n\n`;
 
-    serviceType,
-    title,
-    price,
-    bookingFor,
+    Object.keys(form).forEach((key) => {
+      if (form[key]) msg += `*${key}:* ${form[key]}\n`;
+    });
 
-    bookingData: form, // 🔥 stores all dynamic fields
-  };
+    msg += `*Booking For:* ${bookingFor}\n`;
 
-  try {
-    // 1️⃣ SAVE TO BACKEND
-    const res = await fetch(
-      `${import.meta.env.VITE_BACKEND_URL}/api/consultations`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,
+      "_blank"
     );
-
-    const result = await res.json();
-    console.log("Consultation saved:", result);
-
-  } catch (error) {
-    console.error("Error saving consultation:", error);
-  }
-
-  // 2️⃣ OPEN WHATSAPP
-  let msg = `*${String(title).toUpperCase()} REQUEST*\n\n`;
-
-  Object.keys(form).forEach((key) => {
-    if (form[key]) msg += `*${key}:* ${form[key]}\n`;
-  });
-
-  msg += `*Booking For:* ${bookingFor}\n`;
-
-  window.open(
-    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,
-    "_blank"
-  );
-};
-
+  };
 
   if (!fields.length) {
     return (
@@ -694,13 +657,12 @@ export default function ConsultationForm() {
       <div className="w-full mx-auto lg:min-w-6xl px-0 md:px-4">
         {/* Header Section */}
         <div className="mt-16 md:mt-12 lg:mt-16 mb-6 md:mb-8">
-  <div className="text-center px-4">
-    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary break-words leading-snug">
-      {title}
-    </h1>
-  </div>
-</div>
-
+          <div className="text-center px-4">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary break-words leading-snug">
+              {title}
+            </h1>
+          </div>
+        </div>
 
         {/* Step Indicators */}
         <div className="flex justify-center items-center gap-2 md:gap-3 mb-6 md:mb-8">
@@ -744,64 +706,102 @@ export default function ConsultationForm() {
 
           {/* Footer Actions */}
           <div className="p-0">
-  <div className="flex justify-center items-center gap-4 mt-10">
+            <div className="flex justify-center items-center gap-4 mt-10">
+              {currentStep > 1 && !paymentDone && (
+                <div className="flex justify-center">
+                  <Button
+                    variant="outline"
+                    className="w-fit px-6"
+                    onClick={() => setCurrentStep((currentStep - 1) as Step)}
+                  >
+                    Back
+                  </Button>
+                </div>
+              )}
 
-    {currentStep > 1 && !paymentDone && (
-      <div className="flex justify-center">
-        <Button
-          variant="outline"
-          className="w-fit px-6"
-          onClick={() => setCurrentStep((currentStep - 1) as Step)}
-        >
-          Back
-        </Button>
-      </div>
-    )}
+              {currentStep < 3 && (
+                <div className="flex justify-center">
+                  <Button
+                    className="w-fit px-6 bg-primary hover:bg-primary/90"
+                    disabled={
+                      currentStep === 1 ? !isStep1Valid() : !isStep2Valid()
+                    }
+                    onClick={handleNext}
+                  >
+                    Continue <ChevronRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              )}
 
-    {currentStep < 3 && (
-      <div className="flex justify-center">
-        <Button
-          className="w-fit px-6 bg-primary hover:bg-primary/90"
-          disabled={currentStep === 1 ? !isStep1Valid() : !isStep2Valid()}
-          onClick={handleNext}
-        >
-          Continue <ChevronRight className="w-4 h-4 ml-2" />
-        </Button>
-      </div>
-    )}
+              {currentStep === 3 && !paymentDone && (
+                <div className="flex justify-center">
+                  <PayButton
+                    amount={price}
+                    name={form.name}
+                    email={form.email}
+                    disabled={!canProceedToPayment()}
+                    onSuccess={async (result) => {
+                      console.log("PAYMENT SUCCESS:", result);
 
-    {currentStep === 3 && !paymentDone && (
-      <div className="flex justify-center">
-        <PayButton
-          amount={price}
-          name={form.name}
-          email={form.email}
-          disabled={!canProceedToPayment()}
-          onSuccess={(result) => {
-            console.log("PAYMENT SUCCESS:", result);
-            setPaymentDone(true);
-          }}
-          onFailure={(error) => {
-            console.log("PAYMENT FAILED:", error);
-          }}
-        />
-      </div>
-    )}
+                      // 1️⃣ Prepare payload (include razorpay info also)
+                      const payload = {
+                        name: form.name,
+                        email: form.email,
+                        phone: form.phone,
 
-    {paymentDone && (
-      <div className="flex justify-center">
-        <Button
-          className="w-fit px-6 bg-green-600 hover:bg-green-700 text-white"
-          onClick={handleSubmitWhatsApp}
-        >
-          Send via WhatsApp
-        </Button>
-      </div>
-    )}
+                        serviceType,
+                        title,
+                        price,
+                        bookingFor,
 
-  </div>
-</div>
+                        paymentId: result?.razorpay_payment_id, // optional but useful
+                        orderId: result?.razorpay_order_id, // optional but useful
+                        signature: result?.razorpay_signature, // optional but useful
 
+                        bookingData: form,
+                      };
+
+                      // 2️⃣ SAVE TO BACKEND
+                      try {
+                        const res = await fetch(
+                          `${
+                            import.meta.env.VITE_BACKEND_URL
+                          }/api/consultations`,
+                          {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(payload),
+                          }
+                        );
+
+                        const dbRes = await res.json();
+                        console.log("Consultation stored:", dbRes);
+                      } catch (err) {
+                        console.error("Error saving consultation:", err);
+                      }
+
+                      // 3️⃣ Mark payment success
+                      setPaymentDone(true);
+                    }}
+                    onFailure={(error) => {
+                      console.log("PAYMENT FAILED:", error);
+                    }}
+                  />
+                </div>
+              )}
+
+              {paymentDone && (
+                <div className="flex justify-center">
+                  <Button
+                    className="w-fit px-6 bg-green-600 hover:bg-green-700 text-white"
+                    onClick={handleSubmitWhatsApp}
+                  >
+                    Send via WhatsApp
+                  </Button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
