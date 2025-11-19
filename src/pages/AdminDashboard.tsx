@@ -5,35 +5,22 @@ import { Button } from "@/components/ui/button";
 import { Loader2, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { ALL_SERVICE_TITLES } from "@/config/titles";
 
 interface Booking {
   _id: string;
   name: string;
   email: string;
   amount: number;
-  amount_paise: number;
-  razorpay_order_id: string;
-  razorpay_payment_id: string;
-  status: string;
   createdAt: string;
-}
 
-interface Consultation {
-  _id: string;
-  name: string;
-  email: string;
-  phone: string;
-  serviceType: string;
-  consultationType: string;
-  otherName?: string;
-  otherGender?: string;
-  purpose?: string;
-  birthDate: string;
-  birthTime: string;
-  birthPlace: string;
-  additionalInfo?: string;
-  createdAt: string;
+  bookingData: {
+    title: string;
+    allFields: Record<string, any>;
+  };
+
+  consultationStatus: "Ready" | "Closed";
 }
 
 const AdminDashboard = () => {
@@ -42,375 +29,225 @@ const AdminDashboard = () => {
   const [password, setPassword] = useState("");
 
   const [bookings, setBookings] = useState<Booking[]>([]);
-  const [consultations, setConsultations] = useState<Consultation[]>([]);
   const [loading, setLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
 
-  // Active Tab
-  const [activeTab, setActiveTab] = useState<"bookings" | "consultations">("bookings");
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
 
-  // ✅ Separate filters for each tab
-  const [bookingsFilters, setBookingsFilters] = useState({
+  const [filters, setFilters] = useState({
     search: "",
-    from: "",
-    to: "",
-    sort: "desc",
-  });
-
-  const [consultationFilters, setConsultationFilters] = useState({
-    search: "",
-    from: "",
-    to: "",
-    sort: "desc",
     serviceType: "all",
+    status: "all",
   });
 
-  // --- Fetch Data ---
-  const fetchData = async (type: "bookings" | "consultations") => {
+  const fetchBookings = async () => {
     if (!isAuthenticated) return;
+
     setLoading(true);
 
-    try {
-      if (type === "bookings") {
-        const { search, from, to, sort } = bookingsFilters;
-        const res = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/bookings?search=${search}&from=${from}&to=${to}&sort=${sort}`
-        );
-        const data = await res.json();
-        if (data.success) setBookings(data.data);
-      } else {
-        const { search, from, to, sort, serviceType } = consultationFilters;
-        const res = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/consultations?search=${search}&serviceType=${serviceType}&from=${from}&to=${to}&sort=${sort}`
-        );
-        const data = await res.json();
-        if (data.success) setConsultations(data.data);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
-      setLoading(false);
+    let query = `?search=${filters.search}&sort=desc`;
+
+    if (filters.status !== "all") query += `&status=${filters.status}`;
+    if (filters.serviceType !== "all") query += `&serviceType=${filters.serviceType}`;
+
+    const res = await fetch(`http://localhost:5000/api/bookings${query}`);
+    const data = await res.json();
+
+    if (data.success) {
+      setBookings(data.data);
     }
+
+    setLoading(false);
   };
 
   useEffect(() => {
-    if (isAuthenticated) fetchData(activeTab);
-  }, [isAuthenticated, activeTab]);
+    if (isAuthenticated) fetchBookings();
+  }, [isAuthenticated]);
 
-  // --- Handle Login ---
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = (e: any) => {
     e.preventDefault();
-    const adminUser = import.meta.env.VITE_ADMIN_USER;
-    const adminPass = import.meta.env.VITE_ADMIN_PASS;
-
-    if (username === adminUser && password === adminPass) {
+    if (
+      username === import.meta.env.VITE_ADMIN_USER &&
+      password === import.meta.env.VITE_ADMIN_PASS
+    ) {
       setIsAuthenticated(true);
-      setErrorMessage("");
-    } else {
-      setErrorMessage("Invalid credentials. Please try again.");
     }
   };
 
-  // --- Clear Filters ---
-  const clearFilters = (type: "bookings" | "consultations") => {
-    if (type === "bookings") {
-      setBookingsFilters({ search: "", from: "", to: "", sort: "desc" });
-      fetchData("bookings");
-    } else {
-      setConsultationFilters({
-        search: "",
-        from: "",
-        to: "",
-        sort: "desc",
-        serviceType: "all",
-      });
-      fetchData("consultations");
-    }
+  // HIDE EMPTY FIELDS
+  const validFields = (obj: Record<string, any>) =>
+    Object.entries(obj).filter(([k, v]) => v !== "" && v !== null && v !== undefined);
+
+  // MARK CLOSED
+  const markClosed = async () => {
+    if (!selectedBooking) return;
+
+    await fetch(`http://localhost:5000/api/bookings/${selectedBooking._id}/close`, {
+      method: "PUT",
+    });
+
+    setPopupOpen(false);
+    fetchBookings();
   };
 
-  // --- Show Login if Not Authenticated ---
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-background to-muted">
-        <Card className="p-8 w-full max-w-sm text-center border-2 border-secondary/30 shadow-md">
-          <h2 className="text-2xl font-bold mb-4 text-primary">Admin Login</h2>
+      <div className="min-h-screen flex justify-center items-center">
+        <Card className="p-8 max-w-sm">
+          <h2 className="text-xl mb-4 font-bold">Admin Login</h2>
           <form onSubmit={handleLogin} className="space-y-4">
-            <Input
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="border-primary placeholder:text-gray-500"
-              required
-            />
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="border-primary placeholder:text-gray-500"
-              required
-            />
-            {errorMessage && <p className="text-red-600 text-sm">{errorMessage}</p>}
-            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              Login
-            </Button>
+            <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
+            <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+            <Button className="w-full">Login</Button>
           </form>
         </Card>
       </div>
     );
   }
 
-  // --- Dashboard ---
   return (
-    <div className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold font-playfair text-center text-primary mb-10">
-          Admin Dashboard
-        </h1>
+    <div className="min-h-screen container mx-auto py-10">
+      <h1 className="text-3xl text-center font-bold mb-6">Admin Dashboard</h1>
 
+      {/* FILTERS */}
+      <Card className="p-4 mb-6 flex flex-wrap gap-4">
+
+        {/* Search */}
+        <div className="relative">
+          <Search className="absolute left-3 top-3 text-gray-500 h-4 w-4" />
+          <Input
+            className="pl-10"
+            placeholder="Search by name, email, order..."
+            value={filters.search}
+            onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+          />
+        </div>
+
+        {/* TITLE FILTER */}
+        {/* TITLE FILTER */}
+<Select
+  value={filters.serviceType}
+  onValueChange={(v) => setFilters({ ...filters, serviceType: v })}
+>
+  <SelectTrigger className="w-[260px]">
+    <SelectValue placeholder="Select Service" />
+  </SelectTrigger>
+
+  <SelectContent>
+    <SelectItem value="all">All Services</SelectItem>
+
+    {ALL_SERVICE_TITLES.map((title) => (
+      <SelectItem key={title} value={title}>
+        {title}
+      </SelectItem>
+    ))}
+  </SelectContent>
+</Select>
+
+
+        {/* Status */}
+        <Select
+          value={filters.status}
+          onValueChange={(v) => setFilters({ ...filters, status: v })}
+        >
+          <SelectTrigger className="w-[140px]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All</SelectItem>
+            <SelectItem value="Ready">Ready</SelectItem>
+            <SelectItem value="Closed">Closed</SelectItem>
+          </SelectContent>
+        </Select>
+
+        <Button onClick={fetchBookings}>Apply</Button>
+      </Card>
+
+      {/* TABLE */}
+      <Card className="p-6">
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <Loader2 className="h-8 w-8 text-primary animate-spin" />
-          </div>
+          <div className="flex justify-center"><Loader2 className="animate-spin" /></div>
         ) : (
-          <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as any)} className="w-full">
-            <TabsList className="flex justify-center mb-6 text-yellow-500">
-              <TabsTrigger value="bookings">Gem Bookings</TabsTrigger>
-              <TabsTrigger value="consultations">Consultations</TabsTrigger>
-            </TabsList>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Name</TableHead>
+                <TableHead>Email</TableHead>
+                <TableHead>Amount</TableHead>
+                <TableHead>Service</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Date</TableHead>
+                <TableHead></TableHead>
+              </TableRow>
+            </TableHeader>
 
-            {/* ---- Gem Bookings Tab ---- */}
-            <TabsContent value="bookings">
-              <div className="flex flex-wrap gap-3 mb-4 items-center justify-between">
-                {/* Search */}
-                <div className="relative w-full sm:w-1/3">
-                  <Search className="absolute left-3 top-3 text-gray-500 h-4 w-4" />
-                  <Input
-                    placeholder="Search by name, email, order ID, or payment ID..."
-                    value={bookingsFilters.search}
-                    onChange={(e) => setBookingsFilters({ ...bookingsFilters, search: e.target.value })}
-                    className="pl-9 border-primary text-black placeholder:text-black"
-                  />
-                </div>
+            <TableBody>
+              {bookings.map((b) => (
+                <TableRow key={b._id}>
+                  <TableCell>{b.name}</TableCell>
+                  <TableCell>{b.email}</TableCell>
+                  <TableCell>₹{b.amount}</TableCell>
+                  <TableCell>{b.bookingData.title}</TableCell>
 
-                {/* Date Range */}
-                <div className="flex gap-2 items-center">
-                  <Input
-                    type="date"
-                    value={bookingsFilters.from}
-                    onChange={(e) => setBookingsFilters({ ...bookingsFilters, from: e.target.value })}
-                    className="border-primary"
-                  />
-                  <span className="text-gray-500">to</span>
-                  <Input
-                    type="date"
-                    value={bookingsFilters.to}
-                    onChange={(e) => setBookingsFilters({ ...bookingsFilters, to: e.target.value })}
-                    className="border-primary"
-                  />
-                </div>
+                  <TableCell>
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs ${
+                        b.consultationStatus === "Closed"
+                          ? "bg-red-200 text-red-700"
+                          : "bg-green-200 text-green-700"
+                      }`}
+                    >
+                      {b.consultationStatus}
+                    </span>
+                  </TableCell>
 
-                {/* Sort */}
-                <Select
-                  value={bookingsFilters.sort}
-                  onValueChange={(v) => setBookingsFilters({ ...bookingsFilters, sort: v })}
-                >
-                  <SelectTrigger className="w-[120px] border-primary">
-                    <SelectValue placeholder="Sort" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="desc">Newest</SelectItem>
-                    <SelectItem value="asc">Oldest</SelectItem>
-                  </SelectContent>
-                </Select>
+                  <TableCell>{new Date(b.createdAt).toLocaleString("en-IN")}</TableCell>
 
-                {/* Buttons */}
-                <div className="flex gap-2">
-                  <Button onClick={() => fetchData("bookings")} className="bg-primary text-white hover:bg-primary/90">
-                    Apply
-                  </Button>
-                  <Button
-                    variant="outline"
-                    onClick={() => clearFilters("bookings")}
-                    className="border-yellow-600 text-secondary hover:bg-yellow-100"
-                  >
-                    Clear
-                  </Button>
-                </div>
-              </div>
+                  <TableCell>
+                    <Button size="sm" onClick={() => { setSelectedBooking(b); setPopupOpen(true); }}>
+                      View
+                    </Button>
+                  </TableCell>
 
-              {/* Table */}
-              {bookings.length === 0 ? (
-                <p className="text-center text-secondary">No bookings found.</p>
-              ) : (
-                <Card className="p-6 overflow-x-auto border-2 border-secondary/30 shadow-md">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="bg-primary/10">
-                        <TableHead>Name</TableHead>
-                        <TableHead>Email</TableHead>
-                        <TableHead>Amount</TableHead>
-                        <TableHead>Order ID</TableHead>
-                        <TableHead>Payment ID</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead>Date</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {bookings.map((b) => (
-                        <TableRow key={b._id}>
-                          <TableCell>{b.name}</TableCell>
-                          <TableCell>{b.email}</TableCell>
-                          <TableCell>₹{b.amount}</TableCell>
-                          <TableCell className="text-xs">{b.razorpay_order_id}</TableCell>
-                          <TableCell className="text-xs">{b.razorpay_payment_id}</TableCell>
-                          <TableCell>
-                            <span
-                              className={`px-2 py-1 text-xs rounded-full ${
-                                b.status === "PAID"
-                                  ? "bg-green-100 text-green-700"
-                                  : "bg-red-100 text-red-700"
-                              }`}
-                            >
-                              {b.status}
-                            </span>
-                          </TableCell>
-                          <TableCell>
-                            {new Date(b.createdAt).toLocaleString("en-IN", {
-                              dateStyle: "medium",
-                              timeStyle: "short",
-                            })}
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </Card>
-              )}
-            </TabsContent>
-
-            {/* ---- Consultations Tab ---- */}
-            <TabsContent value="consultations">
-              <div className="flex flex-wrap gap-3 mb-4 items-center justify-between">
-                {/* Search */}
-                <div className="relative w-full sm:w-1/3">
-                  <Search className="absolute left-3 top-3 text-gray-500 h-4 w-4" />
-                  <Input
-                    placeholder="Search by name, email or phone..."
-                    value={consultationFilters.search}
-                    onChange={(e) =>
-                      setConsultationFilters({ ...consultationFilters, search: e.target.value })
-                    }
-                    className="pl-9 border-primary placeholder:text-black"
-                  />
-                </div>
-
-                {/* Service Type */}
-                <Select
-                  value={consultationFilters.serviceType}
-                  onValueChange={(v) => setConsultationFilters({ ...consultationFilters, serviceType: v })}
-                >
-                  <SelectTrigger className="w-[160px] border-primary">
-                    <SelectValue placeholder="Service Type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All</SelectItem>
-                    <SelectItem value="horoscope">Horoscope</SelectItem>
-                    <SelectItem value="numerology">Numerology</SelectItem>
-                    <SelectItem value="gems">Gems</SelectItem>
-                    <SelectItem value="muhurt">Muhurt</SelectItem>
-                    <SelectItem value="pooja">Pooja</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                {/* Date Range */}
-                <div className="flex gap-2 items-center">
-                  <Input
-                    type="date"
-                    value={consultationFilters.from}
-                    onChange={(e) => setConsultationFilters({ ...consultationFilters, from: e.target.value })}
-                    className="border-primary"
-                  />
-                  <span className="text-gray-500">to</span>
-                  <Input
-                    type="date"
-                    value={consultationFilters.to}
-                    onChange={(e) => setConsultationFilters({ ...consultationFilters, to: e.target.value })}
-                    className="border-primary"
-                  />
-                </div>
-
-                {/* Sort */}
-                <Select
-                  value={consultationFilters.sort}
-                  onValueChange={(v) => setConsultationFilters({ ...consultationFilters, sort: v })}
-                >
-                  <SelectTrigger className="w-[120px] border-primary">
-                    <SelectValue placeholder="Sort" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="desc">Newest</SelectItem>
-                    <SelectItem value="asc">Oldest</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                {/* Buttons */}
-                <div className="flex gap-2">
-                  <Button onClick={() => fetchData("consultations")} className="bg-primary text-white hover:bg-primary/90">
-                    Apply
-                  </Button>
-                  <Button
-                    variant="outline"
-                    onClick={() => clearFilters("consultations")}
-                    className="border-yellow-600 text-secondary hover:bg-yellow-100"
-                  >
-                    Clear
-                  </Button>
-                </div>
-              </div>
-
-              {/* Table */}
-              {consultations.length === 0 ? (
-                <p className="text-center text-secondary">No consultations found.</p>
-              ) : (
-                <Card className="p-6 overflow-x-auto border-2 border-secondary/30 shadow-md">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="bg-primary/10">
-                        <TableHead>Name</TableHead>
-                        <TableHead>Email</TableHead>
-                        <TableHead>Phone</TableHead>
-                        <TableHead>Service Type</TableHead>
-                        <TableHead>Birth Details</TableHead>
-                        <TableHead>Created At</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {consultations.map((c) => (
-                        <TableRow key={c._id}>
-                          <TableCell>{c.name}</TableCell>
-                          <TableCell>{c.email}</TableCell>
-                          <TableCell>{c.phone}</TableCell>
-                          <TableCell className="capitalize">{c.serviceType}</TableCell>
-                          <TableCell>
-                            {c.birthDate} at {c.birthTime}, {c.birthPlace}
-                          </TableCell>
-                          <TableCell>
-                            {new Date(c.createdAt).toLocaleString("en-IN", {
-                              dateStyle: "medium",
-                              timeStyle: "short",
-                            })}
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </Card>
-              )}
-            </TabsContent>
-          </Tabs>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         )}
-      </div>
+      </Card>
+
+      {/* POPUP */}
+      <Dialog open={popupOpen} onOpenChange={setPopupOpen}>
+        <DialogContent className="max-w-xl">
+          <DialogHeader><DialogTitle>Booking Details</DialogTitle></DialogHeader>
+
+          {selectedBooking && (
+            <div className="space-y-2">
+              <p><strong>Name:</strong> {selectedBooking.name}</p>
+              <p><strong>Email:</strong> {selectedBooking.email}</p>
+              <p><strong>Amount:</strong> ₹{selectedBooking.amount}</p>
+              <p><strong>Service:</strong> {selectedBooking.bookingData.title}</p>
+
+              <h3 className="font-semibold mt-4">Details</h3>
+              <div className="bg-gray-100 p-3 rounded">
+                {validFields(selectedBooking.bookingData.allFields).map(([k, v]) => (
+                  <p key={k}><strong>{k}:</strong> {String(v)}</p>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <DialogFooter>
+            {selectedBooking?.consultationStatus === "Closed" ? (
+              <Button disabled className="bg-gray-400">Already Closed</Button>
+            ) : (
+              <Button className="bg-red-600 text-white" onClick={markClosed}>
+                Mark as Closed
+              </Button>
+            )}
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

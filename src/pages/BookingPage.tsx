@@ -749,44 +749,6 @@ export default function ConsultationForm() {
                   }}
                     onSuccess={async (result) => {
                       console.log("PAYMENT SUCCESS:", result);
-
-                      // 1️⃣ Prepare payload (include razorpay info also)
-                      const payload = {
-                        name: form.name,
-                        email: form.email,
-                        phone: form.phone,
-
-                        serviceType,
-                        title,
-                        price,
-                        bookingFor,
-
-                        paymentId: result?.razorpay_payment_id, // optional but useful
-                        orderId: result?.razorpay_order_id, // optional but useful
-                        signature: result?.razorpay_signature, // optional but useful
-
-                        bookingData: form,
-                      };
-
-                      // 2️⃣ SAVE TO BACKEND
-                      try {
-                        const res = await fetch(
-                          `${
-                            import.meta.env.VITE_BACKEND_URL
-                          }/api/consultations`,
-                          {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(payload),
-                          }
-                        );
-
-                        const dbRes = await res.json();
-                        console.log("Consultation stored:", dbRes);
-                      } catch (err) {
-                        console.error("Error saving consultation:", err);
-                      }
-
                       // 3️⃣ Mark payment success
                       setPaymentDone(true);
                     }}
