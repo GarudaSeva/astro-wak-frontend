@@ -14,7 +14,7 @@ interface PayButtonProps {
   name?: string;
   email?: string;
   disabled?: boolean;
-
+   bookingData?: any;
   // NEW CALLBACKS ↓↓↓
   onSuccess?: (data: any) => void;
   onFailure?: (error: any) => void;
@@ -27,6 +27,7 @@ export default function PayButton({
   name,
   email,
   disabled = false,
+  bookingData,
   onSuccess,
   onFailure,
 }: PayButtonProps) {
@@ -41,7 +42,7 @@ export default function PayButton({
 
     try {
       // STEP 1: Create Order
-      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/payments/create-order`, {
+      const res = await fetch(`http://localhost:5000/api/payments/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount_paise }),
@@ -71,7 +72,7 @@ export default function PayButton({
 
         handler: async function (response: any) {
           // STEP 3: Verify Payment
-          const verifyRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/payments/verify-payment`, {
+          const verifyRes = await fetch(`http://localhost:5000/api/payments/verify-payment`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -79,6 +80,7 @@ export default function PayButton({
               amount_paise,
               name,
               email,
+              bookingData,
               ...response,
             }),
           });

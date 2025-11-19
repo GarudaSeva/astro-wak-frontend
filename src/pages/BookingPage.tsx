@@ -740,6 +740,13 @@ export default function ConsultationForm() {
                     name={form.name}
                     email={form.email}
                     disabled={!canProceedToPayment()}
+                    bookingData={{
+                    serviceType,
+                    title,
+                    price,
+                    bookingFor,
+                    allFields: form,  // 🔥 full form data
+                  }}
                     onSuccess={async (result) => {
                       console.log("PAYMENT SUCCESS:", result);
 
