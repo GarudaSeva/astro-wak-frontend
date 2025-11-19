@@ -50,7 +50,7 @@ const AdminDashboard = () => {
     if (filters.status !== "all") query += `&status=${filters.status}`;
     if (filters.serviceType !== "all") query += `&serviceType=${filters.serviceType}`;
 
-    const res = await fetch(`http://localhost:5000/api/bookings${query}`);
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/bookings${query}`);
     const data = await res.json();
 
     if (data.success) {
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
   const markClosed = async () => {
     if (!selectedBooking) return;
 
-    await fetch(`http://localhost:5000/api/bookings/${selectedBooking._id}/close`, {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/bookings/${selectedBooking._id}/close`, {
       method: "PUT",
     });
 
@@ -123,7 +123,6 @@ const AdminDashboard = () => {
           />
         </div>
 
-        {/* TITLE FILTER */}
         {/* TITLE FILTER */}
 <Select
   value={filters.serviceType}
