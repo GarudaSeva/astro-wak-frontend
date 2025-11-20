@@ -80,15 +80,6 @@ const Blog = () => {
             <div className="flex items-center gap-12 text-sm font-playfair text-secondary mb-6">
               <span className="bg-accent/20 px-3 py-1 rounded-full">Astrology</span>
 
-              <a
-                href="https://jyotishbooks.wordpress.com/2025/10/25/parashari-jyotish-a-complete-guide-to-vedic-astrology-by-mani-ji/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="default" size="sm" className="divine-glow">
-                  Read Article
-                </Button>
-              </a>
             </div>
           </Card>
         </div>
@@ -138,20 +129,12 @@ const Blog = () => {
                   <h3 className="text-xl font-bold font-playfair text-primary group-hover:text-secondary transition-colors">
                     {resource.title}
                   </h3>
-                  <ExternalLink className="h-5 w-5 text-secondary flex-shrink-0" />
+                  {/* <ExternalLink className="h-5 w-5 text-secondary flex-shrink-0" /> */}
                 </div>
                 <p className="font-playfair text-secondary mb-4 text-sm">
                   {resource.description}
                 </p>
-                <Button
-                  variant="outline"
-                  className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors"
-                  asChild
-                >
-                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                    Visit Resource
-                  </a>
-                </Button>
+             
               </Card>
             ))}
           </div>

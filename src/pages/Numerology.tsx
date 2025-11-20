@@ -30,14 +30,96 @@ const Numerology = () => {
           {/* Sloka */}
           <div className="mb-16">
             <SlokaCard
-              sloka="ఓం పూర్ణమదః పూర్ణమిదం పూర్ణాత్ పూర్ణముదచ్యతే పూర్ణస్య పూర్ణమాదయ పూర్ణమేవావశిష్యతే||"
+              sloka={`ఓం పూర్ణమదః పూర్ణమిదం పూర్ణాత్ పూర్ణముదచ్యతే
+                      పూర్ణస్య పూర్ణమాదయ పూర్ణమేవావశిష్యతే ||`}
               image={numerologyBanner}
               height="h-60"
             />
           </div>
 
-          {/* Power of Numbers */}
+
           <Card className="p-8 border-2 border-secondary/30 mb-16">
+  <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
+    What is Numerology?
+  </h2>
+
+  <div className="space-y-4 font-playfair text-secondary leading-relaxed">
+
+    <p>
+      Numerology is an ancient metaphysical science that studies the
+      vibrational power of numbers and their influence on human life. 
+      Every number—from your date of birth to the letters in your name—carries 
+      a unique frequency that shapes your personality, strengths, challenges, 
+      and destiny. 
+    </p>
+
+    <p>
+      Just like astrology uses planets, numerology uses numbers as a 
+      universal code to decode your life path, opportunities, and 
+      hidden patterns. By understanding these number vibrations, you can 
+      gain clarity about your relationships, career choices, financial 
+      growth, and overall life direction.
+    </p>
+
+    <p>
+      In numerology, your <strong>Birth Number</strong>, 
+      <strong>Destiny Number</strong>, and <strong>Name Number</strong> work
+      together to reveal the blueprint of your life. These calculations are 
+      commonly derived using systems like the 
+      <strong> Chaldean method</strong> and the 
+      <strong> Loshu Grid</strong>, which map energetic patterns and karmic 
+      influences.
+    </p>
+
+    <strong className="font-semibold text-secondary">
+      Numerology helps you understand:
+    </strong>
+
+    <ul className="space-y-2 ml-6">
+      <li className="flex items-start gap-2">
+        <span className="text-secondary">✦</span>
+        <span>Your personality traits and natural strengths</span>
+      </li>
+
+      <li className="flex items-start gap-2">
+        <span className="text-secondary">✦</span>
+        <span>Your life purpose and soul’s journey</span>
+      </li>
+
+      <li className="flex items-start gap-2">
+        <span className="text-secondary">✦</span>
+        <span>Compatibility in relationships and marriage</span>
+      </li>
+
+      <li className="flex items-start gap-2">
+        <span className="text-secondary">✦</span>
+        <span>Karmic lessons and obstacles</span>
+      </li>
+
+      <li className="flex items-start gap-2">
+        <span className="text-secondary">✦</span>
+        <span>Lucky colors, dates, directions & opportunities</span>
+      </li>
+
+      <li className="flex items-start gap-2">
+        <span className="text-secondary">✦</span>
+        <span>Name influence and how name correction improves success</span>
+      </li>
+    </ul>
+
+    <p>
+      Ultimately, numerology acts as a guiding tool, illuminating your
+      path, strengthening your decisions, and bringing deeper understanding 
+      into every sphere of life—health, wealth, career, marriage, and destiny.
+    </p>
+
+  </div>
+</Card>
+
+
+
+          {/* Power of Numbers */}
+          <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30">
             <h2 className="text-3xl font-bold font-playfair text-primary mb-6">
               The Power of Numbers
             </h2>

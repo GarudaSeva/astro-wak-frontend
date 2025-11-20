@@ -20,8 +20,8 @@ const Horoscope = () => {
 
       <div className="my-16">
           <SlokaCard
-            sloka="జననీ జన్మ సౌఖ్యనాం వర్ధనీ కుల సంపదాం పదవీ పూర్వ పుణ్యనాం లిఖ్యతే జన్మ పత్రిక||"
-            translation="The birth chart is written as a record of past merits, bringing joy at birth, prosperity to the family, and enhancement of fortunes."
+            sloka={`జననీ జన్మ సౌఖ్యనాం వర్ధనీ కుల సంపదాం
+                    పదవీ పూర్వ పుణ్యనాం లిఖ్యతే జన్మ పత్రిక||`}
             image={horoscope}
             opacity={10.5}
           />

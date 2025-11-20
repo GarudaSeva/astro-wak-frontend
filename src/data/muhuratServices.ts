@@ -202,7 +202,7 @@ It is usually performed in the 3rd year or in other auspicious odd years. The ce
     slug: "vivaha-muhurat",
     serviceType:"muhurt_vivaha",
     title: "Vivaha Muhurat",
-    price: "₹499",
+    price: "₹1108",
     shortDesc: "Auspicious marriage muhurat based on both bride and groom’s horoscopes.",
     image: weddingImage, // or Ring
     description: `Marriage is one of the most significant milestones in life. Selecting an auspicious Vivaha Muhurat ensures harmony, compatibility, and long-lasting prosperity.
@@ -274,7 +274,7 @@ The ritual includes Vastu Puja, Balidaana, leveling of land, seed sowing, and la
     slug: "griha-pravesh",
     serviceType: "muhurt_gruha_pravesh",
     title: "Griha Pravesh Muhurat",
-    price: "₹499",
+    price: "₹1108",
     shortDesc: "Find the perfect time to enter your new home for prosperity and positivity.",
     image: gruhaPravesamImage,
     description: `Griha Pravesh is the sacred ceremony performed before entering a newly built home. A proper muhurat ensures positivity, harmony, prosperity, and protection from negative influences.

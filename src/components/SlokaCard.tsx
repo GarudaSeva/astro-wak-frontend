@@ -1,12 +1,12 @@
 import { Card } from "@/components/ui/card";
 
 interface SlokaCardProps {
-  sloka: string;
+  sloka: string;              // Now supports \n for line breaks
   translation?: string;
-  image?: string;             // Dynamic background image
-  badge?: string;             // Text above sloka
-  opacity?: number;           // Background image opacity
-  height?: string;            // Card height (e.g., "h-80" or "h-[400px]")
+  image?: string;
+  badge?: string;
+  opacity?: number;
+  height?: string;
 }
 
 const SlokaCard = ({
@@ -15,7 +15,7 @@ const SlokaCard = ({
   image,
   badge = "Sacred Sloka",
   opacity = 1.8,
-  height = "h-60", 
+  height = "h-60",
 }: SlokaCardProps) => {
   return (
     <Card
@@ -38,25 +38,21 @@ const SlokaCard = ({
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4">
 
-        
-        {/* Badge */}
-        {/* <div className="inline-block mb-4 px-5 py-1 rounded-full bg-secondary/20 border border-secondary/40">
-          <span className="text-sm font-semibold text-accent">
-            {badge}
-          </span>
-        </div> */}
-
-        {/* Sloka */}
-        <p className="sloka-text text-2xl md:text-3xl font-playfair text-accent leading-relaxed mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-          {sloka}
-        </p>
+        {/* Sloka - FIXED: Supports line breaks */}
+<p className="sloka-text text-2xl md:text-3xl font-playfair text-accent mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+  {sloka.split("\n").map((line, index) => (
+    <span key={index} className="block mb-3">
+      {line}
+    </span>
+  ))}
+</p>
 
         {/* Translation */}
-        {translation && (
+        {/* {translation && (
           <p className="text-sm md:text-base text-yellow-200 italic border-t border-white/20 pt-4 mt-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             {translation}
           </p>
-        )}
+        )} */}
       </div>
     </Card>
   );

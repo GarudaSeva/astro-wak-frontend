@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import SlokaCard from "@/components/SlokaCard";
-import { Flame } from "lucide-react";
+import { CheckCircle, Flame } from "lucide-react";
 import poojasBanner from "@/assets/slokas/poojas-homas.png";
 import poojaServices, { PoojaService } from "@/data/poojaServices";
 import { useNavigate } from "react-router-dom";
@@ -33,8 +33,8 @@ const PoojaHoma = () => {
           {/* Sloka */}
           <div className="mb-16">
             <SlokaCard
-              sloka="ఓం సర్వమంగళమాంగళ్యే శివే సర్వార్థ సాధికే శరణ్యే త్రయంబకే గౌరీ నారాయణీ నమోస్తుతే||"
-              // translation="Om, to the One who is the auspiciousness of all that is auspicious..."
+              sloka={`ఓం సర్వమంగళమాంగళ్యే శివే సర్వార్థ సాధికే
+                      శరణ్యే త్రయంబకే గౌరీ నారాయణీ నమోస్తుతే ||`}
               image={poojasBanner}
             />
           </div>
@@ -67,8 +67,102 @@ const PoojaHoma = () => {
             </div>
           </Card>
 
+
+          <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-secondary/30">
+    <h3 className="text-2xl font-bold font-playfair text-primary mb-4">
+      Why Pujas & Homas Matter
+    </h3>
+
+    <div className="space-y-4 font-playfair text-secondary">
+
+      {/* Point 1 */}
+      <div className="flex items-start gap-2">
+        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <strong className="text-foreground">Divine Cleansing:</strong>{" "}
+          Sacred fire rituals like <em>Rudra Homa</em>, <em>Mrityunjaya Homa</em>, and 
+          <em>Chandi Homa</em> purify negative energies and cleanse the environment.
         </div>
       </div>
+
+      {/* Point 2 */}
+      <div className="flex items-start gap-2">
+        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <strong className="text-foreground">Obstacle Removal:</strong>{" "}
+          <em>Ganapathi Homa</em> removes hurdles, enhances new beginnings, and ensures
+          smooth progress in education, career, and family life.
+        </div>
+      </div>
+
+      {/* Point 3 */}
+      <div className="flex items-start gap-2">
+        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <strong className="text-foreground">Knowledge & Focus:</strong>{" "}
+          <em>Saraswati Pooja</em> strengthens intellect, memory, concentration, and is
+          especially powerful for students and learners.
+        </div>
+      </div>
+
+      {/* Point 4 */}
+      <div className="flex items-start gap-2">
+        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <strong className="text-foreground">Healing & Protection:</strong>{" "}
+          <em>Mrityunjaya Homa</em> is performed for health recovery, protection from
+          accidents, longevity, and freedom from fear.
+        </div>
+      </div>
+
+      {/* Point 5 */}
+      <div className="flex items-start gap-2">
+        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <strong className="text-foreground">Wealth & Prosperity:</strong>{" "}
+          <em>Lakshmi Pooja</em> attracts abundance, financial stability, and blessings
+          of fortune & growth.
+        </div>
+      </div>
+
+      {/* Point 6 */}
+      <div className="flex items-start gap-2">
+        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <strong className="text-foreground">Spiritual Elevation:</strong>{" "}
+          <em>Rudra Pooja</em> and <em>Rudra Homa</em> deeply calm the mind, reduce stress,
+          and connect the devotee to higher consciousness.
+        </div>
+      </div>
+
+      {/* Point 7 */}
+      <div className="flex items-start gap-2">
+        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <strong className="text-foreground">Powerful Devi Protection:</strong>{" "}
+          <em>Chandi Homa</em> invokes Goddess Chandika’s fierce protection, removes dark
+          forces, and strengthens mental, emotional, and spiritual resilience.
+        </div>
+      </div>
+
+      {/* Point 8 */}
+      <div className="flex items-start gap-2">
+        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <strong className="text-foreground">Harmony & Positivity:</strong>{" "}
+          Regular homas create a sacred atmosphere at home, balancing energies and 
+          promoting peace, unity, and well-being.
+        </div>
+      </div>
+
+    </div>
+  </Card>
+  
+
+        </div>
+      </div>
+
+
 
 
       {/* ---------------- SERVICES LIST ---------------- */}
