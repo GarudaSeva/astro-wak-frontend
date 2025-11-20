@@ -146,7 +146,7 @@ const Numerology = () => {
       </div>
 
       {/* SERVICES LIST */}
-      <section className="py-2 px-4 bg-background">
+      <section className="py-2 pt-16 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold font-playfair text-primary mb-4">
