@@ -111,7 +111,6 @@ const AdminDashboard = () => {
 
       {/* FILTERS */}
       <Card className="p-4 mb-6 flex flex-wrap gap-4">
-
         {/* Search */}
         <div className="relative">
           <Search className="absolute left-3 top-3 text-gray-500 h-4 w-4" />
@@ -124,25 +123,24 @@ const AdminDashboard = () => {
         </div>
 
         {/* TITLE FILTER */}
-<Select
-  value={filters.serviceType}
-  onValueChange={(v) => setFilters({ ...filters, serviceType: v })}
->
-  <SelectTrigger className="w-[260px]">
-    <SelectValue placeholder="Select Service" />
-  </SelectTrigger>
+        <Select
+          value={filters.serviceType}
+          onValueChange={(v) => setFilters({ ...filters, serviceType: v })}
+        >
+          <SelectTrigger className="w-[260px]">
+            <SelectValue placeholder="Select Service" />
+          </SelectTrigger>
 
-  <SelectContent>
-    <SelectItem value="all">All Services</SelectItem>
+          <SelectContent>
+            <SelectItem value="all">All Services</SelectItem>
 
-    {ALL_SERVICE_TITLES.map((title) => (
-      <SelectItem key={title} value={title}>
-        {title}
-      </SelectItem>
-    ))}
-  </SelectContent>
-</Select>
-
+            {ALL_SERVICE_TITLES.map((title) => (
+              <SelectItem key={title} value={title}>
+                {title}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
 
         {/* Status */}
         <Select
@@ -165,7 +163,9 @@ const AdminDashboard = () => {
       {/* TABLE */}
       <Card className="p-6">
         {loading ? (
-          <div className="flex justify-center"><Loader2 className="animate-spin" /></div>
+          <div className="flex justify-center">
+            <Loader2 className="animate-spin" />
+          </div>
         ) : (
           <Table>
             <TableHeader>
@@ -200,13 +200,29 @@ const AdminDashboard = () => {
                     </span>
                   </TableCell>
 
-                  <TableCell>{new Date(b.createdAt).toLocaleString("en-IN")}</TableCell>
-
                   <TableCell>
-                    <Button size="sm" onClick={() => { setSelectedBooking(b); setPopupOpen(true); }}>
-                      View
-                    </Button>
+                    {new Date(b.createdAt).toLocaleString("en-IN")}
                   </TableCell>
+<TableCell className="flex gap-2">
+  <Button
+    size="sm"
+    className="bg-green-600 hover:bg-green-700 text-white"
+    onClick={() => {
+      setSelectedBooking(b);
+      setPopupOpen(true);
+    }}
+  >
+    View
+  </Button>
+
+  <Button
+    size="sm"
+    className="bg-violet-600 hover:bg-violet-700 text-white"
+     onClick={() => (window.location.href = `/admin/report?name=${b.name}&phone=${b.bookingData.allFields.phone}`)}
+  >
+    Report
+  </Button>
+</TableCell>
 
                 </TableRow>
               ))}
@@ -218,27 +234,43 @@ const AdminDashboard = () => {
       {/* POPUP */}
       <Dialog open={popupOpen} onOpenChange={setPopupOpen}>
         <DialogContent className="max-w-xl">
-          <DialogHeader><DialogTitle>Booking Details</DialogTitle></DialogHeader>
+          <DialogHeader>
+            <DialogTitle>Booking Details</DialogTitle>
+          </DialogHeader>
 
           {selectedBooking && (
             <div className="space-y-2">
-              <p><strong>Name:</strong> {selectedBooking.name}</p>
-              <p><strong>Email:</strong> {selectedBooking.email}</p>
-              <p><strong>Amount:</strong> ₹{selectedBooking.amount}</p>
-              <p><strong>Service:</strong> {selectedBooking.bookingData.title}</p>
+              <p>
+                <strong>Name:</strong> {selectedBooking.name}
+              </p>
+              <p>
+                <strong>Email:</strong> {selectedBooking.email}
+              </p>
+              <p>
+                <strong>Amount:</strong> ₹{selectedBooking.amount}
+              </p>
+              <p>
+                <strong>Service:</strong> {selectedBooking.bookingData.title}
+              </p>
 
               <h3 className="font-semibold mt-4">Details</h3>
               <div className="bg-gray-100 p-3 rounded">
-                {validFields(selectedBooking.bookingData.allFields).map(([k, v]) => (
-                  <p key={k}><strong>{k}:</strong> {String(v)}</p>
-                ))}
+                {validFields(selectedBooking.bookingData.allFields).map(
+                  ([k, v]) => (
+                    <p key={k}>
+                      <strong>{k}:</strong> {String(v)}
+                    </p>
+                  )
+                )}
               </div>
             </div>
           )}
 
           <DialogFooter>
             {selectedBooking?.consultationStatus === "Closed" ? (
-              <Button disabled className="bg-gray-400">Already Closed</Button>
+              <Button disabled className="bg-gray-400">
+                Already Closed
+              </Button>
             ) : (
               <Button className="bg-red-600 text-white" onClick={markClosed}>
                 Mark as Closed

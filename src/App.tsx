@@ -18,6 +18,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import ServiceDetailsPage from "./pages/ServiceDetailsPage";
 import ConsultationPage from "./pages/BookingPage";
 import ConsultationForm from "./pages/BookingPage";
+import ReportPage from "./pages/ReportPage";
 
 const queryClient = new QueryClient();
 
@@ -39,7 +40,6 @@ const Layout = () => {
           <Route path="/muhurt" element={<ShubhaMuhurt />} />
           <Route path="/pooja" element={<PoojaHoma />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/admin" element={<AdminDashboard />} />
 
           <Route path="/horoscope/:slug" element={<ServiceDetailsPage/>} />
           <Route path="/numerology/:slug" element={<ServiceDetailsPage/>} />
@@ -47,6 +47,9 @@ const Layout = () => {
           <Route path="/muhurt/:slug" element={<ServiceDetailsPage />} />
 
           <Route path="/book/:serviceType" element={<ConsultationForm />} />
+
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/report" element={<ReportPage />} />
 
 
           <Route path="*" element={<NotFound />} />

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import swastik from "@/assets/image-removebg-preview.png";
+import navLogo from "@/assets/astro-brahma-logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,20 +24,12 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center group">
             <img
-              src={swastik}
-              alt="Astro Wak Logo"
-              className="h-10 w-12 object-contain transition-transform duration-300 group-hover:scale-110"
+              src={navLogo}
+              alt="Astro Brahma Logo"
+              className="h-[4.5rem] object-contain"
             />
-            <div>
-              <h1 className="text-2xl font-bold font-playfair text-primary">
-                Astro Wak
-              </h1>
-              <strong className="text-xs font-playfair text-secondary">
-                Divine Guidance
-              </strong>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}

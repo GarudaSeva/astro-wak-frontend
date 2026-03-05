@@ -1,4 +1,5 @@
 import { Phone, MapPin, Mail } from "lucide-react";
+import footerLogo from "@/assets/astro-brahma-logo.png";
 
 const Footer = () => {
   return (
@@ -7,7 +8,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold font-playfair text-accent mb-4">Astro Wak</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img src={footerLogo} alt="Astro Brahma Logo" className="h-12 object-contain" />
+              <h3 className="text-xl font-bold font-playfair text-accent">Astro Wak</h3>
+            </div>
             <p className="text-sm leading-relaxed text-accent">
               Your gateway to divine guidance through Vedic astrology, numerology, and spiritual wisdom.
               Serving seekers with authentic astrological insights since years.
