@@ -14,19 +14,16 @@ import ShubhaMuhurt from "./pages/ShubhaMuhurt";
 import PoojaHoma from "./pages/PoojaHoma";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
-import AdminDashboard from "./pages/AdminDashboard";
 import ServiceDetailsPage from "./pages/ServiceDetailsPage";
 import ConsultationPage from "./pages/BookingPage";
 import ConsultationForm from "./pages/BookingPage";
-import ReportPage from "./pages/ReportPage";
 
 const queryClient = new QueryClient();
 
 // ✅ Helper Layout Component
 const Layout = () => {
   const location = useLocation();
-  const hideFooter = location.pathname === "/admin" || 
-  location.pathname.startsWith("/book/");
+  const hideFooter = location.pathname.startsWith("/book/");
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -48,14 +45,10 @@ const Layout = () => {
 
           <Route path="/book/:serviceType" element={<ConsultationForm />} />
 
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/report" element={<ReportPage />} />
-
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      {/* 👇 Show footer everywhere except admin */}
+      {/* 👇 Show footer everywhere except booking page */}
       {!hideFooter && <Footer />}
     </div>
   );
