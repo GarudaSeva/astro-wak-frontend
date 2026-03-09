@@ -9,8 +9,7 @@ const Footer = () => {
           {/* About Section */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={footerLogo} alt="Astro Brahma Logo" className="h-12 object-contain" />
-              <h3 className="text-xl font-bold font-playfair text-accent">Astro Wak</h3>
+              <img src={footerLogo} alt="Astro Brahma Logo" className="h-24 object-contain" />
             </div>
             <p className="text-sm leading-relaxed text-accent">
               Your gateway to divine guidance through Vedic astrology, numerology, and spiritual wisdom.

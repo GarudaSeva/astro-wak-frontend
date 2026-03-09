@@ -28,7 +28,7 @@ const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <main className="flex-grow">
+      <main className="flex-grow mt-20">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/horoscope" element={<Horoscope />} />

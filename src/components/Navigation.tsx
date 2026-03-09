@@ -28,7 +28,7 @@ const Navigation = () => {
             <img
               src={navLogo}
               alt="Astro Brahma Logo"
-              className="h-[4.5rem] object-contain"
+              className="h-24 object-contain"
             />
           </Link>
 
