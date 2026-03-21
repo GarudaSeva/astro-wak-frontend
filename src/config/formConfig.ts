@@ -57,6 +57,8 @@ export const BABY_NAME_FIELDS: FieldConfig[] = [
   ...BASE_FIELDS,
 
   { name: "childName", label: "Child Name (if known)", type: "text" },
+  { name: "motherName", label: "Mother Name", type: "text", required: true },
+  { name: "fatherName", label: "Father Name", type: "text", required: true },
   {
     name: "childGender",
     label: "Child Gender",
@@ -80,6 +82,16 @@ export const BABY_NAME_FIELDS: FieldConfig[] = [
   { name: "surnameInitials", label: "Surname / Initials", type: "text" },
   { name: "birthRasi", label: "Birth Rasi", type: "select", options: RASI_OPTIONS },
   { name: "birthStar", label: "Birth Star", type: "select", options: STAR_OPTIONS },
+  {
+    name: "religion",
+    label: "Religion",
+    type: "radio",
+    options: [
+      { label: "Hindu", value: "hindu" },
+      { label: "Christian", value: "christian" },
+      { label: "Muslim", value: "muslim" }
+    ]
+  },
 
   // Guidance textarea
   { name: "filters", label: "Name Filters / Guidance", type: "textarea" },
@@ -289,6 +301,8 @@ export const formConfig: Record<ServiceKey, FieldConfig[]> = {
         { label: "Homa", value: "homa" }
       ]
     },
+    { name: "gotram", label: "Gotram", type: "text", placeholder: "Enter gotram" },
+    { name: "nakshatram", label: "Nakshatram", type: "text", placeholder: "Enter nakshatram" },
     { name: "preferredDate", label: "Preferred Date", type: "date" },
     { name: "comment", label: "Instructions / Offerings", type: "textarea" },
   ],

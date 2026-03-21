@@ -1,12 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
-declare global {
-  interface Window {
-    Razorpay: any;
-  }
-}
-
 interface PayButtonProps {
   amount: number;
   title?: string;
@@ -14,10 +8,9 @@ interface PayButtonProps {
   name?: string;
   email?: string;
   disabled?: boolean;
-   bookingData?: any;
-  // NEW CALLBACKS ↓↓↓
-  onSuccess?: (data: any) => void;
-  onFailure?: (error: any) => void;
+  bookingData?: Record<string, unknown>;
+  onSuccess?: (data: Record<string, unknown>) => void;
+  onFailure?: (error: unknown) => void;
 }
 
 export default function PayButton({
@@ -48,7 +41,7 @@ export default function PayButton({
         body: JSON.stringify({ amount_paise }),
       });
 
-      const order = await res.json();
+      const order = (await res.json()) as { id?: string };
 
       if (!order || !order.id) {
         toast({
@@ -68,9 +61,9 @@ export default function PayButton({
         description,
         order_id: order.id,
         prefill: { name, email },
-        theme: { color: "#1f98adff" },
+        theme: { color: "#d72323" },
 
-        handler: async function (response: any) {
+        handler: async function (response: RazorpaySuccessResponse) {
           // STEP 3: Verify Payment
           const verifyRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/payments/verify-payment`, {
             method: "POST",
@@ -85,7 +78,9 @@ export default function PayButton({
             }),
           });
 
-          const result = await verifyRes.json();
+          const result = (await verifyRes.json()) as Record<string, unknown> & {
+            success?: boolean;
+          };
 
           if (result.success) {
             toast({
@@ -132,11 +127,10 @@ export default function PayButton({
       onClick={handlePayment}
       disabled={loading || disabled}
       className={`
-        w-fit px-6 py-2 
-        mx-auto 
-        rounded-lg shadow-md font-semibold 
-        transition-all disabled:opacity-60
-        ${loading ? "bg-gray-400" : "bg-yellow-500 hover:bg-yellow-600 text-white"}
+        inline-flex h-12 items-center justify-center rounded-full px-6
+        font-semibold text-white shadow-[0_20px_45px_-24px_rgba(180,30,30,0.9)]
+        transition-all disabled:cursor-not-allowed disabled:opacity-60
+        ${loading ? "bg-gray-400" : "bg-gradient-to-r from-primary to-secondary hover:opacity-95"}
       `}
     >
       {loading ? "Processing..." : title}

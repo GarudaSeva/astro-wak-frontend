@@ -134,6 +134,8 @@ const formConfig: Record<ServiceKey, FieldConfig[]> = {
   pooja: [
     ...BASE_FIELDS,
     { name: "poojaType", label: "Pooja Type", type: "select", required: true, options: [{label:"Pooja",value:"pooja"},{label:"Homa",value:"homa"}] },
+    { name: "gotram", label: "Gotram", type: "text", placeholder: "Enter gotram" },
+    { name: "nakshatram", label: "Nakshatram", type: "text", placeholder: "Enter nakshatram" },
     { name: "preferredDate", label: "Preferred Date (if any)", type: "date" },
     { name: "comment", label: "Instructions / Offerings", type: "textarea" },
   ],

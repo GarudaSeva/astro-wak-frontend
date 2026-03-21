@@ -7,6 +7,8 @@ import mahamrityunjayaImg from "@/assets/services/mahamrityunjaya-homa.jpg";
 import sudarshanImg from "@/assets/services/sudarshana-homa.jpg";
 import chandiImg from "@/assets/services/chandi-homa.jpg";
 import ayushyaImg from "@/assets/services/ayushya-homa.jpg";
+import chandiSaptashatiImg from "@/assets/services/chandi-saptashati-homa.png";
+import sundarakandaImg from "@/assets/services/sundarakanda-parayanam.png";
 import { ServiceKey } from "@/types/serviceKeys";
 
 export interface PoojaService {
@@ -294,6 +296,37 @@ const poojaServices: PoojaService[] = [
       additionalInfo: "Especially powerful during Navaratri and when facing seemingly insurmountable challenges. The Divine Mother's fierce grace destroys all negativity and empowers devotees."
     },
     {
+      title: "Chandi Saptashati Parayanam",
+      slug: "Chandi_Saptashati_Parayanam_Homa",
+      price: POOJA_CONSULTATION_FEE,
+      serviceType: "pooja",
+      image: chandiSaptashatiImg,
+      description: "A powerful recitation of Devi Mahatmyam with Homa to remove fear, negativity, obstacles, and invoke the fierce grace of Goddess Durga.",
+      benefits: [
+        "Removal of fear, negativity, and evil eye influences",
+        "Strength to overcome financial, career, legal, and family obstacles",
+        "Powerful divine protection and mental resilience",
+        "Blessings for prosperity, abundance, and stable progress",
+        "Courage and confidence during difficult life phases",
+        "Spiritual cleansing and upliftment through Devi's grace"
+      ],
+      process: [
+        "Ganapathi Pooja, Kalasha Sthapana, and Sankalpam",
+        "Structured chanting of the 13 chapters of Chandi Saptashati / Devi Mahatmyam",
+        "Navakshari Japa and invocation of Goddess Durga",
+        "Offerings of red flowers, kumkum, and naivedyam",
+        "Homa with sacred mantras and offerings for protection and prosperity",
+        "Purnahuti, Arati, and concluding prayers"
+      ],
+      deliverables: [
+        "Sacred red cloth blessed by Mother",
+        "Kumkum, sacred ash, and prasadam",
+        "Strength-enhancing spiritual practices",
+        "Guidance on best observances after the ritual"
+      ],
+      additionalInfo: "This ritual is especially auspicious during Navaratri, Durga Ashtami, Navami, Fridays, and other spiritually potent timings. Consultation dakshina is deductible from the final pooja or homa dakshina."
+    },
+    {
       title: "Ayushya Homa",
       slug: "Ayushya_Homa",
       price: POOJA_CONSULTATION_FEE,
@@ -326,6 +359,38 @@ const poojaServices: PoojaService[] = [
         "Wellness lifestyle recommendations"
       ],
       additionalInfo: "Ideal for milestone birthdays, after health scares, or as preventive care. The ritual combines Vedic and Ayurvedic principles for holistic health and longevity."
+    },
+    {
+      title: "Sundarakanda Parayanam",
+      slug: "Sundarakanda_Parayanam_Homam",
+      price: POOJA_CONSULTATION_FEE,
+      serviceType: "pooja",
+      image: sundarakandaImg,
+      description: "A revered Sundarakanda recitation and Homam centered on Hanuman's divine journey to remove obstacles, negative energies, fear, and stagnation.",
+      benefits: [
+        "Deep psychological strength, courage, and fearlessness",
+        "Mental peace, reduced stress, and emotional stability",
+        "Relief from persistent obstacles, negativity, and unseen fears",
+        "Support for health recovery and divine protection",
+        "Career progress, financial stability, and focus in work or business",
+        "Mitigation of planetary doshas related to Saturn, Rahu, and Mars"
+      ],
+      process: [
+        "Lord Rama Parivar Pooja and Sankalpam with desired wish mantras",
+        "Ritual chanting of the 68 chapters of Sundarakanda",
+        "Recitation before and after the main puja with devotional observances",
+        "Completion options such as 1, 2, 3, 5, 7, 9, or 16-day parayanam formats",
+        "Srirama Pattabhisheka Sarga and concluding prayers",
+        "Guidance for completion observances like temple visit or Anna Daanam"
+      ],
+      deliverables: [
+        "Energized maala and coins",
+        "Protection thread (raksha)",
+        "Sacred sindhoor",
+        "Prasadam blessed by rituals including vadamala and other offerings",
+        "Protection maintenance guidelines"
+      ],
+      additionalInfo: "A one-day parayanam can take roughly 10 to 12 hours, and devotees are often advised to observe purity, vegetarian diet, and discipline during the period. Consultation dakshina is deductible from the final full dakshina amount."
     }
   ];
   
