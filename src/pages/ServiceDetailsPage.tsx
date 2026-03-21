@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { allServices } from "@/data/allServices";
+import { POOJA_CONSULTATION_NOTE } from "@/data/poojaServices";
 
 export default function ServiceDetailsPage() {
   const { slug } = useParams();
@@ -13,6 +14,7 @@ export default function ServiceDetailsPage() {
   }
 
   const numericPrice = parseFloat(service.price.replace(/[^\d.-]/g, ""));
+  const isPoojaService = service.serviceType === "pooja";
 
   return (
     <div className="container mx-auto py-10 px-4 pt-24">
@@ -34,9 +36,15 @@ export default function ServiceDetailsPage() {
       </h1>
 
       {/* PRICE */}
-      <p className="text-2xl mt-2 text-secondary font-bold">
-        {service.price}
-      </p>
+      <div className="mt-2 space-y-2">
+        <p className="text-2xl text-secondary font-bold">{service.price}</p>
+        {isPoojaService && (
+          <p className="max-w-3xl rounded-lg border border-primary/20 bg-primary/5 px-4 py-3 text-sm leading-relaxed text-secondary">
+            <span className="font-semibold text-primary">Consultation fee:</span>{" "}
+            {POOJA_CONSULTATION_NOTE}
+          </p>
+        )}
+      </div>
 
       {/* DESCRIPTION (FULL WIDTH) */}
       <div className="mt-6 text-secondary whitespace-pre-line leading-relaxed">

@@ -29,6 +29,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import PayButton from "@/components/PayButton";
 import { RASI, STAR } from "@/config/formConfig";
 import { CheckCircle2, ChevronRight } from "lucide-react";
+import { POOJA_CONSULTATION_NOTE } from "@/data/poojaServices";
 
 type Step = 1 | 2 | 3;
 
@@ -39,6 +40,7 @@ export default function ConsultationForm() {
   const price = location.state?.price ?? 0;
   const title = location.state?.title ?? serviceType ?? "Service";
   const whatsappNumber = "919553231199";
+  const isPoojaService = serviceType === "pooja";
 
   const fields: FieldConfig[] = useMemo(
     () => formConfig[serviceType as ServiceKey] || [],
@@ -319,11 +321,19 @@ export default function ConsultationForm() {
             <span className="font-medium text-secondary">{title}</span>
           </div>
           <div className="flex justify-between text-base pt-3">
-            <span className="font-semibold">Total Amount:</span>
+            <span className="font-semibold">
+              {isPoojaService ? "Consultation Fee:" : "Total Amount:"}
+            </span>
             <span className="font-bold text-purple-600 dark:text-purple-400">
               ₹ {price}
             </span>
           </div>
+          {isPoojaService && (
+            <p className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-xs leading-relaxed text-secondary">
+              <span className="font-semibold text-primary">Note:</span>{" "}
+              {POOJA_CONSULTATION_NOTE}
+            </p>
+          )}
         </div>
       </div>
     );

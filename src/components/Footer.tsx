@@ -53,11 +53,11 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider with Sree Rama Jayam */}
+        {/* Divider with శ్రీరామ జయమ్ */}
         <div className="border-t border-border pt-8 mt-8">
           <div className="flex items-center justify-center gap-2 mb-6">
             <p className="text-2xl font-bold font-playfair text-accent">
-              శ్రీ రామ జయం
+              శ్రీరామ జయమ్
             </p>
           </div>
           <p className="text-center text-accent text-sm flex flex-col sm:flex-row items-center justify-center gap-1 text-wrap">

@@ -22,12 +22,16 @@ export interface PoojaService {
   serviceType: ServiceKey;
 }
 
+export const POOJA_CONSULTATION_FEE = "₹599";
+export const POOJA_CONSULTATION_NOTE =
+  "The actual pooja or homa charges will be shared via call or chat after the consultation, based on your requirements.";
+
 const poojaServices: PoojaService[] = [
     {
       title: "Ganapati Homa",
       serviceType: "pooja",
       slug: "Ganapati_Homa",
-      price: "₹5,100",
+      price: POOJA_CONSULTATION_FEE,
       image: ganapatiImg,
       description: "Remove obstacles and invoke Lord Ganesha's blessings for new beginnings and success in all endeavors.",
       benefits: [
@@ -58,7 +62,7 @@ const poojaServices: PoojaService[] = [
       title: "Navagraha Homa",
       slug: "Navagraha_Homa",
       serviceType: "pooja",
-      price: "₹11,100",
+      price: POOJA_CONSULTATION_FEE,
       image: navagrahaImg,
       description: "Pacify all nine planets and balance their energies to bring harmony, health, and prosperity into your life.",
       benefits: [
@@ -92,7 +96,7 @@ const poojaServices: PoojaService[] = [
       title: "Lakshmi Pooja",
       slug: "Lakshmi_Pooja",
       serviceType: "pooja",
-      price: "₹3,100",
+      price: POOJA_CONSULTATION_FEE,
       image: lakshmiImg,
       description: "Invoke Goddess Lakshmi's divine grace for wealth, prosperity, abundance, and overall material well-being.",
       benefits: [
@@ -125,7 +129,7 @@ const poojaServices: PoojaService[] = [
       title: "Saraswati Pooja",
       slug: "Saraswati_Pooja",
       serviceType: "pooja",
-      price: "₹2,100",
+      price: POOJA_CONSULTATION_FEE,
       image: saraswatiImg,
       description: "Seek blessings of the Goddess of Knowledge for academic success, artistic excellence, and intellectual growth.",
       benefits: [
@@ -158,7 +162,7 @@ const poojaServices: PoojaService[] = [
       title: "Rudra Abhishekam",
       slug:  "Rudra_Abhishekam",
       serviceType: "pooja",
-      price: "₹5,100",
+      price: POOJA_CONSULTATION_FEE,
       image: rudraImg,
       description: "Powerful ritual bathing of Lord Shiva's Lingam for health, spiritual growth, and divine protection.",
       benefits: [
@@ -191,7 +195,7 @@ const poojaServices: PoojaService[] = [
       title: "Mahamrityunjaya Homa",
       slug: "Mahamrityunjaya_Homa",
       serviceType: "pooja",
-      price: "₹7,100",
+      price: POOJA_CONSULTATION_FEE,
       image: mahamrityunjayaImg,
       description: "Sacred fire ritual invoking Lord Shiva for protection from illness, accidents, and premature death.",
       benefits: [
@@ -224,7 +228,7 @@ const poojaServices: PoojaService[] = [
     {
       title: "Sudarshana Homa",
       slug: "Sudarshana_Homa",
-      price: "₹9,100",
+      price: POOJA_CONSULTATION_FEE,
       image: sudarshanImg,
       serviceType: "pooja",
       description: "Powerful protective ritual invoking Lord Vishnu's divine disc for victory over enemies and negative energies.",
@@ -258,7 +262,7 @@ const poojaServices: PoojaService[] = [
     {
       title: "Chandi Homa",
       slug: "Chandi_Homa",
-      price: "₹11,100",
+      price: POOJA_CONSULTATION_FEE,
       serviceType: "pooja",
       image: chandiImg,
       description: "Invoke the fierce protective power of Divine Mother Durga for courage, strength, and victory over challenges.",
@@ -292,7 +296,7 @@ const poojaServices: PoojaService[] = [
     {
       title: "Ayushya Homa",
       slug: "Ayushya_Homa",
-      price: "₹6,100",
+      price: POOJA_CONSULTATION_FEE,
       serviceType: "pooja",
       image: ayushyaImg,
       description: "Sacred fire ritual for longevity, vitality, health, and a long, healthy, prosperous life.",

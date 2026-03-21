@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 import SlokaCard from "@/components/SlokaCard";
 import { CheckCircle, Flame } from "lucide-react";
 import poojasBanner from "@/assets/slokas/poojas-homas.png";
-import poojaServices, { PoojaService } from "@/data/poojaServices";
+import poojaServices, {
+  POOJA_CONSULTATION_FEE,
+  POOJA_CONSULTATION_NOTE,
+  PoojaService,
+} from "@/data/poojaServices";
 import { useNavigate } from "react-router-dom";
 
 const PoojaHoma = () => {
@@ -176,6 +180,14 @@ const PoojaHoma = () => {
           <p className="text-xl text-secondary max-w-3xl mx-auto">
             Sacred fire rituals performed by experienced priests
           </p>
+          <div className="max-w-4xl mx-auto mt-6 rounded-xl border border-primary/20 bg-primary/5 px-5 py-4 text-left">
+            <p className="text-sm md:text-base text-secondary leading-relaxed">
+              <span className="font-semibold text-primary">
+                {POOJA_CONSULTATION_FEE} is the consultation fee.
+              </span>{" "}
+              {POOJA_CONSULTATION_NOTE}
+            </p>
+          </div>
         </div>
 
         {/* Services Grid */}
