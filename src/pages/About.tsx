@@ -171,7 +171,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-8 md:py-14">
+      <section className="py-8 md:pb-14 pt-4">
         <div className="container mx-auto px-4">
           <div className="grid gap-6 lg:grid-cols-2">
             {essenceBlocks.map((block) => (
