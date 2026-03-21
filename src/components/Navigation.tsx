@@ -10,6 +10,7 @@ const Navigation = () => {
 
   const navLinks = [
     { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
     { path: "/horoscope", label: "Horoscope" },
     { path: "/numerology", label: "Numerology" },
     { path: "/gems", label: "Gems" },

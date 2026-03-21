@@ -21,11 +21,11 @@ const PoojaHoma = () => {
     <div>
 
       {/* ---------------- HEADER + SLOKA ---------------- */}
-      <div className="min-h-screen pt-24 pb-16">
+      <div className="min-h-screen pt-4 pb-16">
         <div className="container mx-auto px-4">
 
           {/* Heading */}
-          <div className="text-center mb-12 mt-8">
+          <div className="text-center mb-12 mt-8 animate-fade-in-up">
             <h1 className="text-5xl font-bold font-playfair text-primary mb-6">
               Pooja & Homas
             </h1>

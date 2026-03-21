@@ -17,7 +17,7 @@ export default function ServiceDetailsPage() {
   const isPoojaService = service.serviceType === "pooja";
 
   return (
-    <div className="container mx-auto py-10 px-4 pt-24">
+    <div className="container mx-auto py-10 px-4 pt-12">
 
       {/* 🔥 IMAGE */}
       {service.image && (

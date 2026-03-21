@@ -10,7 +10,7 @@ import image2 from "@/assets/objectives/card2.png";
 import image3 from "@/assets/objectives/card3.png";
 import image4 from "@/assets/objectives/card4.png";
 import image5 from "@/assets/objectives/card5.png";
-import image6 from "@/assets/objectives/card6.png";
+import image6 from "@/assets/services/health.jpg";
 import image7 from "@/assets/objectives/card7.png";
 import image8 from "@/assets/objectives/card8.png";
 import { Link } from "react-router-dom";

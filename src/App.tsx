@@ -13,9 +13,9 @@ import Gems from "./pages/Gems";
 import ShubhaMuhurt from "./pages/ShubhaMuhurt";
 import PoojaHoma from "./pages/PoojaHoma";
 import Blog from "./pages/Blog";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import ServiceDetailsPage from "./pages/ServiceDetailsPage";
-import ConsultationPage from "./pages/BookingPage";
 import ConsultationForm from "./pages/BookingPage";
 
 const queryClient = new QueryClient();
@@ -31,6 +31,7 @@ const Layout = () => {
       <main className="flex-grow mt-20">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/horoscope" element={<Horoscope />} />
           <Route path="/numerology" element={<Numerology />} />
           <Route path="/gems" element={<Gems />} />

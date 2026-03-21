@@ -15,10 +15,10 @@ const Numerology = () => {
   return (
     <div>
       {/* HEADER SECTION */}
-      <div className="min-h-screen pt-24">
+      <div className="min-h-screen pt-4">
         <div className="container mx-auto px-4">
 
-          <div className="text-center mb-12 mt-8">
+          <div className="text-center mb-12 mt-8 animate-fade-in-up">
             <h1 className="text-5xl font-bold font-playfair text-primary mb-6">
               Numerology
             </h1>
